@@ -246,16 +246,16 @@ def diskon():
         harga2 = (15000 * jumlahpesanan2)
         
         if (jumlahpesanan2 == 3):
-            diskon2 = (harga2 * 10/100)
+            diskon2 = int(harga2 * 10/100)
             totalharga2 = (harga2 - diskon2)
 
         elif (jumlahpesanan2 == 5):
-            diskon2 = (harga2 * 25/100)
-            totalharga2 = (harga2 - diskon2)
+            diskon2 = int(harga2 * 25/100)
+            totalharga2 = int(harga2 - diskon2)
         
         elif (jumlahpesanan2 >= 10):
-            diskon2 = (harga2 * 50/100)
-            totalharga2 = (harga2 - diskon2)
+            diskon2 = int(harga2 * 50/100)
+            totalharga2 = int(harga2 - diskon2)
         
         else:
             diskon2 = 0
