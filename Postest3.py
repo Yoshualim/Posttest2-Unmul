@@ -1,169 +1,622 @@
-def menu():
+from typing import ValuesView
 
-    print("====================================================================================")
-    print("Selamat datang di program ini")
-    print("Untuk hari biasa silakan ketik Nondiskon dan untuk hari spesial silakan ketik Diskon")
-    print("====================================================================================")
+
+Menu_roti = ["Croissant", "Donat", "SwissRoll", "Muffin", "Brownie"]
+Harga_roti = [14000, 12000, 18000, 13000, 15000]
+Total_keuntungan = []
+Hari = ["Senin","Selasa","Rabu","Kamis","Jumat","Sabtu","Minggu"]
+Bulan = ["Januari","Febuari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"]
+tanggal = list(range(32))
+datahari = []
+
+def main_admin():
     
+    print("Menu Admin")
+    print (" ======================================")
+    print("1. Lihat list menu roti")
+    print("2. Tambahkan menu roti")
+    print("3. Edit menu roti")
+    print("4. Hapus menu roti ")
+    print("5. Masuk ke mode kasir")
+    print("6. Hapus jumlah keuntungan hari ini")
+    print("0. Keluar dari menu Admin")
+    print (" ======================================")
+    Jumlahuntung = sum(Total_keuntungan)
+    print (" ==================================================================")
+    print("Jumlah keuntungan yang diraih pada hari ini adalah Rp.", Jumlahuntung)
+    print (" ==================================================================")
+
+    pilihan_menu = input("pilih menu :")
+    
+    if pilihan_menu == ("1"):
+        List_menuroti()
+    elif pilihan_menu == ("2"):
+        Tambah_menuroti()
+    elif pilihan_menu == ("3"):
+        Edit_menuroti()
+    elif pilihan_menu == ("4"):
+        Hapus_menuroti()
+    elif pilihan_menu == ("5"):
+        datahari1()
+    elif pilihan_menu == ("6"):
+        Hapus_Keuntungan()
+    elif pilihan_menu == ("0"):
+        user_login()        
+    else:
+        print("Anda salah input silakan coba kembali")
+        kembali_menu()
+
+def Hapus_Keuntungan():
+    print (" ===================================================================================================================")
+    print("Apakah anda yakin untuk menghapus jumlah keuntungan hari ini? pastikan anda sudah mencatat jumlah keuntungan hari ini")
+    print (" ===================================================================================================================")
+    konfirmasi = str(input("Ya/Tidak :"))
+    if konfirmasi == "Ya":
+        Total_keuntungan.clear()
+        print (" ====================")
+        print ("Data berhasil di hapus")
+        print (" ====================")
+        kembali_menu()
+    elif konfirmasi == "Tidak":
+        kembali_menu()
+    else:
+        print("Inputan salah, silakan isi konfimasi kembali")
+        Hapus_Keuntungan()
+
+def List_menuroti():
+    print("List Menu roti Skadi Bakery Shop")
+    print (" ==========================================")
+    try:
+        print ("A.", Menu_roti[0], "Rp.", Harga_roti[0] )
+    except IndexError:
+        print()
+    try:
+        print ("B.", Menu_roti[1], "Rp.", Harga_roti[1] )
+    except IndexError:
+        print()
+    try:
+        print ("C.", Menu_roti[2], "Rp.", Harga_roti[2] )
+    except IndexError:
+        print()
+    try:
+        print ("D.", Menu_roti[3], "Rp.", Harga_roti[3] )
+    except IndexError:
+        print()
+    try:
+        print ("E.", Menu_roti[4], "Rp.", Harga_roti[4] )
+    except IndexError:
+        print()
+    try:
+        print ("F.", Menu_roti[5], "Rp.", Harga_roti[5] )
+    except IndexError:
+        print()
+    try:
+        print ("G.", Menu_roti[6], "Rp.", Harga_roti[6] )
+    except IndexError:
+        print()
+    try:
+        print ("H.", Menu_roti[7], "Rp.", Harga_roti[7] )
+    except IndexError:
+        print()
+    try:
+        print ("I.", Menu_roti[8], "Rp.", Harga_roti[8] )
+    except IndexError:
+        print()
+    try:
+        print ("J.", Menu_roti[9], "Rp.", Harga_roti[9] )
+    except IndexError:
+        print()
+    print (" ==========================================")
+    kembali_menu()
+
+def Tambah_menuroti():
+    print                (" =============================")        
+    Menu_baru = str(input("Masukan nama menu roti baru : "))
+    print                (" =============================")
+    Menu_roti.append(Menu_baru)
+    Tambah_menuroti1()
+   
+def Tambah_menuroti1():
+    print                     (" ==============================")
+
+    try:
+        Harga_baru = int(input("Masukan harga menu roti baru : "))
+    except ValueError:
+        print("Masukan harga dengan betul bukan dengan huruf")
+        print(" ============================================")
+        Tambah_menuroti1()
+    
+    print                     (" ===============================") 
+
+    Harga_roti.append(Harga_baru)
+    print(" ======================")
+    print("Menu berhasil dimasukan!")
+    print(" ======================")
+    kembali_menu()
+
+def Edit_menuroti():
+
+    print(" ===============================================================")
+    print(Menu_roti)
+    print(" ===============================================================")
+    print("Pilih menu roti yang akan di edit (angka 0 sebagai menu pertama)")
+    print(" ===============================================================")
+
+   
+
+    try:
+        Menu_edit = int(input(":"))
+    except ValueError:
+        print("Masukan angka bukan huruf")
+        Edit_menuroti()
+    
+    try:
+        print(Menu_roti[Menu_edit])
+    except IndexError:
+        print("Masukan angka yang ada (dimulai dari 0)")
+        Edit_menuroti()
+    
+    print                (" ===============")
+    Nama_edit = str(input("Edit nama menu: "))
+    print                (" ===============")
+    Menu_roti[Menu_edit] = Nama_edit
+    Edit_menuroti1()
+
+def Edit_menuroti1():
+
+    print(" ==============================================================================")
+    print(Harga_roti)
+    print(" ==============================================================================")
+    print("Pilih harga roti yang akan di edit (masukan angka yang sama seperti sebelumnya)")
+    print(" ==============================================================================")
+
+    try:
+        Harga_edit = int(input(":"))
+    except ValueError:
+        print("Masukan angka bukan huruf")
+        Edit_menuroti1()
+
+    try:
+        print(Harga_roti[Harga_edit])
+    except IndexError:
+        print("Masukan angka yang ada (dimulai dari 0)")
+        Edit_menuroti1()
+
+    try:
+        harga_edit = int(input("Edit harga menu: "))
+    except ValueError:
+        print("Masukan angka bukan huruf")
+        Edit_menuroti1()
+            
+        
+        
+    Harga_roti[Harga_edit] = harga_edit
+    print(" ====================")
+    print("Menu berhasil diubah!")
+    print(" ====================")
+    kembali_menu()
+
+def Hapus_menuroti():
+    print(" =================================================================")
+    print(Menu_roti)
+    print(" =================================================================")
+    print("Pilih menu roti yang akan dihapus (angka 0 sebagai menu pertama) :")
+    print(" =================================================================")
+
+    try:
+        Hapus_menu = int(input(":"))
+    except ValueError:
+        print("Masukan angka bukan huruf")
+        Hapus_menuroti()
+
+    try:
+        del Menu_roti[Hapus_menu]
+    except IndexError:
+        print("Masukan angka yang ada (dimulai dari 0)")
+        Hapus_menuroti()
+
+    del Harga_roti[Hapus_menu]
+
+    print(" ======================")
+    print("Menu berhasil di hapus!")
+    print(" ======================")
+    kembali_menu()
+
+
+def kembali_menu():
+    input("Tekan enter untuk kembali")
+    main_admin()
+
+def user_login():
+    print(" =============")
+    print("Selamat datang")
+    print(" =============")
+    user =str(input("Masukan username :"))
+    try:
+        Pass =int(input("Masukan password :"))
+    except ValueError:
+        print("Password berbentuk angka silakan isi ulang")
+        user_login()
+    if user == "Yoshua" and Pass == 6093:
+        print("Login Berhasil")
+        main_admin()
+
+    elif user == "Yoshua" and Pass == 210:
+        print("Login Berhasil")
+        datahari1()
+        
+    else:
+        print("Username atau password anda salah, silakan isi kembali")
+        user_login()
+    
+def datahari1():
+        print(" ====================")
+        print("hari?")
+        print(" ====================")
+        print(Hari)
+        print(" ====================")
+        hari1 = str(input(":"))
+        if hari1 in Hari:
+            datahari.append(hari1)
+            datahari2()
+        else:
+            print("Anda salah masukan hari")
+            datahari1()
+        
+def datahari2():
+        print(" ====================")
+        print("Tanggal?")
+        print(" ====================")
+        print(tanggal)
+        print(" ====================")
+        try:
+            tanggal1 = int(input(":"))
+        except ValueError:
+            print("Anda salah masukan tanggal")
+            datahari2()
+        
+        datahari.append(tanggal1)
+        datahari3()
+        
+
+def datahari3():
+        print(" ====================")
+        print("Bulan?")
+        print(" ====================")
+        print(Bulan)
+        print(" ====================")
+        bulan1 = str(input(":"))
+        if bulan1 in Bulan:
+            datahari.append(bulan1)
+            datahari4()
+        else:
+            print("Anda salah masukan bulan")
+            datahari3()
+        
+
+def datahari4():
+        print(" ====================")
+        print("Tahun?")
+        print(" ====================")
+        try:
+            Tahun1 = int(input(":"))
+        except ValueError:
+            print("Harap masukan angka bukan huruf")
+            datahari4()
+
+        datahari.append(Tahun1)
+        menu()
+        
 def nondiskon():
 
- opsi = "Y"
- while opsi == "Y":
-
-    Hari = ["Senin","Selasa","Rabu","Kamis","Jumat","Sabtu","Minggu"]
-    Bulan = ["Januari","Febuari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"]
-    tanggal = list(range(32))
-    datahari = []
-
-    print("hari?")
-    print(Hari)
-    hari1 = str(input(":"))
-    datahari.append(hari1)
-    print("Tanggal?")
-    print(tanggal)
-    tanggal1 = int(input(":"))
-    datahari.append(tanggal1)
-    print("Bulan?")
-    print(Bulan)
-    bulan1 = str(input(":"))
-    datahari.append(bulan1)
-    print("Tahun?")
-    Tahun1 = int(input(":"))
-    datahari.append(Tahun1)
-
-    break
-
- opsi = "Y"
- while opsi == "Y":
- 
     print (datahari)
-    print("""
-    ======================================
-    ======================================
+    print (" ==========================================")
+    print (" ==========================================")
+    print ("Skadi Bakery Shop")
+    print (" ==========================================")
+    print ("Nama dan Harga Roti")
+    print (" ==========================================")
 
-    Skadi Bakery Shop
-    List menu roti
-
-    ======================================
-    A. Croissant      : Rp 14.000 
-    B. Donat          : Rp 12.000
-    C. SwissRoll      : Rp 18.000
-    D. Muffin         : Rp 13.000
-    E. Brownie        : Rp 15.000
-    ======================================
-    ======================================
-    
-    """)
+    try:
+        print ("A.", Menu_roti[0], "Rp.", Harga_roti[0] )
+    except IndexError:
+        print()
+    try:
+        print ("B.", Menu_roti[1], "Rp.", Harga_roti[1] )
+    except IndexError:
+        print()
+    try:
+        print ("C.", Menu_roti[2], "Rp.", Harga_roti[2] )
+    except IndexError:
+        print()
+    try:
+        print ("D.", Menu_roti[3], "Rp.", Harga_roti[3] )
+    except IndexError:
+        print()
+    try:
+        print ("E.", Menu_roti[4], "Rp.", Harga_roti[4] )
+    except IndexError:
+        print()
+    try:
+        print ("F.", Menu_roti[5], "Rp.", Harga_roti[5] )
+    except IndexError:
+        print()
+    try:
+        print ("G.", Menu_roti[6], "Rp.", Harga_roti[6] )
+    except IndexError:
+        print()
+    try:
+        print ("H.", Menu_roti[7], "Rp.", Harga_roti[7] )
+    except IndexError:
+        print()
+    try:
+        print ("I.", Menu_roti[8], "Rp.", Harga_roti[8] )
+    except IndexError:
+        print()
+    try:
+        print ("J.", Menu_roti[9], "Rp.", Harga_roti[9] )
+    except IndexError:
+        print()
+    print (" ==========================================")
+    print (" ==========================================")
 
     pesanan1 = str(input("Masukan Abjad dari menu roti :"))
-    jumlahpesanan1 = int(input("masukan jumlah pesanan :"))
+    print (" ============================================")
+    try:
+        jumlahpesanan1 = int(input("masukan jumlah pesanan :"))
+    except ValueError:
+        print("Mohon input jumlah pesanan dengan benar")
+        nondiskon()
+    print (" =========================================")
 
     if pesanan1 == ("A"):
-        namapesanan1 = ("Croissant")
-        harga1 = (14000 * jumlahpesanan1)
+        try:
+            namapesanan1 = Menu_roti [0]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
+        try:
+            harga1 = (Harga_roti [0] * jumlahpesanan1)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
         totalharga1 = int(harga1)
         diskon1 = 0
 
     elif pesanan1 == ("B"):
-        namapesanan1 = ("Donat")
-        harga1 = (12000 * jumlahpesanan1)
+        try:
+            namapesanan1 = Menu_roti [1]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
+        try:
+            harga1 = (Harga_roti [1] * jumlahpesanan1)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
         totalharga1 = int(harga1)
         diskon1 = 0
     
     elif pesanan1 == ("C"):
-        namapesanan1 = ("Swiss Roll")
-        harga1 = (18000 * jumlahpesanan1)
+        try:
+            namapesanan1 = Menu_roti [2]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
+        try:
+            harga1 = (Harga_roti [2] * jumlahpesanan1)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
         totalharga1 = int(harga1)
         diskon1 = 0
     
     elif pesanan1 == ("D"):
-        namapesanan1 = ("Muffin")
-        harga1 = (13000 * jumlahpesanan1)
+        try:
+            namapesanan1 = Menu_roti [3]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
+        try:
+            harga1 = (Harga_roti [3] * jumlahpesanan1)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
+        totalharga1 = int(harga1)
+        diskon1 = 0
+        
+    elif pesanan1 == ("E"):
+        try:
+            namapesanan1 = Menu_roti [4]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
+        try:
+            harga1 = (Harga_roti [4] * jumlahpesanan1)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
+        totalharga1 = int(harga1)
+        diskon1 = 0
+
+    elif pesanan1 == ("F"):
+        try:
+            namapesanan1 = Menu_roti [5]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
+        try:
+            harga1 = (Harga_roti [5] * jumlahpesanan1)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
         totalharga1 = int(harga1)
         diskon1 = 0
     
-    elif pesanan1 == ("E"):
-        namapesanan1 = ("Brownie")
-        harga1 = (15000 * jumlahpesanan1)
+    elif pesanan1 == ("G"):
+        try:
+            namapesanan1 = Menu_roti [6]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
+        try:
+            harga1 = (Harga_roti [6] * jumlahpesanan1)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
+        totalharga1 = int(harga1)
+        diskon1 = 0
+    
+    elif pesanan1 == ("H"):
+        try:
+            namapesanan1 = Menu_roti [7]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
+        try:
+            harga1 = (Harga_roti [7] * jumlahpesanan1)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
+        totalharga1 = int(harga1)
+        diskon1 = 0
+    
+    elif pesanan1 == ("I"):
+        try:
+            namapesanan1 = Menu_roti [8]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
+        try:
+            harga1 = (Harga_roti [8] * jumlahpesanan1)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
+        totalharga1 = int(harga1)
+        diskon1 = 0
+
+    elif pesanan1 == ("J"):
+        try:
+            namapesanan1 = Menu_roti [9]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
+        try:
+            harga1 = (Harga_roti [9] * jumlahpesanan1)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            nondiskon()
         totalharga1 = int(harga1)
         diskon1 = 0
 
     else:
         print("index list huruf yang dicari tidak ada, silakan coba lagi.")
+        nondiskon()
 
     
-    print("==============================")
+    print("===============================================")
     print("Skadi Bakery Shop")
-    print("=======================")
+    print("===============================================")
     print(datahari)
     print("menu :", namapesanan1)
     print("jumlah pesanan :", jumlahpesanan1)
     print("harga :", harga1)
     print("diskon :", diskon1)
     print("jumlah bayar :", totalharga1)
-    print("===========================")
+    print("===============================================")
     print("Terima kasih telah belanja di Skadi Bakery Shop")
-    
+    Total_keuntungan.append(totalharga1)
+
+    print(" ===========================================")
     opsi = input("apakah anda ingin order lagi? (Y/N) :")
+    print(" ===========================================")
+    if opsi == "Y":
+        nondiskon()
+    else:
+        print(" ===========================================================")
+        masukan_1 = input("apakah anda ingin kembali ke menu login? (Y/N) :")
+        print(" ===========================================================")
+        if masukan_1 == "Y":
+            datahari.clear()
+            user_login()
+        else:
+            nondiskon()
+
 
 
 def diskon():
-
- opsi = "Y"
- while opsi == "Y":
-
-    Hari = ["Senin","Selasa","Rabu","Kamis","Jumat","Sabtu","Minggu"]
-    Bulan = ["Januari","Febuari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"]
-    tanggal = list(range(32))
-    datahari = []
-
-    print("hari?")
-    print(Hari)
-    hari1 = str(input(":"))
-    datahari.append(hari1)
-    print("Tanggal?")
-    print(tanggal)
-    tanggal1 = int(input(":"))
-    datahari.append(tanggal1)
-    print("Bulan?")
-    print(Bulan)
-    bulan1 = str(input(":"))
-    datahari.append(bulan1)
-    print("Tahun?")
-    Tahun1 = int(input(":"))
-    datahari.append(Tahun1)
-
-    break
-
- opsi = "Y"
- while opsi == "Y":
  
     print (datahari)
+    print (" ==========================================")
+    print (" ==========================================")
+    print ("Skadi Bakery Shop")
+    print (" ==========================================")
+    print ("Nama dan Harga Roti")
+    print (" ==========================================")
 
-    print("""
-    ======================================
-    ======================================
-
-    Skadi Bakery Shop
-    List menu roti
-
-    ======================================
-    A. Croissant      : Rp 14.000 
-    B. Donat          : Rp 12.000
-    C. SwissRoll      : Rp 18.000
-    D. Muffin         : Rp 13.000
-    E. Brownie        : Rp 15.000
-    ======================================
-    ======================================
-    
-    """)
+    try:
+        print ("A.", Menu_roti[0], "Rp.", Harga_roti[0] )
+    except IndexError:
+        print()
+    try:
+        print ("B.", Menu_roti[1], "Rp.", Harga_roti[1] )
+    except IndexError:
+        print()
+    try:
+        print ("C.", Menu_roti[2], "Rp.", Harga_roti[2] )
+    except IndexError:
+        print()
+    try:
+        print ("D.", Menu_roti[3], "Rp.", Harga_roti[3] )
+    except IndexError:
+        print()
+    try:
+        print ("E.", Menu_roti[4], "Rp.", Harga_roti[4] )
+    except IndexError:
+        print()
+    try:
+        print ("F.", Menu_roti[5], "Rp.", Harga_roti[5] )
+    except IndexError:
+        print()
+    try:
+        print ("G.", Menu_roti[6], "Rp.", Harga_roti[6] )
+    except IndexError:
+        print()
+    try:
+        print ("H.", Menu_roti[7], "Rp.", Harga_roti[7] )
+    except IndexError:
+        print()
+    try:
+        print ("I.", Menu_roti[8], "Rp.", Harga_roti[8] )
+    except IndexError:
+        print()
+    try:
+        print ("J.", Menu_roti[9], "Rp.", Harga_roti[9] )
+    except IndexError:
+        print()
+    print (" ==========================================")
+    print (" ==========================================")
 
     pesanan2 = str(input("Masukan Abjad dari menu roti :"))
-    jumlahpesanan2 = int(input("masukan jumlah pesanan :"))
+    print (" ============================================")
+    try:
+        jumlahpesanan2 = int(input("masukan jumlah pesanan :"))
+    except ValueError:
+        print("Mohon input jumlah pesanan dengan benar")
+        diskon()
+    print (" ================================================")
 
     if pesanan2 == ("A"):
-        namapesanan2 = ("Croissant")
-        harga2 = (14000 * jumlahpesanan2)
+        try:
+            namapesanan2 = Menu_roti [0]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
+        try:
+            harga2 = (Harga_roti [0] * jumlahpesanan2)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
         
         if (jumlahpesanan2 == 3):
             diskon2 = int(harga2 * 10/100)
@@ -173,7 +626,7 @@ def diskon():
             diskon2 = int(harga2 * 25/100)
             totalharga2 = int(harga2 - diskon2)
         
-        elif (jumlahpesanan2 >= 10):
+        elif (jumlahpesanan2 == 10):
             diskon2 = int(harga2 * 50/100)
             totalharga2 = int(harga2 - diskon2)
         
@@ -182,8 +635,16 @@ def diskon():
             totalharga2 = int(harga2)
 
     elif pesanan2 == ("B"):
-        namapesanan2 = ("Donat")
-        harga2 = (12000 * jumlahpesanan2)
+        try:
+            namapesanan2 = Menu_roti [1]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
+        try:
+            harga2 = (Harga_roti [1] * jumlahpesanan2)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
         
         if (jumlahpesanan2 == 3):
             diskon2 = int(harga2 * 10/100)
@@ -193,7 +654,7 @@ def diskon():
             diskon2 = int(harga2 * 25/100)
             totalharga2 = int(harga2 - diskon2)
         
-        elif (jumlahpesanan2 >= 10):
+        elif (jumlahpesanan2 == 10):
             diskon2 = int(harga2 * 50/100)
             totalharga2 = int(harga2 - diskon2)
         
@@ -202,8 +663,16 @@ def diskon():
             totalharga2 = int(harga2)
     
     elif pesanan2 == ("C"):
-        namapesanan2 = ("Swiss Roll")
-        harga2 = (18000 * jumlahpesanan2)
+        try:
+            namapesanan2 = Menu_roti [2]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
+        try:
+            harga2 = (Harga_roti [2] * jumlahpesanan2)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
         
         if (jumlahpesanan2 == 3):
             diskon2 = int(harga2 * 10/100)
@@ -213,7 +682,7 @@ def diskon():
             diskon2 = int(harga2 * 25/100)
             totalharga2 = int(harga2 - diskon2)
         
-        elif (jumlahpesanan2 >= 10):
+        elif (jumlahpesanan2 == 10):
             diskon2 = int(harga2 * 50/100)
             totalharga2 = int(harga2 - diskon2)
         
@@ -222,8 +691,16 @@ def diskon():
             totalharga2 = int(harga2)
     
     elif pesanan2 == ("D"):
-        namapesanan2 = ("Muffin")
-        harga2 = (13000 * jumlahpesanan2)
+        try:
+            namapesanan2 = Menu_roti [3]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
+        try:
+            harga2 = (Harga_roti [3] * jumlahpesanan2)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
         
         if (jumlahpesanan2 == 3):
             diskon2 = int(harga2 * 10/100)
@@ -233,7 +710,7 @@ def diskon():
             diskon2 = int(harga2 * 25/100)
             totalharga2 = int(harga2 - diskon2)
         
-        elif (jumlahpesanan2 >= 10):
+        elif (jumlahpesanan2 == 10):
             diskon2 = int(harga2 * 50/100)
             totalharga2 = int(harga2 - diskon2)
         
@@ -242,8 +719,16 @@ def diskon():
             totalharga2 = int(harga2)
     
     elif pesanan2 == ("E"):
-        namapesanan2 = ("Brownie")
-        harga2 = (15000 * jumlahpesanan2)
+        try:
+            namapesanan2 = Menu_roti [4]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
+        try:
+            harga2 = (Harga_roti [4] * jumlahpesanan2)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
         
         if (jumlahpesanan2 == 3):
             diskon2 = int(harga2 * 10/100)
@@ -253,7 +738,147 @@ def diskon():
             diskon2 = int(harga2 * 25/100)
             totalharga2 = int(harga2 - diskon2)
         
-        elif (jumlahpesanan2 >= 10):
+        elif (jumlahpesanan2 == 10):
+            diskon2 = int(harga2 * 50/100)
+            totalharga2 = int(harga2 - diskon2)
+        
+        else:
+            diskon2 = 0
+            totalharga2 = int(harga2)
+    
+    elif pesanan2 == ("F"):
+        try:
+            namapesanan2 = Menu_roti [5]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
+        try:
+            harga2 = (Harga_roti [5] * jumlahpesanan2)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
+        
+        if (jumlahpesanan2 == 3):
+            diskon2 = int(harga2 * 10/100)
+            totalharga2 = (harga2 - diskon2)
+
+        elif (jumlahpesanan2 == 5):
+            diskon2 = int(harga2 * 25/100)
+            totalharga2 = int(harga2 - diskon2)
+        
+        elif (jumlahpesanan2 == 10):
+            diskon2 = int(harga2 * 50/100)
+            totalharga2 = int(harga2 - diskon2)
+        
+        else:
+            diskon2 = 0
+            totalharga2 = int(harga2)
+
+    elif pesanan2 == ("G"):
+        try:
+            namapesanan2 = Menu_roti [6]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
+        try:
+            harga2 = (Harga_roti [6] * jumlahpesanan2)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
+        
+        if (jumlahpesanan2 == 3):
+            diskon2 = int(harga2 * 10/100)
+            totalharga2 = (harga2 - diskon2)
+
+        elif (jumlahpesanan2 == 5):
+            diskon2 = int(harga2 * 25/100)
+            totalharga2 = int(harga2 - diskon2)
+        
+        elif (jumlahpesanan2 == 10):
+            diskon2 = int(harga2 * 50/100)
+            totalharga2 = int(harga2 - diskon2)
+        
+        else:
+            diskon2 = 0
+            totalharga2 = int(harga2)
+    
+    elif pesanan2 == ("H"):
+        try:
+            namapesanan2 = Menu_roti [7]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
+        try:
+            harga2 = (Harga_roti [7] * jumlahpesanan2)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
+        
+        if (jumlahpesanan2 == 3):
+            diskon2 = int(harga2 * 10/100)
+            totalharga2 = (harga2 - diskon2)
+
+        elif (jumlahpesanan2 == 5):
+            diskon2 = int(harga2 * 25/100)
+            totalharga2 = int(harga2 - diskon2)
+        
+        elif (jumlahpesanan2 == 10):
+            diskon2 = int(harga2 * 50/100)
+            totalharga2 = int(harga2 - diskon2)
+        
+        else:
+            diskon2 = 0
+            totalharga2 = int(harga2)
+
+    elif pesanan2 == ("I"):
+        try:
+            namapesanan2 = Menu_roti [8]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
+        try:
+            harga2 = (Harga_roti [8] * jumlahpesanan2)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
+        
+        if (jumlahpesanan2 == 3):
+            diskon2 = int(harga2 * 10/100)
+            totalharga2 = (harga2 - diskon2)
+
+        elif (jumlahpesanan2 == 5):
+            diskon2 = int(harga2 * 25/100)
+            totalharga2 = int(harga2 - diskon2)
+        
+        elif (jumlahpesanan2 == 10):
+            diskon2 = int(harga2 * 50/100)
+            totalharga2 = int(harga2 - diskon2)
+        
+        else:
+            diskon2 = 0
+            totalharga2 = int(harga2)
+    
+    elif pesanan2 == ("J"):
+        try:
+            namapesanan2 = Menu_roti [9]
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
+        try:
+            harga2 = (Harga_roti [9] * jumlahpesanan2)
+        except IndexError:
+            print("Data tidak dapat ditemukan, silakan hubungi admin untuk memperbaikii masalah ini ")
+            diskon()
+        
+        if (jumlahpesanan2 == 3):
+            diskon2 = int(harga2 * 10/100)
+            totalharga2 = (harga2 - diskon2)
+
+        elif (jumlahpesanan2 == 5):
+            diskon2 = int(harga2 * 25/100)
+            totalharga2 = int(harga2 - diskon2)
+        
+        elif (jumlahpesanan2 == 10):
             diskon2 = int(harga2 * 50/100)
             totalharga2 = int(harga2 - diskon2)
         
@@ -264,29 +889,50 @@ def diskon():
         print("index list huruf yang dicari tidak ada, silakan coba lagi.")
 
     
-    print("==============================")
+    print("===============================================")
     print("Skadi Bakery Shop")
-    print("==============================")
+    print("===============================================")
     print(datahari)
     print("menu :", namapesanan2)
     print("jumlah pesanan :", jumlahpesanan2)
     print("harga :", harga2)
     print("diskon :", diskon2)
     print("jumlah bayar :", totalharga2)
-    print("==============================")
+    print("===============================================")
     print("Terima kasih telah belanja di Skadi Bakery Shop")
+    Total_keuntungan.append(totalharga2)
     
+    print(" ===========================================")
+    opsi = input("apakah anda ingin order lagi? (Y/N) :")
+    print(" ===========================================")
+    if opsi == "Y":
+        diskon()
+    else:
+        print(" ===========================================================")
+        masukan_1 = input("apakah anda ingin kembali ke menu login? (Y/N) :")
+        print(" ===========================================================")
+        if masukan_1 == "Y":
+            datahari.clear()
+            user_login()
+        else:
+            diskon()
 
-    opsi = input("Apakah ingin kembali keawal? (Y/N) :")
+def menu():
 
-menu()
+    i=0
+    while i == 0:
 
-masukan = str(input(":"))
+        print("====================================================================================")
+        print("Selamat datang di program ini")
+        print("Untuk hari biasa silakan ketik Nondiskon dan untuk hari spesial silakan ketik Diskon")
+        print("====================================================================================")
+        masukan = str(input(":"))
 
+        if masukan == ("Nondiskon"):
+            nondiskon()
+        elif masukan == ("Diskon"):
+            diskon()
+        else:
+            print("ISI YANG BENAR!!!")
 
-if masukan == ("Nondiskon"):
-    nondiskon()
-elif masukan == ("Diskon"):
-    diskon()
-else:
-    print("ISI YANG BENAR!!!")
+user_login()
