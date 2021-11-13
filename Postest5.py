@@ -1,7 +1,7 @@
 
 roti = {
-        "Menu_roti": ["Croissant", "Donat", "SwissRoll", "Muffin", "Brownie"],
-        "Harga_roti" : [14000, 12000, 18000, 13000, 15000]
+        "Menu_roti": ["Croissant", "Donat", "SwissRoll", "Muffin", "Brownie", "Cake", "Garlic Bread", "Roti Tawar"],
+        "Harga_roti" : [14000, 12000, 18000, 13000, 15000, 50000, 17000, 10000]
         }
 
 Data_hari = {
@@ -267,12 +267,12 @@ def Keluar():
         print ("==========================================")
         print ("Terima kasih telah menggunakan program ini")
         print ("==========================================")
-        exit
+        exit()
     elif konfirmasi == "Tidak":
         kembali_menu()
     else:
         print("Inputan salah, silakan isi konfimasi kembali")
-        Hapus_Keuntungan()
+        Keluar()
 
 def Hapus_Keuntungan():
     print ("===================================================================================================================")
