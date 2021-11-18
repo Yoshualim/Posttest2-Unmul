@@ -4,10 +4,12 @@ Daftarhp = {
         "Samsung J2" : 1000000,
         "Samsung J1 Prime" : 2000000,
     },
+
     "Oppo" : {
         "Oppo A3s" : 500000,
         "Oppo X reno" : 750000,
     },
+    
     "Iphone" : {
         "Iphone 123" : 100000,
         "Iphone X " : 100000000,
@@ -15,7 +17,7 @@ Daftarhp = {
 }
 
 Spechp = {
-    "Samsung J1 Prime" : {
+    "Samsung J2 Prime" : {
             "Nama" : "Samsung J2 Prime",
             "Tahun Keluar" : "2016",
             "OS" : "Android 6.0 (Marshmallow)",
@@ -50,6 +52,7 @@ Spechp = {
 }
 
 Merkhp = ["Oppo", "Iphone", "Samsung"]
+Tambahhp = []
 
 Data_hari = {
         "Hari" : ["Senin","Selasa","Rabu","Kamis","Jumat","Sabtu","Minggu"],
@@ -95,10 +98,10 @@ def main_admin():
     
     print("Menu Admin")
     print("======================================")
-    print("1. Lihat list menu roti")
-    print("2. Tambahkan menu roti")
-    print("3. Edit menu roti")
-    print("4. Hapus menu roti ")
+    print("1. Lihat list Hp")
+    print("2. Tambahkan Hp")
+    print("3. Edit Hp")
+    print("4. Hapus Hp ")
     print("5. Masuk ke mode kasir")
     print("6. Hapus jumlah keuntungan hari ini")
     print("7. Keluar dari program ini")
@@ -112,13 +115,13 @@ def main_admin():
     pilihan_menu = input("pilih menu :")
     
     if pilihan_menu == ("1"):
-        List_menuroti()
+        List_menuhp()
     elif pilihan_menu == ("2"):
-        Tambah_menuroti()
+        Tambah_hp()
     elif pilihan_menu == ("3"):
-        Edit_menuroti()
+        Edit_hp()
     elif pilihan_menu == ("4"):
-        Hapus_menuroti()
+        Hapus_hp()
     elif pilihan_menu == ("5"):
         masukkasir()
     elif pilihan_menu == ("6"):
@@ -131,103 +134,150 @@ def main_admin():
         print("Anda salah input silakan coba kembali")
         kembali_menu()
 
-def List_menuroti():
+def List_menuhp():
     print("List Menu roti Skadi Bakery Shop")
     print ("==========================================")
     for key, val in Daftarhp.items():
-        print("%s : %s" % (key, val))
+        for key2, val2 in val.items():
+            print("%s : %s" % (key2,val2))
     print ("==========================================")
     kembali_menu()
 
-def Tambah_menuroti():
+def Tambah_hp():
     print                ("=============================")        
-    Menu_baru = str(input("Masukan nama menu roti baru : "))
+    Merk_hp = str(input("Masukan merk HP : "))
     print                ("=============================")
 
-    roti["Menu_roti"].append(Menu_baru)
-    Tambah_menuroti1()
+    if Merk_hp == "Samsung":
+        Tambahhp_Samsung()
+    elif Merk_hp == "Oppo":
+        Tambahhp_Oppo()
+    elif Merk_hp == "Iphone":
+        Tambahhp_Iphone()
+
+def Tambahhp_Samsung():
+    Hp_Baru = str(input("Masukan nama hp baru : "))
+    if Hp_Baru == None:
+        print("Harap masukan inputan dengan benar")
+        Tambahhp_Samsung()
+    Tambahhp.append(Hp_Baru)
+    Tambahhp_Samsung1()
+
+def Tambahhp_Samsung1():
+    try:
+        Harga_hp = int(input("Masukan harga hp baru"))
+    except ValueError:
+        print("Inputan harus berupa angka bukan huruf")
+        Tambahhp_Samsung1()
+    Daftarhp["Samsung"].update({Tambahhp[0] : Harga_hp})
+    Tambahhp.clear()
+    print("Hp berhasil ditambahkan")
+    main_admin()
+
+def Tambahhp_Oppo():
+    Hp_Baru = str(input("Masukan nama hp baru : "))
+    if Hp_Baru == None:
+        print("Harap masukan inputan dengan benar")
+        Tambahhp_Oppo()
+    Tambahhp.append(Hp_Baru)
+    Tambahhp_Oppo1()
+
+def Tambahhp_Oppo1():
+    try:
+        Harga_hp = int(input("Masukan harga hp baru"))
+    except ValueError:
+        print("Inputan harus berupa angka bukan huruf")
+        Tambahhp_Oppo1()
+    Daftarhp["Oppo"].update({Tambahhp[0] : Harga_hp})
+    Tambahhp.clear()
+    print("Hp berhasil ditambahkan")
+    main_admin()
+
+def Tambahhp_Iphone():
+    Hp_Baru = str(input("Masukan nama hp baru : "))
+    if Hp_Baru == None:
+        print("Harap masukan inputan dengan benar")
+        Tambahhp_Iphone()
+    Tambahhp.append(Hp_Baru)
+    Tambahhp_Iphone1()
+
+def Tambahhp_Iphone1():
+    try:
+        Harga_hp = int(input("Masukan harga hp baru"))
+    except ValueError:
+        print("Inputan harus berupa angka bukan huruf")
+        Tambahhp_Iphone1()
+    Daftarhp["Iphone"].update({Tambahhp[0] : Harga_hp})
+    Tambahhp.clear()
+    print("Hp berhasil ditambahkan")
+    main_admin()
+
+
+def Edit_hp():
+
+    print("===============================================================")
+    print("===============================================================")
+    for merk in Merkhp:
+        print(merk)
+    print("Semua hp")
+    print("Pilih merk hp yang akan diedit")
+    masukan = str(input(":"))
+    print("===============================================================")
+
+    if masukan == "Samsung":
+        Edithp_Samsung()
+    elif masukan == "Oppo":
+        Edithp_Oppo()
+    elif masukan == "Iphone":
+        Edithp_Iphone()
+    elif masukan == "Semua hp":
+        Edithp_Semuahp()
+    else:
+        print("masukan salah")
+        Edit_hp()
+
+    
+def Edithp_Samsung():
+    for key, val in Daftarhp["Samsung"].items():
+        print("%s = %s" % (key,val))
+
+    print("Masukan nama hp yang akan diedit ")
+    ubah = str(input(":"))
+    if ubah in Daftarhp["Samsung"].keys():
+        print(ubah)
+        print(Daftarhp["Samsung"][ubah])
+        print("Mau edit dibagian mana?")
+        print("""
+        1. Nama Hp
+        2. Harga Hp
+        3. Spec hp
+        4. Edit Nama, Harga, dan Spec Hp
+        4. Kembali ke pilih merk hp
+        0. Kembali ke menu
+        """)
+
+        try:
+            print(Spechp.get(ubah))
+        except KeyError:
+            print("Data spec hp tidak dapat ditemukan")
+
+
+
+
+
+def Edithp_Oppo():
+
+
+def Edithp_Iphone():
+
+
+def Edithp_Semuahp():
+
    
-def Tambah_menuroti1():
-    print                     ("==============================")
-
-    try:
-        Harga_baru = int(input("Masukan harga menu roti baru : "))
-    except ValueError:
-        print("Masukan harga dengan betul bukan dengan huruf")
-        print(" ============================================")
-        Tambah_menuroti1()
-    
-    print                     ("===============================") 
-
-    roti["Harga_roti"].append(Harga_baru)
-    print("======================")
-    print("Menu berhasil dimasukan!")
-    print("======================")
-    kembali_menu()
-
-def Edit_menuroti():
-
-    print("===============================================================")
-    print(roti["Menu_roti"])
-    print("===============================================================")
-    print("Pilih menu roti yang akan di edit (angka 0 sebagai menu pertama)")
-    print("===============================================================")
 
    
 
-    try:
-        Menu_edit = int(input(":"))
-    except ValueError:
-        print("Masukan angka bukan huruf")
-        Edit_menuroti()
-    
-    try:
-        print(roti["Menu_roti"][Menu_edit])
-    except IndexError:
-        print("Masukan angka yang ada (dimulai dari 0)")
-        Edit_menuroti()
-    
-    print                ("===============")
-    Nama_edit = str(input("Edit nama menu: "))
-    print                ("===============")
-    roti["Menu_roti"][Menu_edit] = Nama_edit
-    Edit_menuroti1()
-
-def Edit_menuroti1():
-
-    print("==============================================================================")
-    print(roti["Harga_roti"])
-    print("==============================================================================")
-    print("Pilih harga roti yang akan di edit (masukan angka yang sama seperti sebelumnya)")
-    print("==============================================================================")
-
-    try:
-        Harga_edit = int(input(":"))
-    except ValueError:
-        print("Masukan angka bukan huruf")
-        Edit_menuroti1()
-
-    try:
-        print(roti["Harga_roti"][Harga_edit])
-    except IndexError:
-        print("Masukan angka yang ada (dimulai dari 0)")
-        Edit_menuroti1()
-
-    try:
-        harga_edit = int(input("Edit harga menu: "))
-    except ValueError:
-        print("Masukan angka bukan huruf")
-        Edit_menuroti1()
-            
-        
-        
-    roti["Harga_roti"][Harga_edit] = harga_edit
-    print("====================")
-    print("Menu berhasil diubah!")
-    print("====================")
-    kembali_menu()
-
-def Hapus_menuroti():
+def Hapus_hp():
     print("=================================================================")
     print(roti["Menu_roti"])
     print("=================================================================")
@@ -322,42 +372,59 @@ def kembali_menu():
     main_admin()
 
 
-
-
-
-
-
-
-
-
 def kasir():
 
 
 
     print("toko")
-    for val in Daftarhp.items():
-        print("%s : %s" % ( val))
+    for key, val in Daftarhp.items():
+        for key2, val2 in val.items():
+            print("%s : %s" % (key2,val2))
+    
     print("pilih merk")
     for i in Merkhp:
         print(i)
 
-    X = print((input("masukan inputan :")))
+    X = input(":")
 
-    if X in Daftarhp.items():
-        for key2, val2 in Daftarhp.items():
-            print("%s " % (key2, val2))
-            print("pilih hp :")
+
+
+    if X in Daftarhp.keys():
         
-        pilihhp = str(input(":"))
+        if X == "Samsung":
+            for key, val in Daftarhp["Samsung"].items():
+                    print("%s = %s" % (key,val))
+               
+            print("Pilih hp")
+            Masukan = input(":")
 
-        if pilihhp == Daftarhp["Samsung"]:
-            for pilihhp in Spechp.items():
-                print("%s : %s" % (pilihhp))
+            if Masukan in Daftarhp["Samsung"].keys():
+                print(Masukan)
+                print(Daftarhp["Samsung"][Masukan])
+                try:
+                    print(Spechp.get(Masukan))
+                except KeyError:
+                    print("Data spec hp tidak dapat ditemukan")
+
+            else:
+                print("asss")
+            
+
+        elif X == "Oppo":
+            
+            for key, val in Daftarhp.items():
+                for key2, val2 in val.items():
+                        print("%s = %s" % (key2,val2))
+                        
+
+        else:
+            print("error")
+    
+    else:
+        print("aslah")
+        
 
 
 
 
-
-
-
-kasir()
+user_login()
