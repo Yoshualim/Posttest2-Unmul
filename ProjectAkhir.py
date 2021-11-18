@@ -46,13 +46,10 @@ Spechp = {
             "Jaringan" : "GSM/HSPA/LTE",
             "Kapasitas Baterai" : "260 mAh, Baterai lepas"
             },
-
-
-
 }
 
 Merkhp = ["Oppo", "Iphone", "Samsung"]
-Tambahhp = []
+Datahp = []
 
 Data_hari = {
         "Hari" : ["Senin","Selasa","Rabu","Kamis","Jumat","Sabtu","Minggu"],
@@ -135,7 +132,7 @@ def main_admin():
         kembali_menu()
 
 def List_menuhp():
-    print("List Menu roti Skadi Bakery Shop")
+    print("List HP")
     print ("==========================================")
     for key, val in Daftarhp.items():
         for key2, val2 in val.items():
@@ -157,10 +154,10 @@ def Tambah_hp():
 
 def Tambahhp_Samsung():
     Hp_Baru = str(input("Masukan nama hp baru : "))
-    if Hp_Baru == None:
+    if Hp_Baru == "":
         print("Harap masukan inputan dengan benar")
         Tambahhp_Samsung()
-    Tambahhp.append(Hp_Baru)
+    Datahp.append(Hp_Baru)
     Tambahhp_Samsung1()
 
 def Tambahhp_Samsung1():
@@ -169,17 +166,23 @@ def Tambahhp_Samsung1():
     except ValueError:
         print("Inputan harus berupa angka bukan huruf")
         Tambahhp_Samsung1()
-    Daftarhp["Samsung"].update({Tambahhp[0] : Harga_hp})
-    Tambahhp.clear()
-    print("Hp berhasil ditambahkan")
-    main_admin()
+    if Harga_hp > 0:
+
+        Daftarhp["Samsung"].update({Datahp[0] : Harga_hp})
+        Datahp.clear()
+        print("Hp berhasil ditambahkan")
+        main_admin()
+
+    else:
+        print("Inputan negatif silakan isi kembali")
+        Tambahhp_Samsung1()
 
 def Tambahhp_Oppo():
     Hp_Baru = str(input("Masukan nama hp baru : "))
-    if Hp_Baru == None:
+    if Hp_Baru == "":
         print("Harap masukan inputan dengan benar")
         Tambahhp_Oppo()
-    Tambahhp.append(Hp_Baru)
+    Datahp.append(Hp_Baru)
     Tambahhp_Oppo1()
 
 def Tambahhp_Oppo1():
@@ -188,17 +191,24 @@ def Tambahhp_Oppo1():
     except ValueError:
         print("Inputan harus berupa angka bukan huruf")
         Tambahhp_Oppo1()
-    Daftarhp["Oppo"].update({Tambahhp[0] : Harga_hp})
-    Tambahhp.clear()
-    print("Hp berhasil ditambahkan")
-    main_admin()
+    
+    if Harga_hp > 0:
+
+        Daftarhp["Oppo"].update({Datahp[0] : Harga_hp})
+        Datahp.clear()
+        print("Hp berhasil ditambahkan")
+        main_admin()
+    
+    else:
+        print("Inputan negatif silakan isi kembali")
+        Tambahhp_Oppo1()
 
 def Tambahhp_Iphone():
     Hp_Baru = str(input("Masukan nama hp baru : "))
-    if Hp_Baru == None:
+    if Hp_Baru == "":
         print("Harap masukan inputan dengan benar")
         Tambahhp_Iphone()
-    Tambahhp.append(Hp_Baru)
+    Datahp.append(Hp_Baru)
     Tambahhp_Iphone1()
 
 def Tambahhp_Iphone1():
@@ -207,10 +217,16 @@ def Tambahhp_Iphone1():
     except ValueError:
         print("Inputan harus berupa angka bukan huruf")
         Tambahhp_Iphone1()
-    Daftarhp["Iphone"].update({Tambahhp[0] : Harga_hp})
-    Tambahhp.clear()
-    print("Hp berhasil ditambahkan")
-    main_admin()
+    
+    if Harga_hp > 0:
+        Daftarhp["Iphone"].update({Datahp[0] : Harga_hp})
+        Datahp.clear()
+        print("Hp berhasil ditambahkan")
+        main_admin()
+    
+    else:
+        print("Inputan negatif silakan isi kembali")
+        Tambahhp_Iphone1()
 
 
 def Edit_hp():
@@ -244,34 +260,1039 @@ def Edithp_Samsung():
     print("Masukan nama hp yang akan diedit ")
     ubah = str(input(":"))
     if ubah in Daftarhp["Samsung"].keys():
-        print(ubah)
-        print(Daftarhp["Samsung"][ubah])
-        print("Mau edit dibagian mana?")
-        print("""
+        Datahp.append(ubah)
+        Edithp_Samsung1()
+    else:
+        print("Masukan inputan yang benar")
+        Edithp_Samsung()
+
+
+def Edithp_Samsung1():
+    print(Datahp[0])
+    print(Daftarhp["Samsung"][Datahp[0]])
+    print("Mau edit apa?")
+    print("""
         1. Nama Hp
         2. Harga Hp
-        3. Spec hp
-        4. Edit Nama, Harga, dan Spec Hp
+        3. Edit Nama dan Harga hp
         4. Kembali ke pilih merk hp
-        0. Kembali ke menu
+        5. Kembali ke menu
         """)
+    try:
+        masukan = int(input(":"))
+    except ValueError:
+        print("Masukan salah")
+        Edithp_Samsung1()
+    
+    if masukan > 0:
+        if masukan == 1:
+            Editnama_Samsung()
+        elif masukan == 2:
+            Editharga_Samsung()
+        elif masukan == 3:
+            Editnamaharga_Samsung()
+        elif masukan == 4:
+            Datahp.clear()
+            Edit_hp()
+        elif masukan == 5:
+            Datahp.clear()
+            main_admin()
+        else:
+            print("Inputan kamu salah")
+            Edithp_Samsung1()
+    else:
+        print("Inputan kamu negatif")
+        Edithp_Samsung1()
 
-        try:
-            print(Spechp.get(ubah))
-        except KeyError:
-            print("Data spec hp tidak dapat ditemukan")
+def Editnama_Samsung():
+    print(Datahp[0])
+    print("Masukan Nama hp baru")
+    namahp = str(input(":"))
+    if namahp == "":
+        print("Mohon isi dengan benar")
+        Editnama_Samsung()
+    print(namahp)
+    i = 0
+    while i == 0:
+        print("Apakah nama sudah benar? (Y/N)")
+        nama = str(input(":"))
+        if nama == "Y":
+            break
+        elif nama == "N":
+            Editnama_Samsung()
+        else:
+            print("Harap input jawaban yang benar")
+    i = 0
+    while i == 0:
+        print("apakah anda benar-benar ingin mengubah nama hp ini? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            i = 0
+            while i == 0:
+                print("""
+                Apakah anda ingin kembali ke
+                A. Menu Admin
+                B. Menu Edit
+                C. Kembali ke awal edit nama
+                D. Kembali ke menu edit
+                """)
+                masukan = str(input(""))
+
+                if masukan == "A":
+                    Datahp.clear()
+                    main_admin()
+                elif masukan == "B":
+                    Datahp.clear()
+                    Edit_hp()
+                elif masukan == "C":
+                    Editnama_Samsung()
+                elif masukan == "D":
+                    Edithp_Samsung1()
+                else:
+                    print("inputan salah")
+        else:
+            print("inputan salah")
+    
+    
+    Daftarhp["Samsung"][namahp] = Daftarhp["Samsung"].pop(Datahp[0])
+    i = 0
+    while i == 0:
+        print("Nama berhasil diubah")
+        print("""
+        Apakah anda ingin kembali ke:
+        A. Edit hp
+        B. Menu admin
+        """)
+        masukan1 = str(input(":"))
+
+        if masukan1 == "A":
+            Datahp.clear()
+            Edit_hp()
+        elif masukan1 == "B":
+            Datahp.clear()
+            main_admin()
+        else:
+            print("Input salah")
+
+
+def Editharga_Samsung():
+    print(Daftarhp["Samsung"][Datahp[0]])
+    print("Masukan Harga baru")
+    try:
+        hargahp = int(input(":"))
+    except ValueError:
+        print("Masukan angka bukan huruf")
+        Editharga_Samsung()
+    
+    if hargahp > 0:
+        print(hargahp)
+        i = 0
+        while i == 0:
+            print("Apakah Harga sudah benar? (Y/N)")
+            nama = str(input(":"))
+            if nama == "Y":
+                break
+            elif nama == "N":
+                Editharga_Samsung()
+            else:
+                print("Harap input jawaban yang benar")
+    else:
+        print("masukan berbentuk negatif")
+        Editharga_Samsung()
+    i = 0
+    while i == 0:
+        print("apakah anda benar-benar ingin mengubah harga hp ini? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            i = 0
+            while i == 0:
+                print("""
+                Apakah anda ingin kembali ke
+                A. Menu Admin
+                B. Menu Edit
+                C. Kembali ke awal edit harga
+                D. Kembali ke menu edit
+                """)
+                masukan = str(input(""))
+
+                if masukan == "A":
+                    Datahp.clear()
+                    main_admin()
+                elif masukan == "B":
+                    Datahp.clear()
+                    Edit_hp()
+                elif masukan == "C":
+                    Editharga_Samsung()
+                elif masukan == "D":
+                    Edithp_Samsung1()
+                else:
+                    print("inputan salah")
+        else:
+            print("inputan salah")
+    
+    
+    Daftarhp["Samsung"].update({Datahp[0] : hargahp})
+    i = 0
+    while i == 0:
+        print("Harga berhasil diubah")
+        print("""
+        Apakah anda ingin kembali ke:
+        A. Edit hp
+        B. Menu admin
+        """)
+        masukan1 = str(input(":"))
+
+        if masukan1 == "A":
+            Datahp.clear()
+            Edit_hp()
+        elif masukan1 == "B":
+            Datahp.clear()
+            main_admin()
+        else:
+            print("Input salah")
+
+def Editnamaharga_Samsung():
+    print(Datahp[0])
+    print("Masukan Nama hp baru")
+    namahp = str(input(":"))
+    if namahp == "":
+        print("Mohon isi dengan benar")
+        Editnamaharga_Samsung()
+    print(namahp)
+    i = 0
+    while i == 0:
+        print("Apakah nama sudah benar? (Y/N)")
+        nama = str(input(":"))
+        if nama == "Y":
+            break
+        elif nama == "N":
+            Editnamaharga_Samsung()
+        else:
+            print("Harap input jawaban yang benar")
+    i = 0
+    while i == 0:
+        print("apakah anda benar-benar ingin mengubah nama hp ini? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            i = 0
+            while i == 0:
+                print("""
+                Apakah anda ingin kembali ke
+                A. Menu Admin
+                B. Menu Edit
+                C. Kembali ke awal edit nama
+                D. Kembali ke menu edit
+                """)
+                masukan = str(input(""))
+
+                if masukan == "A":
+                    Datahp.clear()
+                    main_admin()
+                elif masukan == "B":
+                    Datahp.clear()
+                    Edit_hp()
+                elif masukan == "C":
+                    Editnamaharga_Samsung()
+                elif masukan == "D":
+                    Edithp_Samsung1()
+                else:
+                    print("inputan salah")
+        else:
+            print("inputan salah")
+    Datahp.append(namahp)
+    Editnamaharga_Samsung1()
+            
+def Editnamaharga_Samsung1():
+    print(Daftarhp["Samsung"][Datahp[0]])
+    print("Masukan Harga baru")
+    try:
+        hargahp = int(input(":"))
+    except ValueError:
+        print("Masukan angka bukan huruf")
+        Editnamaharga_Samsung1()
+    
+    if hargahp > 0:
+        print(hargahp)
+        i = 0
+        while i == 0:
+            print("Apakah Harga sudah benar? (Y/N)")
+            nama = str(input(":"))
+            if nama == "Y":
+                break
+            elif nama == "N":
+                Editnamaharga_Samsung1()
+            else:
+                print("Harap input jawaban yang benar")
+    else:
+        print("masukan berbentuk negatif")
+        Editnamaharga_Samsung1()
+    i = 0
+    while i == 0:
+        print("apakah anda benar-benar ingin mengubah harga hp ini? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            i = 0
+            while i == 0:
+                print("""
+                Apakah anda ingin kembali ke
+                A. Menu Admin
+                B. Menu Edit
+                C. Kembali ke awal edit harga
+                D. Kembali ke menu edit
+                """)
+                masukan = str(input(""))
+
+                if masukan == "A":
+                    Datahp.clear()
+                    main_admin()
+                elif masukan == "B":
+                    Datahp.clear()
+                    Edit_hp()
+                elif masukan == "C":
+                    Editnamaharga_Samsung1()
+                elif masukan == "D":
+                    del Datahp[1]
+                    Edithp_Samsung1()
+                else:
+                    print("inputan salah")
+        else:
+            print("inputan salah")
+    
+    Daftarhp["Samsung"][Datahp[1]] = Daftarhp["Samsung"].pop(Datahp[0])
+    Daftarhp["Samsung"].update({Datahp[1] : hargahp})
+    i = 0
+    while i == 0:
+        print("Nama dan harga berhasil di ubah")
+        print("""
+        Apakah anda ingin kembali ke:
+        A. Edit hp
+        B. Menu admin
+        """)
+        masukan1 = str(input(":"))
+
+        if masukan1 == "A":
+            Datahp.clear()
+            Edit_hp()
+        elif masukan1 == "B":
+            Datahp.clear()
+            main_admin()
+        else:
+            print("Input salah")
+
+
+
 
 
 
 
 
 def Edithp_Oppo():
+    for key, val in Daftarhp["Oppo"].items():
+        print("%s = %s" % (key,val))
+
+    print("Masukan nama hp yang akan diedit ")
+    ubah = str(input(":"))
+    if ubah in Daftarhp["Oppo"].keys():
+        Datahp.append(ubah)
+        Edithp_Oppo1()
+    else:
+        print("Masukan inputan yang benar")
+        Edithp_Oppo()
+
+
+def Edithp_Oppo1():
+    print(Datahp[0])
+    print(Daftarhp["Oppo"][Datahp[0]])
+    print("Mau edit apa?")
+    print("""
+        1. Nama Hp
+        2. Harga Hp
+        3. Edit Nama dan Harga hp
+        4. Kembali ke pilih merk hp
+        5. Kembali ke menu
+        """)
+    try:
+        masukan = int(input(":"))
+    except ValueError:
+        print("Masukan salah")
+        Edithp_Samsung1()
+    
+    if masukan > 0:
+        if masukan == 1:
+            Editnama_Oppo()
+        elif masukan == 2:
+            Editharga_Oppo()
+        elif masukan == 3:
+            Editnamaharga_Oppo()
+        elif masukan == 4:
+            Datahp.clear()
+            Edit_hp()
+        elif masukan == 5:
+            Datahp.clear()
+            main_admin()
+        else:
+            print("Inputan kamu salah")
+            Edithp_Oppo1()
+    else:
+        print("Inputan kamu negatif")
+        Edithp_Oppo1()
+
+def Editnama_Oppo():
+    print(Datahp[0])
+    print("Masukan Nama hp baru")
+    namahp = str(input(":"))
+    if namahp == "":
+        print("Mohon isi dengan benar")
+        Editnama_Oppo()
+    print(namahp)
+    i = 0
+    while i == 0:
+        print("Apakah nama sudah benar? (Y/N)")
+        nama = str(input(":"))
+        if nama == "Y":
+            break
+        elif nama == "N":
+            Editnama_Oppo()
+        else:
+            print("Harap input jawaban yang benar")
+    i = 0
+    while i == 0:
+        print("apakah anda benar-benar ingin mengubah nama hp ini? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            i = 0
+            while i == 0:
+                print("""
+                Apakah anda ingin kembali ke
+                A. Menu Admin
+                B. Menu Edit
+                C. Kembali ke awal edit nama
+                D. Kembali ke menu edit
+                """)
+                masukan = str(input(""))
+
+                if masukan == "A":
+                    Datahp.clear()
+                    main_admin()
+                elif masukan == "B":
+                    Datahp.clear()
+                    Edit_hp()
+                elif masukan == "C":
+                    Editnama_Oppo()
+                elif masukan == "D":
+                    Edithp_Oppo1()
+                else:
+                    print("inputan salah")
+        else:
+            print("inputan salah")
+    
+    
+    Daftarhp["Oppo"][namahp] = Daftarhp["Oppo"].pop(Datahp[0])
+    i = 0
+    while i == 0:
+        print("Nama berhasil diubah")
+        print("""
+        Apakah anda ingin kembali ke:
+        A. Edit hp
+        B. Menu admin
+        """)
+        masukan1 = str(input(":"))
+
+        if masukan1 == "A":
+            Datahp.clear()
+            Edit_hp()
+        elif masukan1 == "B":
+            Datahp.clear()
+            main_admin()
+        else:
+            print("Input salah")
+
+
+def Editharga_Oppo():
+    print(Daftarhp["Oppo"][Datahp[0]])
+    print("Masukan Harga baru")
+    try:
+        hargahp = int(input(":"))
+    except ValueError:
+        print("Masukan angka bukan huruf")
+        Editharga_Oppo()
+    
+    if hargahp > 0:
+        print(hargahp)
+        i = 0
+        while i == 0:
+            print("Apakah Harga sudah benar? (Y/N)")
+            nama = str(input(":"))
+            if nama == "Y":
+                break
+            elif nama == "N":
+                Editharga_Oppo()
+            else:
+                print("Harap input jawaban yang benar")
+    else:
+        print("masukan berbentuk negatif")
+        Editharga_Oppo()
+    i = 0
+    while i == 0:
+        print("apakah anda benar-benar ingin mengubah harga hp ini? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            i = 0
+            while i == 0:
+                print("""
+                Apakah anda ingin kembali ke
+                A. Menu Admin
+                B. Menu Edit
+                C. Kembali ke awal edit harga
+                D. Kembali ke menu edit
+                """)
+                masukan = str(input(""))
+
+                if masukan == "A":
+                    Datahp.clear()
+                    main_admin()
+                elif masukan == "B":
+                    Datahp.clear()
+                    Edit_hp()
+                elif masukan == "C":
+                    Editharga_Oppo()
+                elif masukan == "D":
+                    Edithp_Oppo1()
+                else:
+                    print("inputan salah")
+        else:
+            print("inputan salah")
+    
+    
+    Daftarhp["Oppo"].update({Datahp[0] : hargahp})
+    i = 0
+    while i == 0:
+        print("Harga berhasil diubah")
+        print("""
+        Apakah anda ingin kembali ke:
+        A. Edit hp
+        B. Menu admin
+        """)
+        masukan1 = str(input(":"))
+
+        if masukan1 == "A":
+            Datahp.clear()
+            Edit_hp()
+        elif masukan1 == "B":
+            Datahp.clear()
+            main_admin()
+        else:
+            print("Input salah")
+
+def Editnamaharga_Oppo():
+    print(Datahp[0])
+    print("Masukan Nama hp baru")
+    namahp = str(input(":"))
+    if namahp == "":
+        print("Mohon isi dengan benar")
+        Editnamaharga_Oppo()
+    print(namahp)
+    i = 0
+    while i == 0:
+        print("Apakah nama sudah benar? (Y/N)")
+        nama = str(input(":"))
+        if nama == "Y":
+            break
+        elif nama == "N":
+            Editnamaharga_Oppo()
+        else:
+            print("Harap input jawaban yang benar")
+    i = 0
+    while i == 0:
+        print("apakah anda benar-benar ingin mengubah nama hp ini? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            i = 0
+            while i == 0:
+                print("""
+                Apakah anda ingin kembali ke
+                A. Menu Admin
+                B. Menu Edit
+                C. Kembali ke awal edit nama
+                D. Kembali ke menu edit
+                """)
+                masukan = str(input(""))
+
+                if masukan == "A":
+                    Datahp.clear()
+                    main_admin()
+                elif masukan == "B":
+                    Datahp.clear()
+                    Edit_hp()
+                elif masukan == "C":
+                    Editnamaharga_Oppo()
+                elif masukan == "D":
+                    Edithp_Oppo1()
+                else:
+                    print("inputan salah")
+        else:
+            print("inputan salah")
+    Datahp.append(namahp)
+    Editnamaharga_Oppo1()
+            
+def Editnamaharga_Oppo1():
+    print(Daftarhp["Oppo"][Datahp[0]])
+    print("Masukan Harga baru")
+    try:
+        hargahp = int(input(":"))
+    except ValueError:
+        print("Masukan angka bukan huruf")
+        Editnamaharga_Oppo1()
+    
+    if hargahp > 0:
+        print(hargahp)
+        i = 0
+        while i == 0:
+            print("Apakah Harga sudah benar? (Y/N)")
+            nama = str(input(":"))
+            if nama == "Y":
+                break
+            elif nama == "N":
+                Editnamaharga_Oppo1()
+            else:
+                print("Harap input jawaban yang benar")
+    else:
+        print("masukan berbentuk negatif")
+        Editnamaharga_Oppo1()
+    i = 0
+    while i == 0:
+        print("apakah anda benar-benar ingin mengubah harga hp ini? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            i = 0
+            while i == 0:
+                print("""
+                Apakah anda ingin kembali ke
+                A. Menu Admin
+                B. Menu Edit
+                C. Kembali ke awal edit harga
+                D. Kembali ke menu edit
+                """)
+                masukan = str(input(""))
+
+                if masukan == "A":
+                    Datahp.clear()
+                    main_admin()
+                elif masukan == "B":
+                    Datahp.clear()
+                    Edit_hp()
+                elif masukan == "C":
+                    Editnamaharga_Oppo1()
+                elif masukan == "D":
+                    del Datahp[1]
+                    Edithp_Oppo1()
+                else:
+                    print("inputan salah")
+        else:
+            print("inputan salah")
+    
+    Daftarhp["Oppo"][Datahp[1]] = Daftarhp["Oppo"].pop(Datahp[0])
+    Daftarhp["Oppo"].update({Datahp[1] : hargahp})
+    i = 0
+    while i == 0:
+        print("Nama dan harga berhasil di ubah")
+        print("""
+        Apakah anda ingin kembali ke:
+        A. Edit hp
+        B. Menu admin
+        """)
+        masukan1 = str(input(":"))
+
+        if masukan1 == "A":
+            Datahp.clear()
+            Edit_hp()
+        elif masukan1 == "B":
+            Datahp.clear()
+            main_admin()
+        else:
+            print("Input salah")
+
+
+
+
+
 
 
 def Edithp_Iphone():
+    for key, val in Daftarhp["Iphone"].items():
+        print("%s = %s" % (key,val))
+
+    print("Masukan nama hp yang akan diedit ")
+    ubah = str(input(":"))
+    if ubah in Daftarhp["Iphone"].keys():
+        Datahp.append(ubah)
+        Edithp_Iphone1()
+    else:
+        print("Masukan inputan yang benar")
+        Edithp_Iphone()
+
+
+def Edithp_Iphone1():
+    print(Datahp[0])
+    print(Daftarhp["Iphone"][Datahp[0]])
+    print("Mau edit apa?")
+    print("""
+        1. Nama Hp
+        2. Harga Hp
+        3. Edit Nama dan Harga hp
+        4. Kembali ke pilih merk hp
+        5. Kembali ke menu
+        """)
+    try:
+        masukan = int(input(":"))
+    except ValueError:
+        print("Masukan salah")
+        Edithp_Iphone1()
+    
+    if masukan > 0:
+        if masukan == 1:
+            Editnama_Iphone()
+        elif masukan == 2:
+            Editharga_Iphone()
+        elif masukan == 3:
+            Editnamaharga_Iphone()
+        elif masukan == 4:
+            Datahp.clear()
+            Edit_hp()
+        elif masukan == 5:
+            Datahp.clear()
+            main_admin()
+        else:
+            print("Inputan kamu salah")
+            Edithp_Iphone1()
+    else:
+        print("Inputan kamu negatif")
+        Edithp_Iphone1()
+
+def Editnama_Iphone():
+    print(Datahp[0])
+    print("Masukan Nama hp baru")
+    namahp = str(input(":"))
+    if namahp == "":
+        print("Mohon isi dengan benar")
+        Editnama_Iphone()
+    print(namahp)
+    i = 0
+    while i == 0:
+        print("Apakah nama sudah benar? (Y/N)")
+        nama = str(input(":"))
+        if nama == "Y":
+            break
+        elif nama == "N":
+            Editnama_Iphone()
+        else:
+            print("Harap input jawaban yang benar")
+    i = 0
+    while i == 0:
+        print("apakah anda benar-benar ingin mengubah nama hp ini? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            i = 0
+            while i == 0:
+                print("""
+                Apakah anda ingin kembali ke
+                A. Menu Admin
+                B. Menu Edit
+                C. Kembali ke awal edit nama
+                D. Kembali ke menu edit
+                """)
+                masukan = str(input(""))
+
+                if masukan == "A":
+                    Datahp.clear()
+                    main_admin()
+                elif masukan == "B":
+                    Datahp.clear()
+                    Edit_hp()
+                elif masukan == "C":
+                    Editnama_Iphone()
+                elif masukan == "D":
+                    Edithp_Iphone1()
+                else:
+                    print("inputan salah")
+        else:
+            print("inputan salah")
+    
+    
+    Daftarhp["Iphone"][namahp] = Daftarhp["Iphone"].pop(Datahp[0])
+    i = 0
+    while i == 0:
+        print("Nama berhasil diubah")
+        print("""
+        Apakah anda ingin kembali ke:
+        A. Edit hp
+        B. Menu admin
+        """)
+        masukan1 = str(input(":"))
+
+        if masukan1 == "A":
+            Datahp.clear()
+            Edit_hp()
+        elif masukan1 == "B":
+            Datahp.clear()
+            main_admin()
+        else:
+            print("Input salah")
+
+
+def Editharga_Iphone():
+    print(Daftarhp["Iphone"][Datahp[0]])
+    print("Masukan Harga baru")
+    try:
+        hargahp = int(input(":"))
+    except ValueError:
+        print("Masukan angka bukan huruf")
+        Editharga_Iphone()
+    
+    if hargahp > 0:
+        print(hargahp)
+        i = 0
+        while i == 0:
+            print("Apakah Harga sudah benar? (Y/N)")
+            nama = str(input(":"))
+            if nama == "Y":
+                break
+            elif nama == "N":
+                Editharga_Iphone()
+            else:
+                print("Harap input jawaban yang benar")
+    else:
+        print("masukan berbentuk negatif")
+        Editharga_Iphone()
+    i = 0
+    while i == 0:
+        print("apakah anda benar-benar ingin mengubah harga hp ini? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            i = 0
+            while i == 0:
+                print("""
+                Apakah anda ingin kembali ke
+                A. Menu Admin
+                B. Menu Edit
+                C. Kembali ke awal edit harga
+                D. Kembali ke menu edit
+                """)
+                masukan = str(input(""))
+
+                if masukan == "A":
+                    Datahp.clear()
+                    main_admin()
+                elif masukan == "B":
+                    Datahp.clear()
+                    Edit_hp()
+                elif masukan == "C":
+                    Editharga_Iphone()
+                elif masukan == "D":
+                    Edithp_Iphone1()
+                else:
+                    print("inputan salah")
+        else:
+            print("inputan salah")
+    
+    
+    Daftarhp["Iphone"].update({Datahp[0] : hargahp})
+    i = 0
+    while i == 0:
+        print("Harga berhasil diubah")
+        print("""
+        Apakah anda ingin kembali ke:
+        A. Edit hp
+        B. Menu admin
+        """)
+        masukan1 = str(input(":"))
+
+        if masukan1 == "A":
+            Datahp.clear()
+            Edit_hp()
+        elif masukan1 == "B":
+            Datahp.clear()
+            main_admin()
+        else:
+            print("Input salah")
+
+def Editnamaharga_Iphone():
+    print(Datahp[0])
+    print("Masukan Nama hp baru")
+    namahp = str(input(":"))
+    if namahp == "":
+        print("Mohon isi dengan benar")
+        Editnamaharga_Iphone()
+    print(namahp)
+    i = 0
+    while i == 0:
+        print("Apakah nama sudah benar? (Y/N)")
+        nama = str(input(":"))
+        if nama == "Y":
+            break
+        elif nama == "N":
+            Editnamaharga_Iphone()
+        else:
+            print("Harap input jawaban yang benar")
+    i = 0
+    while i == 0:
+        print("apakah anda benar-benar ingin mengubah nama hp ini? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            i = 0
+            while i == 0:
+                print("""
+                Apakah anda ingin kembali ke
+                A. Menu Admin
+                B. Menu Edit
+                C. Kembali ke awal edit nama
+                D. Kembali ke menu edit
+                """)
+                masukan = str(input(""))
+
+                if masukan == "A":
+                    Datahp.clear()
+                    main_admin()
+                elif masukan == "B":
+                    Datahp.clear()
+                    Edit_hp()
+                elif masukan == "C":
+                    Editnamaharga_Iphone()
+                elif masukan == "D":
+                    Edithp_Iphone1()
+                else:
+                    print("inputan salah")
+        else:
+            print("inputan salah")
+    Datahp.append(namahp)
+    Editnamaharga_Iphone1()
+            
+def Editnamaharga_Iphone1():
+    print(Daftarhp["Iphone"][Datahp[0]])
+    print("Masukan Harga baru")
+    try:
+        hargahp = int(input(":"))
+    except ValueError:
+        print("Masukan angka bukan huruf")
+        Editnamaharga_Iphone1()
+    
+    if hargahp > 0:
+        print(hargahp)
+        i = 0
+        while i == 0:
+            print("Apakah Harga sudah benar? (Y/N)")
+            nama = str(input(":"))
+            if nama == "Y":
+                break
+            elif nama == "N":
+                Editnamaharga_Iphone1()
+            else:
+                print("Harap input jawaban yang benar")
+    else:
+        print("masukan berbentuk negatif")
+        Editnamaharga_Iphone1()
+    i = 0
+    while i == 0:
+        print("apakah anda benar-benar ingin mengubah harga hp ini? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            i = 0
+            while i == 0:
+                print("""
+                Apakah anda ingin kembali ke
+                A. Menu Admin
+                B. Menu Edit
+                C. Kembali ke awal edit harga
+                D. Kembali ke menu edit
+                """)
+                masukan = str(input(""))
+
+                if masukan == "A":
+                    Datahp.clear()
+                    main_admin()
+                elif masukan == "B":
+                    Datahp.clear()
+                    Edit_hp()
+                elif masukan == "C":
+                    Editnamaharga_Iphone1()
+                elif masukan == "D":
+                    del Datahp[1]
+                    Edithp_Iphone1()
+                else:
+                    print("inputan salah")
+        else:
+            print("inputan salah")
+    
+    Daftarhp["Iphone"][Datahp[1]] = Daftarhp["Iphone"].pop(Datahp[0])
+    Daftarhp["Iphone"].update({Datahp[1] : hargahp})
+    i = 0
+    while i == 0:
+        print("Nama dan harga berhasil di ubah")
+        print("""
+        Apakah anda ingin kembali ke:
+        A. Edit hp
+        B. Menu admin
+        """)
+        masukan1 = str(input(":"))
+
+        if masukan1 == "A":
+            Datahp.clear()
+            Edit_hp()
+        elif masukan1 == "B":
+            Datahp.clear()
+            main_admin()
+        else:
+            print("Input salah")
+
+
+
 
 
 def Edithp_Semuahp():
+    for key, val in Daftarhp.items():
+        for key2, val2 in val.items():
+            print("%s : %s" % (key2,val2))
+
+    print("Masukan nama hp yang akan diedit ")
+    ubah = str(input(":"))
+    if ubah in Daftarhp["Samsung"].keys():
+        Datahp.append(ubah)
+        Edithp_Samsung1()
+    elif ubah in Daftarhp["Oppo"].keys():
+        Datahp.append(ubah)
+        Edithp_Oppo1()
+    elif ubah in Daftarhp["Iphone"].keys():
+        Datahp.append(ubah)
+        Edithp_Iphone1()
+    else:
+        print("Masukan inputan yang benar")
+        Edithp_Semuahp()
+
+
 
    
 
@@ -279,29 +1300,100 @@ def Edithp_Semuahp():
 
 def Hapus_hp():
     print("=================================================================")
-    print(roti["Menu_roti"])
+    for key, val in Daftarhp.items():
+        for key2, val2 in val.items():
+            print("%s : %s" % (key2,val2))
     print("=================================================================")
-    print("Pilih menu roti yang akan dihapus (angka 0 sebagai menu pertama) :")
+    print("Pilih Hp yang akan dihapus :")
     print("=================================================================")
 
-    try:
-        Hapus_menu = int(input(":"))
-    except ValueError:
-        print("Masukan angka bukan huruf")
-        Hapus_menuroti()
+    masukan = str(input(":"))
 
-    try:
-        del roti["Menu_roti"][Hapus_menu]
-    except IndexError:
-        print("Masukan angka yang ada (dimulai dari 0)")
-        Hapus_menuroti()
+    if masukan in Daftarhp["Samsung"].keys():
+        print(masukan)
+        print(Daftarhp["Samsung"][masukan])
+        i = 0
+        while i == 0:
+            print("Apakah anda ingin menghapus ini? ini tidak bisa dikembalikan! (Y/N)")
+            konfirmasi = str(input(":"))
+            if konfirmasi == "Y":
+                del Daftarhp["Samsung"][masukan]
+                print("Data berhasil dihapus!")
+                main_admin()
+            elif konfirmasi == "N":
+                i = 0
+                while i == 0:
+                    print("Operasi dibatalkan, apakah anda ingin kembali ke menu hapus hp atau kembali ke menu admin?")
+                    print("A. menu hapus hp")
+                    print("B. menu admin")
+                    konfirm = str(input(":"))
+                    if konfirm == "A":
+                        Hapus_hp()
+                    elif konfirm == "B":
+                        main_admin()
+                    else:
+                        print("Inputan salah")
+            else:
+                print("Inputan salah")
 
-    del roti["Harga_roti"][Hapus_menu]
+    elif masukan in Daftarhp["Oppo"].keys():
+        print(masukan)
+        print(Daftarhp["Oppo"][masukan])
+        i = 0
+        while i == 0:
+            print("Apakah anda ingin menghapus ini? ini tidak bisa dikembalikan! (Y/N)")
+            konfirmasi = str(input(":"))
+            if konfirmasi == "Y":
+                del Daftarhp["Oppo"][masukan]
+                print("Data berhasil dihapus!")
+                main_admin()
+            elif konfirmasi == "N":
+                i = 0
+                while i == 0:
+                    print("Operasi dibatalkan, apakah anda ingin kembali ke menu hapus hp atau kembali ke menu admin?")
+                    print("A. menu hapus hp")
+                    print("B. menu admin")
+                    konfirm = str(input(":"))
+                    if konfirm == "A":
+                        Hapus_hp()
+                    elif konfirm == "B":
+                        main_admin()
+                    else:
+                        print("Inputan salah")
+            else:
+                print("Inputan salah")
+    
+    elif masukan in Daftarhp["Iphone"].keys():
+        print(masukan)
+        print(Daftarhp["Iphone"][masukan])
+        i = 0
+        while i == 0:
+            print("Apakah anda ingin menghapus ini? ini tidak bisa dikembalikan! (Y/N)")
+            konfirmasi = str(input(":"))
+            if konfirmasi == "Y":
+                del Daftarhp["Iphone"][masukan]
+                print("Data berhasil dihapus!")
+                main_admin()
+            elif konfirmasi == "N":
+                i = 0
+                while i == 0:
+                    print("Operasi dibatalkan, apakah anda ingin kembali ke menu hapus hp atau kembali ke menu admin?")
+                    print("A. menu hapus hp")
+                    print("B. menu admin")
+                    konfirm = str(input(":"))
+                    if konfirm == "A":
+                        Hapus_hp()
+                    elif konfirm == "B":
+                        main_admin()
+                    else:
+                        print("Inputan salah")
+            else:
+                print("Inputan salah")
+    
+    else:
+        print("Inputan salah")
+        Hapus_hp()
 
-    print("======================")
-    print("Menu berhasil di hapus!")
-    print("======================")
-    kembali_menu()
 
 def masukkasir():
     print("====================================")
