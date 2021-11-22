@@ -1451,7 +1451,12 @@ def Editspechp():
 
 def Tampilspechp():
     for key, val in Spechp["Samsung"].items():
-        
+        print(key, val)
+    
+    for key, val in Spechp["Oppo"].items():
+        print(key, val)
+
+    for key, val in Spechp["Iphone"].items():
         print(key, val)
 
     Editspechp()
@@ -1466,7 +1471,12 @@ def Tambahspechp():
 
     if masukan == "Samsung":
         Tambahspechp_Samsung()
-
+    elif masukan == "Oppo":
+        Tambahspechp_Oppo()
+    elif masukan == "Iphone":
+        Tambahspechp_Iphone()
+    else:
+        print("Masukan salah")
 
 def Tambahspechp_Samsung():
     print("Nama hp?")
@@ -1716,7 +1726,503 @@ def Tambahspechp_Samsung12():
     print("Data hp berhasil ditambah")
     Editspechp()
 
+def Tambahspechp_Oppo():
+    print("Nama hp?")
+    Nama = str(input(":"))
+    if Nama == "":
+        print("harap masukan input")
+        Tambahspechp_Oppo()
 
+    i = 0
+    while i == 0:   
+        print(Nama)
+        print("Apakah nama sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Nama)
+            Tambahspechp_Oppo1()
+        elif Masukan == "N":
+            Tambahspechp_Oppo()
+        else:
+            print("Masukan salah")
+            
+def Tambahspechp_Oppo1():   
+    print("Tahun keluar?")
+    try:
+        Tahun_Keluar = int(input(":"))
+    except ValueError:
+        print("Masukan harus berbentuk angka")
+        Tambahspechp_Oppo1()
+    if Tahun_Keluar > 0:
+        i = 0
+        while i == 0:   
+            print(Tahun_Keluar)
+            print("Apakah Tahun Keluar sudah benar? (Y/N)")
+            Masukan = str(input(":"))
+            if Masukan == "Y":
+                Datahp.append(Tahun_Keluar)
+                Tambahspechp_Oppo2()
+            elif Masukan == "N":
+                Tambahspechp_Oppo1()
+            else:
+                print("Masukan salah")
+
+def Tambahspechp_Oppo2():
+    print("Versi OS?")
+    Os = str(input(":"))
+    if Os == "":
+        print("harap masukan input")
+        Tambahspechp_Oppo2()
+
+    i = 0
+    while i == 0:   
+        print(Os)
+        print("Apakah Versi OS sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Os)
+            Tambahspechp_Oppo3()
+        elif Masukan == "N":
+            Tambahspechp_Oppo2()
+        else:
+            print("Masukan salah")
+
+
+    
+def Tambahspechp_Oppo3():
+    print("Chipset?")
+    Chipset = str(input(":"))
+    if Chipset == "":
+        print("harap masukan input")
+        Tambahspechp_Oppo3()
+
+    i = 0
+    while i == 0:   
+        print(Chipset)
+        print("Apakah nama Chipset sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Chipset)
+            Tambahspechp_Oppo4()
+        elif Masukan == "N":
+            Tambahspechp_Oppo3()
+        else:
+            print("Masukan salah")
+
+def Tambahspechp_Oppo4():
+    print("CPU?")
+    Cpu = str(input(":"))
+    if Cpu == "":
+        print("harap masukan input")
+        Tambahspechp_Oppo4()
+
+    i = 0
+    while i == 0:   
+        print(Cpu)
+        print("Apakah nama CPU sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Cpu)
+            Tambahspechp_Oppo5()
+        elif Masukan == "N":
+            Tambahspechp_Oppo4()
+        else:
+            print("Masukan salah")
+
+def Tambahspechp_Oppo5():
+    print("GPU?")
+    Gpu = str(input(":"))
+    if Gpu == "":
+        print("harap masukan input")
+        Tambahspechp_Oppo5()
+
+    i = 0
+    while i == 0:   
+        print(Gpu)
+        print("Apakah nama sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Gpu)
+            Tambahspechp_Oppo6()
+        elif Masukan == "N":
+            Tambahspechp_Oppo5()
+        else:
+            print("Masukan salah")
+
+def Tambahspechp_Oppo6():
+    print("Display?")
+    Display = str(input(":"))
+    if Display == "":
+        print("harap masukan input")
+        Tambahspechp_Oppo6()
+
+    i = 0
+    while i == 0:   
+        print(Display)
+        print("Apakah nama Display sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Display)
+            Tambahspechp_Oppo7()
+        elif Masukan == "N":
+            Tambahspechp_Oppo6()
+        else:
+            print("Masukan salah")
+
+def Tambahspechp_Oppo7():
+    print("Total Memori Internal?")
+    Memori = str(input(":"))
+    if Memori == "":
+        print("harap masukan input")
+        Tambahspechp_Oppo7()
+
+    i = 0
+    while i == 0:   
+        print(Memori)
+        print("Apakah Total memori sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Memori)
+            Tambahspechp_Oppo8()
+        elif Masukan == "N":
+            Tambahspechp_Oppo7()
+        else:
+            print("Masukan salah")
+
+def Tambahspechp_Oppo8():
+    print("Total Ram?")
+    Ram = str(input(":"))
+    if Ram == "":
+        print("harap masukan input")
+        Tambahspechp_Oppo8()
+
+    i = 0
+    while i == 0:   
+        print(Ram)
+        print("Apakah Total Ram sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Ram)
+            Tambahspechp_Oppo9()
+        elif Masukan == "N":
+            Tambahspechp_Oppo8()
+        else:
+            print("Masukan salah")
+
+def Tambahspechp_Oppo9():
+    print("Kamera?")
+    Kamera = str(input(":"))
+    if Kamera == "":
+        print("harap masukan input")
+        Tambahspechp_Oppo9()
+
+    i = 0
+    while i == 0:   
+        print(Kamera)
+        print("Apakah Kamera sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Kamera)
+            Tambahspechp_Oppo10()
+        elif Masukan == "N":
+            Tambahspechp_Oppo9()
+        else:
+            print("Masukan salah")
+
+def Tambahspechp_Oppo10():
+    print("Jaringan?")
+    Jaringan = str(input(":"))
+    if Jaringan == "":
+        print("harap masukan input")
+        Tambahspechp_Oppo10()
+
+    i = 0
+    while i == 0:   
+        print(Jaringan)
+        print("Apakah nama Jaringan sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Jaringan)
+            Tambahspechp_Oppo11()
+        elif Masukan == "N":
+            Tambahspechp_Oppo10()
+        else:
+            print("Masukan salah")
+
+def Tambahspechp_Oppo11():
+    print("Kapasitas Baterai?")
+    Baterai = str(input(":"))
+    if Baterai == "":
+        print("harap masukan input")
+        Tambahspechp_Oppo11()
+
+    i = 0
+    while i == 0:   
+        print(Baterai)
+        print("Apakah Kapasitas Baterai sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Baterai)
+            Tambahspechp_Oppo12()
+        elif Masukan == "N":
+            Tambahspechp_Oppo11()
+        else:
+            print("Masukan salah")
+
+def Tambahspechp_Oppo12():
+    Spechp["Oppo"][Datahp[0]] = {"Nama" : Datahp[0], "Tahun Keluar" : Datahp[1], "OS" : Datahp[2], "Chipset" : Datahp[3], "CPU" : Datahp[4], "GPU" : Datahp[5], "Display" : Datahp[6], "Memori Internal" : Datahp[7], "RAM" : Datahp[8], "Kamera" : Datahp[9], "Jaringan" : Datahp[10], "Kapasitas Baterai" : Datahp[11]}
+    print("Data hp berhasil ditambah")
+    Editspechp()
+
+
+
+def Tambahspechp_Iphone():
+    print("Nama hp?")
+    Nama = str(input(":"))
+    if Nama == "":
+        print("harap masukan input")
+        Tambahspechp_Iphone()
+
+    i = 0
+    while i == 0:   
+        print(Nama)
+        print("Apakah nama sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Nama)
+            Tambahspechp_Iphone1()
+        elif Masukan == "N":
+            Tambahspechp_Iphone()
+        else:
+            print("Masukan salah")
+            
+def Tambahspechp_Iphone1():   
+    print("Tahun keluar?")
+    try:
+        Tahun_Keluar = int(input(":"))
+    except ValueError:
+        print("Masukan harus berbentuk angka")
+        Tambahspechp_Iphone1()
+    if Tahun_Keluar > 0:
+        i = 0
+        while i == 0:   
+            print(Tahun_Keluar)
+            print("Apakah Tahun Keluar sudah benar? (Y/N)")
+            Masukan = str(input(":"))
+            if Masukan == "Y":
+                Datahp.append(Tahun_Keluar)
+                Tambahspechp_Iphone2()
+            elif Masukan == "N":
+                Tambahspechp_Iphone1()
+            else:
+                print("Masukan salah")
+
+def Tambahspechp_Iphone2():
+    print("Versi OS?")
+    Os = str(input(":"))
+    if Os == "":
+        print("harap masukan input")
+        Tambahspechp_Iphone2()
+
+    i = 0
+    while i == 0:   
+        print(Os)
+        print("Apakah Versi OS sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Os)
+            Tambahspechp_Iphone3()
+        elif Masukan == "N":
+            Tambahspechp_Iphone2()
+        else:
+            print("Masukan salah")
+
+
+    
+def Tambahspechp_Iphone3():
+    print("Chipset?")
+    Chipset = str(input(":"))
+    if Chipset == "":
+        print("harap masukan input")
+        Tambahspechp_Iphone3()
+
+    i = 0
+    while i == 0:   
+        print(Chipset)
+        print("Apakah nama Chipset sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Chipset)
+            Tambahspechp_Iphone4()
+        elif Masukan == "N":
+            Tambahspechp_Iphone3()
+        else:
+            print("Masukan salah")
+
+def Tambahspechp_Iphone4():
+    print("CPU?")
+    Cpu = str(input(":"))
+    if Cpu == "":
+        print("harap masukan input")
+        Tambahspechp_Iphone4()
+
+    i = 0
+    while i == 0:   
+        print(Cpu)
+        print("Apakah nama CPU sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Cpu)
+            Tambahspechp_Iphone5()
+        elif Masukan == "N":
+            Tambahspechp_Iphone4()
+        else:
+            print("Masukan salah")
+
+def Tambahspechp_Iphone5():
+    print("GPU?")
+    Gpu = str(input(":"))
+    if Gpu == "":
+        print("harap masukan input")
+        Tambahspechp_Iphone5()
+
+    i = 0
+    while i == 0:   
+        print(Gpu)
+        print("Apakah nama sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Gpu)
+            Tambahspechp_Iphone6()
+        elif Masukan == "N":
+            Tambahspechp_Iphone5()
+        else:
+            print("Masukan salah")
+
+def Tambahspechp_Iphone6():
+    print("Display?")
+    Display = str(input(":"))
+    if Display == "":
+        print("harap masukan input")
+        Tambahspechp_Iphone6()
+
+    i = 0
+    while i == 0:   
+        print(Display)
+        print("Apakah nama Display sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Display)
+            Tambahspechp_Iphone7()
+        elif Masukan == "N":
+            Tambahspechp_Iphone6()
+        else:
+            print("Masukan salah")
+
+def Tambahspechp_Iphone7():
+    print("Total Memori Internal?")
+    Memori = str(input(":"))
+    if Memori == "":
+        print("harap masukan input")
+        Tambahspechp_Iphone7()
+
+    i = 0
+    while i == 0:   
+        print(Memori)
+        print("Apakah Total memori sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Memori)
+            Tambahspechp_Iphone8()
+        elif Masukan == "N":
+            Tambahspechp_Iphone7()
+        else:
+            print("Masukan salah")
+
+def Tambahspechp_Iphone8():
+    print("Total Ram?")
+    Ram = str(input(":"))
+    if Ram == "":
+        print("harap masukan input")
+        Tambahspechp_Iphone8()
+
+    i = 0
+    while i == 0:   
+        print(Ram)
+        print("Apakah Total Ram sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Ram)
+            Tambahspechp_Iphone9()
+        elif Masukan == "N":
+            Tambahspechp_Iphone8()
+        else:
+            print("Masukan salah")
+
+def Tambahspechp_Iphone9():
+    print("Kamera?")
+    Kamera = str(input(":"))
+    if Kamera == "":
+        print("harap masukan input")
+        Tambahspechp_Iphone9()
+
+    i = 0
+    while i == 0:   
+        print(Kamera)
+        print("Apakah Kamera sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Kamera)
+            Tambahspechp_Iphone10()
+        elif Masukan == "N":
+            Tambahspechp_Iphone9()
+        else:
+            print("Masukan salah")
+
+def Tambahspechp_Iphone10():
+    print("Jaringan?")
+    Jaringan = str(input(":"))
+    if Jaringan == "":
+        print("harap masukan input")
+        Tambahspechp_Iphone10()
+
+    i = 0
+    while i == 0:   
+        print(Jaringan)
+        print("Apakah nama Jaringan sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Jaringan)
+            Tambahspechp_Iphone11()
+        elif Masukan == "N":
+            Tambahspechp_Iphone10()
+        else:
+            print("Masukan salah")
+
+def Tambahspechp_Iphone11():
+    print("Kapasitas Baterai?")
+    Baterai = str(input(":"))
+    if Baterai == "":
+        print("harap masukan input")
+        Tambahspechp_Iphone11()
+
+    i = 0
+    while i == 0:   
+        print(Baterai)
+        print("Apakah Kapasitas Baterai sudah benar? (Y/N)")
+        Masukan = str(input(":"))
+        if Masukan == "Y":
+            Datahp.append(Baterai)
+            Tambahspechp_Iphone12()
+        elif Masukan == "N":
+            Tambahspechp_Iphone11()
+        else:
+            print("Masukan salah")
+
+def Tambahspechp_Iphone12():
+    Spechp["Iphone"][Datahp[0]] = {"Nama" : Datahp[0], "Tahun Keluar" : Datahp[1], "OS" : Datahp[2], "Chipset" : Datahp[3], "CPU" : Datahp[4], "GPU" : Datahp[5], "Display" : Datahp[6], "Memori Internal" : Datahp[7], "RAM" : Datahp[8], "Kamera" : Datahp[9], "Jaringan" : Datahp[10], "Kapasitas Baterai" : Datahp[11]}
+    print("Data hp berhasil ditambah")
+    Editspechp()
 
 
 
@@ -1738,15 +2244,44 @@ def Editspechpada():
                         Editspechpsamsung()
                     else:
                         print("Masukan salah")
+        
+        elif masukan == "Oppo":
+            for key in Spechp["Oppo"].keys():
+                print(key)
+                print("Pilih hp yang akan di edit")
+                i = 0
+                while i == 0:
+                    masukan1 = str(input(":"))
+                    if masukan1 in Spechp["Oppo"]:
+                        Datahp.append(masukan1)
+                        Editspechpoppo()
+                    else:
+                        print("Masukan salah")
+
+        elif masukan == "Iphone":
+            for key in Spechp["Iphone"].keys():
+                print(key)
+                print("Pilih hp yang akan di edit")
+                i = 0
+                while i == 0:
+                    masukan1 = str(input(":"))
+                    if masukan1 in Spechp["Iphone"]:
+                        Datahp.append(masukan1)
+                        Editspechpiphone()
+                    else:
+                        print("Masukan salah")
+
+        else:
+            print("Inputan salah")
+            Editspechpada()
 
 
 def Editspechpsamsung():
 
     print("Menu Edit spec hp")
-    print("A. Edit 1 bagian ")
-    print("B. Edit keseluruhan")
-    print("C. Kembali ke menu edit")
-    print("D. Kembali ke menu admin")
+    print("A. Edit spec hp ")
+    print("B. Kembali ke menu edit")
+    print("C. Kembali ke menu admin")
     masukan = str(input(":"))
 
     if masukan == "A":
@@ -1767,6 +2302,7 @@ def Editspechpsamsung():
         K. Jaringan
         L. Kapasitas Baterai
         M. Nama hp
+        N. Kembali ke menu edit
         """)
         print("pilih huruf yang mau di edit ")
         i = 0
@@ -1799,8 +2335,19 @@ def Editspechpsamsung():
                 Bateraispecsamsung()
             elif ubah == "M":
                 Namahpspecsamsung()
+            elif ubah == "N":
+                Editspechpsamsung()
             else:
                 print("Mohon masukan input dengan benar")
+
+    elif masukan == "B":
+        Editspechp()
+    
+    elif masukan == "C":
+        main_admin()
+    
+    else:
+        print("Masukan salah")
             
                
 def Namaspecsamsung():
@@ -1841,8 +2388,9 @@ def Namaspecsamsung():
             if masukan == "A":
                 Namaspecsamsung()
             elif masukan == "B":
-                Editspechp()
+                Editspechpsamsung()
             elif masukan == "C":
+                Datahp.clear()
                 main_admin()
             else:
                 print("Masukan salah")
@@ -1910,8 +2458,9 @@ def Tahunspecsamsung():
                 if masukan == "A":
                     Tahunspecsamsung()
                 elif masukan == "B":
-                    Editspechp()
+                    Editspechpsamsung()
                 elif masukan == "C":
+                    Datahp.clear()
                     main_admin()
                 else:
                     print("Masukan salah")
@@ -1978,8 +2527,9 @@ def Osspecsamsung():
             if masukan == "A":
                 Osspecsamsung()
             elif masukan == "B":
-                Editspechp()
+                Editspechpsamsung()
             elif masukan == "C":
+                Datahp.clear()
                 main_admin()
             else:
                 print("Masukan salah")
@@ -2013,7 +2563,7 @@ def Chipsetspecsamsung():
     chipset = str(input(":"))
     if chipset == "":
         print("masukan nama yang benar")
-        Namaspecsamsung()
+        Chipsetspecsamsung()
     print(chipset)
 
     i = 0
@@ -2046,8 +2596,9 @@ def Chipsetspecsamsung():
             if masukan == "A":
                 Chipsetspecsamsung()
             elif masukan == "B":
-                Editspechp()
+                Editspechpsamsung()
             elif masukan == "C":
+                Datahp.clear()
                 main_admin()
             else:
                 print("Masukan salah")
@@ -2080,7 +2631,7 @@ def Cpuspecsamsung():
     Cpu = str(input(":"))
     if Cpu == "":
         print("masukan nama yang benar")
-        Namaspecsamsung()
+        Cpuspecsamsung()
     print(Cpu)
 
     i = 0
@@ -2113,8 +2664,9 @@ def Cpuspecsamsung():
             if masukan == "A":
                 Cpuspecsamsung()
             elif masukan == "B":
-                Editspechp()
+                Editspechpsamsung()
             elif masukan == "C":
+                Datahp.clear()
                 main_admin()
             else:
                 print("Masukan salah")
@@ -2180,8 +2732,9 @@ def Gpuspecsamsung():
             if masukan == "A":
                 Gpuspecsamsung()
             elif masukan == "B":
-                Editspechp()
+                Editspechpsamsung()
             elif masukan == "C":
+                Datahp.clear()
                 main_admin()
             else:
                 print("Masukan salah")
@@ -2248,8 +2801,9 @@ def Displayspecsamsung():
             if masukan == "A":
                 Displayspecsamsung()
             elif masukan == "B":
-                Editspechp()
+                Editspechpsamsung()
             elif masukan == "C":
+                Datahp.clear()
                 main_admin()
             else:
                 print("Masukan salah")
@@ -2317,8 +2871,9 @@ def Memorispecsamsung():
             if masukan == "A":
                 Memorispecsamsung()
             elif masukan == "B":
-                Editspechp()
+                Editspechpsamsung()
             elif masukan == "C":
+                Datahp.clear()
                 main_admin()
             else:
                 print("Masukan salah")
@@ -2385,8 +2940,9 @@ def Ramspecsamsung():
             if masukan == "A":
                 Ramspecsamsung()
             elif masukan == "B":
-                Editspechp()
+                Editspechpsamsung()
             elif masukan == "C":
+                Datahp.clear()
                 main_admin()
             else:
                 print("Masukan salah")
@@ -2453,8 +3009,9 @@ def Kameraspecsamsung():
             if masukan == "A":
                 Kameraspecsamsung()
             elif masukan == "B":
-                Editspechp()
+                Editspechpsamsung()
             elif masukan == "C":
+                Datahp.clear()
                 main_admin()
             else:
                 print("Masukan salah")
@@ -2520,8 +3077,9 @@ def Jaringanspecsamsung():
             if masukan == "A":
                 Jaringanspecsamsung()
             elif masukan == "B":
-                Editspechp()
+                Editspechpsamsung()
             elif masukan == "C":
+                Datahp.clear()
                 main_admin()
             else:
                 print("Masukan salah")
@@ -2588,8 +3146,9 @@ def Bateraispecsamsung():
             if masukan == "A":
                 Bateraispecsamsung()
             elif masukan == "B":
-                Editspechp()
+                Editspechpsamsung()
             elif masukan == "C":
+                Datahp.clear()
                 main_admin()
             else:
                 print("Masukan salah")
@@ -2622,7 +3181,7 @@ def Namahpspecsamsung():
     Nama = str(input(":"))
     if Nama == "":
         print("masukan nama yang benar")
-        Bateraispecsamsung()
+        Namahpspecsamsung()
     print(Nama)
 
     i = 0
@@ -2655,8 +3214,9 @@ def Namahpspecsamsung():
             if masukan == "A":
                 Namahpspecsamsung()
             elif masukan == "B":
-                Editspechp()
+                Editspechpsamsung()
             elif masukan == "C":
+                Datahp.clear()
                 main_admin()
             else:
                 print("Masukan salah")
@@ -2665,6 +3225,8 @@ def Namahpspecsamsung():
             print("Inputan salah")
 
     Spechp["Samsung"][Nama] = Daftarhp["Samsung"].pop(Datahp[0])
+    Datahp.clear()
+    Datahp.append(Nama)
     i = 0
     while i == 0:
         print("Item berhasil diubah")
@@ -2685,6 +3247,975 @@ def Namahpspecsamsung():
 
 
 
+def Editspechpoppo():
+
+    print("Menu Edit spec hp")
+    print("A. Edit spec hp ")
+    print("B. Kembali ke menu edit")
+    print("C. Kembali ke menu admin")
+    masukan = str(input(":"))
+
+    if masukan == "A":
+        for key, val in Spechp["Oppo"][Datahp[0]].items():
+            print("%s = %s" % (key,val))
+        print(""" 
+        Edit spec hp
+        A. Nama
+        B. Tahun Keluar
+        C. OS
+        D. Chipset
+        E. CPU
+        F. GPU
+        G. Display
+        H. Memori Internal
+        I. RAM
+        J. Kamera
+        K. Jaringan
+        L. Kapasitas Baterai
+        M. Nama hp
+        N. Kembali ke menu edit
+        """)
+        print("pilih huruf yang mau di edit ")
+        i = 0
+        while i == 0:
+            ubah = str(input(":"))
+
+            if ubah == "A":
+                Namaspecoppo()
+            elif ubah == "B":
+                Tahunspecoppo()
+            elif ubah == "C":
+                Osspecoppo()
+            elif ubah == "D":
+                Chipsetspecoppo()
+            elif ubah == "E":
+                Cpuspecoppo()
+            elif ubah == "F":
+                Gpuspecoppo()
+            elif ubah == "G":
+                Displayspecoppo()
+            elif ubah == "H":
+                Memorispecoppo()
+            elif ubah == "I":
+                Ramspecoppo()
+            elif ubah == "J":
+                Jaringanspecoppo()
+            elif ubah == "K":
+                Kameraspecoppo()
+            elif ubah == "L":
+                Bateraispecoppo()
+            elif ubah == "M":
+                Namahpspecoppo()
+            elif ubah == "N":
+                Editspechpoppo()
+            else:
+                print("Mohon masukan input dengan benar")
+
+    elif masukan == "B":
+        Editspechp()
+    
+    elif masukan == "C":
+        Datahp.clear()
+        main_admin()
+    
+    else:
+        print("Masukan salah")
+            
+               
+def Namaspecoppo():
+    print("Masukan nama baru")
+    nama = str(input(":"))
+    if nama == "":
+        print("masukan nama yang benar")
+        Namaspecoppo()
+    print(nama)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar namanya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Namaspecoppo()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Namaspecoppo()
+            elif masukan == "B":
+                Editspechpoppo()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Oppo"][Datahp[0]].update({"Nama" : nama})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+    
+        print("""
+        Apakah anda ingin kembali ke:
+        A. Edit spec
+        B. Menu admin
+        """)
+        masukan1 = str(input(":"))
+
+        if masukan1 == "A":
+            Editspechpoppo()
+        elif masukan1 == "B":
+            Datahp.clear()
+            main_admin()
+        else:
+            print("Input salah")
+
+
+
+
+def Tahunspecoppo():
+    print("Masukan nama baru")
+    try:
+        Tahun = int(input(":"))
+    except ValueError:
+        print("Masukan angka bukan huruf")
+        Tahunspecoppo()
+    if Tahun > 0:
+        i = 0
+        while i == 0:
+            print(Tahun)
+            print("Apakah sudah benar tahunnya? (Y/N)")
+            Konfirmasi = str(input(":"))
+            if Konfirmasi == "Y":
+                break
+            elif Konfirmasi == "N":
+                Tahunspecoppo()
+            else:
+                print("Inputan salah")
+
+        i = 0
+        while i == 0:
+
+            print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+            finalisasi = str(input(":"))
+            if finalisasi == "Y":
+                break
+            elif finalisasi == "N":
+                print("""
+                A. Kembali ke awal edit
+                B. Kembali ke menu edit
+                C. Kembali ke menu admin
+                """)
+                masukan = str(input(":"))
+                if masukan == "A":
+                    Tahunspecoppo()
+                elif masukan == "B":
+                    Editspechpoppo()
+                elif masukan == "C":
+                    Datahp.clear()
+                    main_admin()
+                else:
+                    print("Masukan salah")
+                
+            else:
+                print("Inputan salah")
+
+        Spechp["Oppo"][Datahp[0]].update({"Tahun Keluar" : Tahun})
+        print("item berhasil di ubah!")
+        i = 0
+        while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpoppo()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+
+def Osspecoppo():
+    print("Masukan nama OS baru")
+    Os = str(input(":"))
+    if Os == "":
+        print("masukan nama yang benar")
+        Osspecoppo()
+    print(Os)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar nama Os nya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Osspecoppo()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Osspecoppo()
+            elif masukan == "B":
+                Editspechpoppo()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Oppo"][Datahp[0]].update({"OS" : Os})
+    print("item berhasil di ubah!")
+    
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpoppo()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+def Chipsetspecoppo():
+    print("Masukan nama chipset baru")
+    chipset = str(input(":"))
+    if chipset == "":
+        print("masukan nama yang benar")
+        Chipsetspecoppo()
+    print(chipset)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar nama chipsetnya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Chipsetspecoppo()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Chipsetspecoppo()
+            elif masukan == "B":
+                Editspechpoppo()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Oppo"][Datahp[0]].update({"Chipset" : chipset})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpoppo()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+def Cpuspecoppo():
+    print("Masukan nama CPU baru")
+    Cpu = str(input(":"))
+    if Cpu == "":
+        print("masukan nama yang benar")
+        Cpuspecoppo()
+    print(Cpu)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar nama CPUnya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Cpuspecoppo()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Cpuspecoppo()
+            elif masukan == "B":
+                Editspechpoppo()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Oppo"][Datahp[0]].update({"CPU" : Cpu})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpoppo()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+def Gpuspecoppo():
+    print("Masukan nama Gpu baru")
+    Gpu = str(input(":"))
+    if Gpu == "":
+        print("masukan nama yang benar")
+        Gpuspecoppo()
+    print(Gpu)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar nama GPUnya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Gpuspecoppo()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Gpuspecoppo()
+            elif masukan == "B":
+                Editspechpoppo()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Oppo"][Datahp[0]].update({"GPU" : Gpu})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpoppo()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+
+def Displayspecoppo():
+    print("Masukan nama tipe Display baru")
+    Display = str(input(":"))
+    if Display == "":
+        print("masukan nama yang benar")
+        Displayspecoppo()
+    print(Display)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar nama Displaynya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Displayspecoppo()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Displayspecoppo()
+            elif masukan == "B":
+                Editspechpoppo()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Oppo"][Datahp[0]].update({"Display" : Display})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpoppo()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+
+
+def Memorispecoppo():
+    print("Masukan jumlah memori hp baru")
+    Memori = str(input(":"))
+    if Memori == "":
+        print("masukan nama yang benar")
+        Memorispecoppo()
+    print(Memori)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar kapasitas memorinya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Memorispecoppo()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Memorispecoppo()
+            elif masukan == "B":
+                Editspechpoppo()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Oppo"][Datahp[0]].update({"Memori Internal" : Memori})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpoppo()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+
+def Ramspecoppo():
+    print("Masukan jumlah RAM baru")
+    Ram = str(input(":"))
+    if Ram == "":
+        print("masukan nama yang benar")
+        Ramspecoppo()
+    print(Ram)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar kapasitas RAMnya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Ramspecoppo()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Ramspecoppo()
+            elif masukan == "B":
+                Editspechpoppo()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Oppo"][Datahp[0]].update({"RAM" : Ram})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpoppo()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+
+def Kameraspecoppo():
+    print("Masukan total MP Kamera baru")
+    Kamera = str(input(":"))
+    if Kamera == "":
+        print("masukan nama yang benar")
+        Kameraspecoppo()
+    print(Kamera)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar MP kameranya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Kameraspecoppo()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Kameraspecoppo()
+            elif masukan == "B":
+                Editspechpoppo()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Oppo"][Datahp[0]].update({"Kamera" : Kamera})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpoppo()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+def Jaringanspecoppo():
+    print("Masukan Support Jaringan baru")
+    Jaringan = str(input(":"))
+    if Jaringan == "":
+        print("masukan nama yang benar")
+        Jaringanspecoppo()
+    print(Jaringan)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar Jaringannya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Jaringanspecoppo()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Jaringanspecoppo()
+            elif masukan == "B":
+                Editspechpoppo()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Oppo"][Datahp[0]].update({"Jaringan" : Jaringan})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpoppo()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+
+def Bateraispecoppo():
+    print("Masukan jumlah kapasitas baterai baru")
+    Baterai = str(input(":"))
+    if Baterai == "":
+        print("masukan nama yang benar")
+        Bateraispecoppo()
+    print(Baterai)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar jumlah Kapasitas Baterainya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Bateraispecoppo()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Bateraispecoppo()
+            elif masukan == "B":
+                Editspechpoppo()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Oppo"][Datahp[0]].update({"Kapasitas Baterai" : Baterai})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpoppo()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+def Namahpspecoppo():
+    print("Masukan Nama hp baru")
+    Nama = str(input(":"))
+    if Nama == "":
+        print("masukan nama yang benar")
+        Namahpspecoppo()
+    print(Nama)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar jumlah Kapasitas Baterainya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Namahpspecoppo()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Namahpspecoppo()
+            elif masukan == "B":
+                Editspechpoppo()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Oppo"][Nama] = Daftarhp["Oppo"].pop(Datahp[0])
+    Datahp.clear()
+    Datahp.append(Nama)
+    i = 0
+    while i == 0:
+        print("Item berhasil diubah")
+        print("""
+        Apakah anda ingin kembali ke:
+        A. Edit spec
+        B. Menu admin
+        """)
+        masukan1 = str(input(":"))
+
+        if masukan1 == "A":
+            Editspechpoppo()
+        elif masukan1 == "B":
+            Datahp.clear()
+            main_admin()
+        else:
+            print("Input salah")
 
 
 
@@ -2692,8 +4223,975 @@ def Namahpspecsamsung():
 
 
 
+def Editspechpiphone():
+
+    print("Menu Edit spec hp")
+    print("A. Edit spec hp ")
+    print("B. Kembali ke menu edit")
+    print("C. Kembali ke menu admin")
+    masukan = str(input(":"))
+
+    if masukan == "A":
+        for key, val in Spechp["Iphone"][Datahp[0]].items():
+            print("%s = %s" % (key,val))
+        print(""" 
+        Edit spec hp
+        A. Nama
+        B. Tahun Keluar
+        C. OS
+        D. Chipset
+        E. CPU
+        F. GPU
+        G. Display
+        H. Memori Internal
+        I. RAM
+        J. Kamera
+        K. Jaringan
+        L. Kapasitas Baterai
+        M. Nama hp
+        N. Kembali ke menu edit
+        """)
+        print("pilih huruf yang mau di edit ")
+        i = 0
+        while i == 0:
+            ubah = str(input(":"))
+
+            if ubah == "A":
+                Namaspeciphone()
+            elif ubah == "B":
+                Tahunspeciphone()
+            elif ubah == "C":
+                Osspeciphone()
+            elif ubah == "D":
+                Chipsetspeciphone()
+            elif ubah == "E":
+                Cpuspeciphone()
+            elif ubah == "F":
+                Gpuspeciphone()
+            elif ubah == "G":
+                Displayspeciphone()
+            elif ubah == "H":
+                Memorispeciphone()
+            elif ubah == "I":
+                Ramspeciphone()
+            elif ubah == "J":
+                Jaringanspeciphone()
+            elif ubah == "K":
+                Kameraspeciphone()
+            elif ubah == "L":
+                Bateraispeciphone()
+            elif ubah == "M":
+                Namahpspeciphone()
+            elif ubah == "N":
+                Editspechpiphone()
+            else:
+                print("Mohon masukan input dengan benar")
+
+    elif masukan == "B":
+        Editspechp()
+    
+    elif masukan == "C":
+        Datahp.clear()
+        main_admin()
+    
+    else:
+        print("Masukan salah")
+            
+               
+def Namaspeciphone():
+    print("Masukan nama baru")
+    nama = str(input(":"))
+    if nama == "":
+        print("masukan nama yang benar")
+        Namaspeciphone()
+    print(nama)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar namanya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Namaspeciphone()
+        else:
+            print("Inputan salah")
 
 
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Namaspeciphone()
+            elif masukan == "B":
+                Editspechpiphone()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Iphone"][Datahp[0]].update({"Nama" : nama})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+    
+        print("""
+        Apakah anda ingin kembali ke:
+        A. Edit spec
+        B. Menu admin
+        """)
+        masukan1 = str(input(":"))
+
+        if masukan1 == "A":
+            Editspechpiphone()
+        elif masukan1 == "B":
+            Datahp.clear()
+            main_admin()
+        else:
+            print("Input salah")
+
+
+
+
+def Tahunspeciphone():
+    print("Masukan nama baru")
+    try:
+        Tahun = int(input(":"))
+    except ValueError:
+        print("Masukan angka bukan huruf")
+        Tahunspeciphone()
+    if Tahun > 0:
+        i = 0
+        while i == 0:
+            print(Tahun)
+            print("Apakah sudah benar tahunnya? (Y/N)")
+            Konfirmasi = str(input(":"))
+            if Konfirmasi == "Y":
+                break
+            elif Konfirmasi == "N":
+                Tahunspeciphone()
+            else:
+                print("Inputan salah")
+
+        i = 0
+        while i == 0:
+
+            print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+            finalisasi = str(input(":"))
+            if finalisasi == "Y":
+                break
+            elif finalisasi == "N":
+                print("""
+                A. Kembali ke awal edit
+                B. Kembali ke menu edit
+                C. Kembali ke menu admin
+                """)
+                masukan = str(input(":"))
+                if masukan == "A":
+                    Tahunspeciphone()
+                elif masukan == "B":
+                    Editspechpiphone()
+                elif masukan == "C":
+                    Datahp.clear()
+                    main_admin()
+                else:
+                    print("Masukan salah")
+                
+            else:
+                print("Inputan salah")
+
+        Spechp["Iphone"][Datahp[0]].update({"Tahun Keluar" : Tahun})
+        print("item berhasil di ubah!")
+        i = 0
+        while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpiphone()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+
+def Osspeciphone():
+    print("Masukan nama OS baru")
+    Os = str(input(":"))
+    if Os == "":
+        print("masukan nama yang benar")
+        Osspeciphone()
+    print(Os)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar nama Os nya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Osspeciphone()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Osspeciphone()
+            elif masukan == "B":
+                Editspechpiphone()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Iphone"][Datahp[0]].update({"OS" : Os})
+    print("item berhasil di ubah!")
+    
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpiphone()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+def Chipsetspeciphone():
+    print("Masukan nama chipset baru")
+    chipset = str(input(":"))
+    if chipset == "":
+        print("masukan nama yang benar")
+        Chipsetspeciphone()
+    print(chipset)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar nama chipsetnya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Chipsetspeciphone()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Chipsetspeciphone()
+            elif masukan == "B":
+                Editspechpiphone()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Iphone"][Datahp[0]].update({"Chipset" : chipset})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpiphone()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+def Cpuspeciphone():
+    print("Masukan nama CPU baru")
+    Cpu = str(input(":"))
+    if Cpu == "":
+        print("masukan nama yang benar")
+        Cpuspeciphone()
+    print(Cpu)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar nama CPUnya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Cpuspeciphone()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Cpuspeciphone()
+            elif masukan == "B":
+                Editspechpiphone()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Iphone"][Datahp[0]].update({"CPU" : Cpu})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpiphone()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+def Gpuspeciphone():
+    print("Masukan nama Gpu baru")
+    Gpu = str(input(":"))
+    if Gpu == "":
+        print("masukan nama yang benar")
+        Gpuspeciphone()
+    print(Gpu)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar nama GPUnya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Gpuspeciphone()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Gpuspeciphone()
+            elif masukan == "B":
+                Editspechpiphone()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Iphone"][Datahp[0]].update({"GPU" : Gpu})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpiphone()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+
+def Displayspeciphone():
+    print("Masukan nama tipe Display baru")
+    Display = str(input(":"))
+    if Display == "":
+        print("masukan nama yang benar")
+        Displayspeciphone()
+    print(Display)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar nama Displaynya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Displayspeciphone()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Displayspeciphone()
+            elif masukan == "B":
+                Editspechpiphone()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Iphone"][Datahp[0]].update({"Display" : Display})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpiphone()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+
+
+def Memorispeciphone():
+    print("Masukan jumlah memori hp baru")
+    Memori = str(input(":"))
+    if Memori == "":
+        print("masukan nama yang benar")
+        Memorispeciphone()
+    print(Memori)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar kapasitas memorinya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Memorispeciphone()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Memorispeciphone()
+            elif masukan == "B":
+                Editspechpiphone()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Iphone"][Datahp[0]].update({"Memori Internal" : Memori})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpiphone()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+
+def Ramspeciphone():
+    print("Masukan jumlah RAM baru")
+    Ram = str(input(":"))
+    if Ram == "":
+        print("masukan nama yang benar")
+        Ramspeciphone()
+    print(Ram)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar kapasitas RAMnya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Ramspeciphone()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Ramspeciphone()
+            elif masukan == "B":
+                Editspechpiphone()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Iphone"][Datahp[0]].update({"RAM" : Ram})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpiphone()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+
+def Kameraspeciphone():
+    print("Masukan total MP Kamera baru")
+    Kamera = str(input(":"))
+    if Kamera == "":
+        print("masukan nama yang benar")
+        Kameraspeciphone()
+    print(Kamera)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar MP kameranya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Kameraspeciphone()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Kameraspeciphone()
+            elif masukan == "B":
+                Editspechpiphone()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Iphone"][Datahp[0]].update({"Kamera" : Kamera})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpiphone()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+def Jaringanspeciphone():
+    print("Masukan Support Jaringan baru")
+    Jaringan = str(input(":"))
+    if Jaringan == "":
+        print("masukan nama yang benar")
+        Jaringanspeciphone()
+    print(Jaringan)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar Jaringannya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Jaringanspeciphone()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Jaringanspeciphone()
+            elif masukan == "B":
+                Editspechpiphone()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Iphone"][Datahp[0]].update({"Jaringan" : Jaringan})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpiphone()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+
+def Bateraispeciphone():
+    print("Masukan jumlah kapasitas baterai baru")
+    Baterai = str(input(":"))
+    if Baterai == "":
+        print("masukan nama yang benar")
+        Bateraispeciphone()
+    print(Baterai)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar jumlah Kapasitas Baterainya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Bateraispeciphone()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Bateraispeciphone()
+            elif masukan == "B":
+                Editspechpiphone()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Iphone"][Datahp[0]].update({"Kapasitas Baterai" : Baterai})
+    print("item berhasil di ubah!")
+    i = 0
+    while i == 0:
+        
+            print("""
+            Apakah anda ingin kembali ke:
+            A. Edit spec
+            B. Menu admin
+            """)
+            masukan1 = str(input(":"))
+
+            if masukan1 == "A":
+                Editspechpiphone()
+            elif masukan1 == "B":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Input salah")
+
+def Namahpspeciphone():
+    print("Masukan Nama hp baru")
+    Nama = str(input(":"))
+    if Nama == "":
+        print("masukan nama yang benar")
+        Namahpspeciphone()
+    print(Nama)
+
+    i = 0
+    while i == 0:
+
+        print("Apakah sudah benar jumlah Kapasitas Baterainya? (Y/N)")
+        Konfirmasi = str(input(":"))
+        if Konfirmasi == "Y":
+            break
+        elif Konfirmasi == "N":
+            Namahpspeciphone()
+        else:
+            print("Inputan salah")
+
+
+    i = 0
+    while i == 0:
+
+        print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
+        finalisasi = str(input(":"))
+        if finalisasi == "Y":
+            break
+        elif finalisasi == "N":
+            print("""
+            A. Kembali ke awal edit
+            B. Kembali ke menu edit
+            C. Kembali ke menu admin
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                Namahpspeciphone()
+            elif masukan == "B":
+                Editspechpiphone()
+            elif masukan == "C":
+                Datahp.clear()
+                main_admin()
+            else:
+                print("Masukan salah")
+            
+        else:
+            print("Inputan salah")
+
+    Spechp["Iphone"][Nama] = Daftarhp["Iphone"].pop(Datahp[0])
+    Datahp.clear()
+    Datahp.append(Nama)
+    i = 0
+    while i == 0:
+        print("Item berhasil diubah")
+        print("""
+        Apakah anda ingin kembali ke:
+        A. Edit spec
+        B. Menu admin
+        """)
+        masukan1 = str(input(":"))
+
+        if masukan1 == "A":
+            Editspechpiphone()
+        elif masukan1 == "B":
+            Datahp.clear()
+            main_admin()
+        else:
+            print("Input salah")
 
 
 
