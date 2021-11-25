@@ -16,9 +16,30 @@ Daftarhp = {
     }
 }
 
+Stokhp = {
+
+    "Samsung" : {
+        "Samsung J2" : 3,
+        "Samsung J1 Prime" : 2,
+    },
+
+    "Oppo" : {
+        "Oppo A3s" : 4,
+        "Oppo X reno" : 1,
+    },
+    
+    "Iphone" : {
+        "Iphone 123" : 3,
+        "Iphone X" : 0,
+    }
+
+
+
+}
+
 Spechp = {
     "Samsung" : {
-         "Samsung J2 Prime" : {
+         "Samsung J1 Prime" : {
             "Nama" : "Samsung J2 Prime",
             "Tahun Keluar" : "2016",
             "OS" : "Android 6.0 (Marshmallow)",
@@ -71,15 +92,10 @@ Spechp = {
    
 }
 
+
+
 Merkhp = ["Oppo", "Iphone", "Samsung"]
 Datahp = []
-
-Data_hari = {
-        "Hari" : ["Senin","Selasa","Rabu","Kamis","Jumat","Sabtu","Minggu"],
-        "Bulan" : ["Januari","Febuari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"],
-        "tanggal" : list(range(1,32)),
-        "datahari" : []
-            }
 
 Keuntungan = {
         "Total_keuntungan" : []
@@ -126,6 +142,7 @@ def main_admin():
     print("6. Hapus jumlah keuntungan hari ini")
     print("7. Keluar dari program ini")
     print("8. Database spec hp")
+    print("9. Stok hp")
     print("0. Keluar dari menu Admin")
     print ("======================================")
     Jumlahuntung = sum(Keuntungan["Total_keuntungan"])
@@ -151,6 +168,8 @@ def main_admin():
         Keluar()
     elif pilihan_menu == ("8"):
         Editspechp()
+    elif pilihan_menu == ("9"):
+        stokhp()
     elif pilihan_menu == ("0"):
         kembalilogin()        
     else:
@@ -5194,6 +5213,18 @@ def Namahpspeciphone():
             print("Input salah")
 
 
+def stokhp():
+    for key, val in Spechp.items():
+        for key2, val2 in val.items():
+            print("%s : %s" % (key2,val2))
+    
+    print("""
+    A. Tambah stok hp
+    B. Ubah stok hp
+    C. Kembali ke menu admin
+    
+    """)
+
 
 
 
@@ -5271,62 +5302,585 @@ def kembali_menu():
 
 def kasir():
 
-    print("toko")
-    for key, val in Daftarhp.items():
-        for key2, val2 in val.items():
-            print("%s : %s" % (key2,val2))
-
     print("Menu Kasir")
     print("""
     A. Jual Hp
     B. Beli Hp
-    C. 
+    C. Kembali ke login
     """)
+
+    masukan = str(input(":"))
+
+    if masukan == "A":
+        jualhp()
+    elif masukan == "B":
+        belihp()
+    elif masukan == "C":
+        user_login()
+    else:
+        print("Masukan pilihan dengan benar")
+        kasir()
+
+
+def jualhp():
+    print("Jual hp")
+    print("toko")
+    for key, val in Daftarhp.items():
+        for key2, val2 in val.items():
+            print("%s : %s" % (key2,val2))
+    print("""
+    A. Pilih hp berdasarkan merk
+    B. Pilih hp berdasarkan harga
+    C. Kembali ke awal 
+    Ket: Masukan nama hp sesuai di tabel untuk pilih hp yang akan di beli
+    """)
+    masukan = str(input(":"))
+
+    if masukan == "A":
+        jualhpmerk()
+    elif masukan == "B":
+        jualhpharga()
+    elif masukan == "C":
+        kasir()
+    else:
+        print("masukan salah")
+        jualhp()
+
+
+def jualhpmerk():
+    for merk in Merkhp:
+        print(merk)
+    print("Pilih merk yang di inginkan")
+    pilihmerk = str(input(":"))        
+    if pilihmerk == "Samsung":
+        i = 0
+        while i == 0:
+            for key,val in Daftarhp["Samsung"].items():
+                print("%s : %s" % (key,val))
+            
+            print("""
+                A. Tampilkan seluruh merk hp
+                B. Pilih hp berdasarkan harga
+                C. Kembali ke awal
+
+                Ket: Masukan nama hp sesuai di tabel untuk pilih hp yang akan di beli 
+            """)
+
+            masukansamsung = str(input(":"))
+            if masukansamsung == "A":
+                jualhp()
+            elif masukansamsung == "B":
+                jualhpharga()
+            elif masukansamsung == "C":
+                kasir()
+            elif masukansamsung in Daftarhp["Samsung"].keys():
+                Datahp.append(masukansamsung)
+                konfirmasibeli()
+            else:
+                print("masukan salah")
+
+    elif pilihmerk == "Oppo":
+        i = 0
+        while i == 0:
+            for key,val in Daftarhp["Oppo"].items():
+                print("%s : %s" % (key,val))
+            
+            print("""
+                A. Tampilkan seluruh merk hp
+                B. Pilih hp berdasarkan harga
+                C. Kembali ke awal
+
+                Ket: Masukan nama hp sesuai di tabel untuk pilih hp yang akan di beli 
+            """)
+
+            masukanoppo = str(input(":"))
+            if masukanoppo == "A":
+                jualhp()
+            elif masukanoppo == "B":
+                jualhpharga()
+            elif masukanoppo == "C":
+                kasir()
+            elif masukanoppo in Daftarhp["Oppo"].keys():
+                Datahp.append(masukanoppo)
+                konfirmasibeli()
+            else:
+                print("masukan salah")
+    elif pilihmerk == "Iphone":
+        i = 0
+        while i == 0:
+            for key,val in Daftarhp["Iphone"].items():
+                print("%s : %s" % (key,val))
+            
+            print("""
+                A. Tampilkan seluruh merk hp
+                B. Pilih hp berdasarkan harga
+                C. Kembali ke awal
+
+                Ket: Masukan nama hp sesuai di tabel untuk pilih hp yang akan di beli 
+            """)
+
+            masukaniphone = str(input(":"))
+            if masukaniphone == "A":
+                jualhp()
+            elif masukaniphone == "B":
+                jualhpharga()
+            elif masukaniphone == "C":
+                kasir()
+            elif masukaniphone in Daftarhp["Iphone"].keys():
+                Datahp.append(masukaniphone)
+                konfirmasibeli()
+            else:
+                print("Masukan salah")
+                
+    else:
+        print("masukan anda salah, silakan isi kembali")
+        
+
+
     
-    print("pilih merk")
+def konfirmasibeli():
+    if Datahp[0] in Daftarhp["Samsung"].keys():
+        print("Nama Hp :", Datahp[0])
+        print("Harga Hp :", Daftarhp["Samsung"][Datahp[0]])
+        try:
+            print("Spec hp :", Spechp["Samsung"][Datahp[0]])
+        except KeyError:
+            print("Spec hp tidak ada")
+
+        print("Stok Hp :", Stokhp["Samsung"][Datahp[0]])
+        print("""
+        A. Jual Hp ini
+        B. Pilih Hp lain
+        C. Kembali ke awal
+        """)
+        masukan = str(input(":"))
+        if masukan == "A":
+            print("Apakah anda ingin menjual hp ini? (Y/N)")
+            Konfirmasi = str(input(":"))
+            if Konfirmasi == "Y":
+                if Stokhp["Samsung"][Datahp[0]] > 0:
+                    print("Toko")
+                    print("Nama Hp :", Datahp[0])
+                    print("Harga Hp :", Daftarhp["Samsung"][Datahp[0]])
+                    print("Jumlah Bayar Total : Rp.", Daftarhp["Samsung"][Datahp[0]])
+                    print("Terima kasih telah membeli di toko kami")
+                    ubah = Stokhp["Samsung"][Datahp[0]] - 1
+                    Stokhp["Samsung"].update({Datahp[0] : ubah})
+                    Keuntungan["Total_keuntungan"].append(Daftarhp["Samsung"][Datahp[0]])
+                    Datahp.clear()
+                    kasir()
+                else:
+                    print("Mohon maaf hp ini tidak ada stoknya")
+                    jualhp()
+            
+            elif Konfirmasi == "N":
+                i = 0
+                while i == 0:
+
+                    print("""
+                    A. Kembali ke daftar seluruh hp
+                    B. Kembali ke kasir
+                    """)
+                    kembali = str(input(":"))
+
+                    if kembali == "A":
+                        jualhp()
+                    elif kembali == "B":
+                        kasir()
+                    else:
+                        print("Masukan salah silakan coba kembali")
+
+
+        elif masukan == "B":
+            Datahp.clear()
+            jualhpmerk()
+        elif masukan == "C":
+            Datahp.clear()
+            jualhp()
+    
+    elif Datahp[0] in Daftarhp["Oppo"].keys():
+        print("Nama Hp :", Datahp[0])
+        print("Harga Hp :", Daftarhp["Oppo"][Datahp[0]])
+        try:
+            print("Spec hp :", Spechp["Oppo"][Datahp[0]])
+        except KeyError:
+            print("Spec hp tidak ada")
+
+        print("Stok Hp :", Stokhp["Oppo"][Datahp[0]])
+        print("""
+        A. Jual Hp ini
+        B. Pilih Hp lain
+        C. Kembali ke awal
+        """)
+        masukan = str(input(":"))
+        if masukan == "A":
+            print("Apakah anda ingin menjual hp ini? (Y/N)")
+            Konfirmasi = str(input(":"))
+            if Konfirmasi == "Y":
+                if Stokhp["Oppo"][Datahp[0]] > 0:
+                    print("Toko")
+                    print("Nama Hp :", Datahp[0])
+                    print("Harga Hp :", Daftarhp["Oppo"][Datahp[0]])
+                    print("Jumlah Bayar Total : Rp.", Daftarhp["Oppo"][Datahp[0]])
+                    print("Terima kasih telah membeli di toko kami")
+                    ubah = Stokhp["Oppo"][Datahp[0]] - 1
+                    Stokhp["Oppo"].update({Datahp[0] : ubah})
+                    Keuntungan["Total_keuntungan"].append(Daftarhp["Oppo"][Datahp[0]])
+                    Datahp.clear()
+                    kasir()
+                else:
+                    print("Mohon maaf hp ini tidak ada stoknya")
+                    jualhp()
+            
+            elif Konfirmasi == "N":
+                i = 0
+                while i == 0:
+
+                    print("""
+                    A. Kembali ke daftar seluruh hp
+                    B. Kembali ke kasir
+                    """)
+                    kembali = str(input(":"))
+
+                    if kembali == "A":
+                        jualhp()
+                    elif kembali == "B":
+                        kasir()
+                    else:
+                        print("Masukan salah silakan coba kembali")
+
+        elif masukan == "B":
+            Datahp.clear()
+            jualhpmerk()
+        elif masukan == "C":
+            Datahp.clear()
+            jualhp()
+
+    elif Datahp[0] in Daftarhp["Iphone"].keys():
+        print("Nama Hp :", Datahp[0])
+        print("Harga Hp :", Daftarhp["Iphone"][Datahp[0]])
+        try:
+            print("Spec hp :", Spechp["Iphone"][Datahp[0]])
+        except KeyError:
+            print("Spec hp tidak ada")
+
+        print("Stok Hp :", Stokhp["Iphone"][Datahp[0]])
+        print("""
+        A. Jual Hp ini
+        B. Pilih Hp lain
+        C. Kembali ke awal
+        """)
+        masukan = str(input(":"))
+        if masukan == "A":
+            print("Apakah anda ingin menjual hp ini? (Y/N)")
+            Konfirmasi = str(input(":"))
+            if Konfirmasi == "Y":
+                if Stokhp["Iphone"][Datahp[0]] > 0:
+                    print("Toko")
+                    print("Nama Hp :", Datahp[0])
+                    print("Harga Hp :", Daftarhp["Iphone"][Datahp[0]])
+                    print("Jumlah Bayar Total : Rp.", Daftarhp["Iphone"][Datahp[0]])
+                    print("Terima kasih telah membeli di toko kami")
+                    ubah = Stokhp["Iphone"][Datahp[0]] - 1
+                    Stokhp["Iphone"].update({Datahp[0] : ubah})
+                    Keuntungan["Total_keuntungan"].append(Daftarhp["Iphone"][Datahp[0]])
+                    Datahp.clear()
+                    kasir()
+                else:
+                    print("Mohon maaf hp ini tidak ada stoknya")
+                    jualhp()
+            
+            elif Konfirmasi == "N":
+                i = 0
+                while i == 0:
+
+                    print("""
+                    A. Kembali ke daftar seluruh hp
+                    B. Kembali ke kasir
+                    """)
+                    kembali = str(input(":"))
+
+                    if kembali == "A":
+                        jualhp()
+                    elif kembali == "B":
+                        kasir()
+                    else:
+                        print("Masukan salah silakan coba kembali")
+
+        elif masukan == "B":
+            Datahp.clear()
+            jualhpmerk()
+        elif masukan == "C":
+            Datahp.clear()
+            jualhp()
+
+    else:
+        print("data tidak ada")
+                
+
+def jualhpharga():
+    Samsung = sorted(Daftarhp["Samsung"].items(), key=lambda x: x[1])
+    Oppo = sorted(Daftarhp["Oppo"].items(), key=lambda x: x[1])
+    Iphone = sorted(Daftarhp["Iphone"].items(), key=lambda x: x[1])
+    for s in Samsung:
+        print(s[0], s[1])
+    for o in Oppo:
+        print(o[0], o[1])
+    for i in Iphone:
+        print(i[0], i[1])
+
+    print("""
+                A. Tampilkan seluruh merk hp
+                B. Pilih hp berdasarkan merk
+                C. Kembali ke awal
+
+                Ket: Masukan nama hp sesuai di tabel untuk pilih hp yang akan di beli 
+    """)
+
+    masukan = str(input(":"))
+    if masukan == "A":
+        jualhp()
+    elif masukan == "B":
+        jualhpmerk()
+    elif masukan == "C":
+        kasir()
+    elif masukan in Daftarhp["Samsung"].keys():
+        Datahp.append(masukan)
+        konfirmasibeli()
+    elif masukan in Daftarhp["Oppo"].keys():
+        Datahp.append(masukan)
+        konfirmasibeli()
+    elif masukan in Daftarhp["Iphone"].keys():
+        Datahp.append(masukan)
+        konfirmasibeli()
+    else:
+        print("Masukan salah")
+        jualhpharga()
+
+    
+    
+def belihp():
     for i in Merkhp:
         print(i)
-
-    X = input(":")
-
-
-
-    if X in Daftarhp.keys():
-        
-        if X == "Samsung":
-            for key, val in Daftarhp["Samsung"].items():
-                    print("%s = %s" % (key,val))
-               
-            print("Pilih hp")
-            Masukan = input(":")
-
-            if Masukan in Daftarhp["Samsung"].keys():
-                print(Masukan)
-                print(Daftarhp["Samsung"][Masukan])
-                try:
-                    print(Spechp.get(Masukan))
-                except KeyError:
-                    print("Data spec hp tidak dapat ditemukan")
-
-            else:
-                print("asss")
-            
-
-        elif X == "Oppo":
-            
-            for key, val in Daftarhp.items():
-                for key2, val2 in val.items():
-                        print("%s = %s" % (key2,val2))
-                        
-
-        else:
-            print("error")
-    
+    print("Pilih merk hp yang akan dibeli")
+    masukan = str(input(":"))
+    if masukan == "Samsung":
+        belihpsamsung()
+    elif masukan == "Oppo":
+        belihpoppo()
+    elif masukan == "Iphone":
+        belihpiphone()
     else:
-        print("aslah")
+        print("masukan salah")
+        belihp()
+
+def belihpsamsung():
+    i = 0 
+    while i == 0:
+        print("Namahp? (pastikan tambahkan nama dengan merknya)")
+        nama = str(input(":"))
+        if nama == "":
+            print("mohon masukan input dengan benar")
+        else:
+            Datahp.append(nama)
+            belihpsamsung1()
+
+def belihpsamsung1():
+    i = 0
+    while i == 0:
+        print("Harga hp? (pastikan sudah di diskusikan dan sepakat antara kedua pihak")
+        try:
+            harga = int(input(":"))
+        except ValueError:
+            print("harap masukan angka bukan huruf")
+        if harga > 0:
+            Datahp.append(harga)
+            belihpsamsung2()
+        else:
+            print("masukan anda negatif atau bukan angka")
         
+def belihpsamsung2():
+    print("Nama Hp", Datahp[0])
+    print("Harga hp", Datahp[1])
+    print("Apakah nama dan harga sudah sesuai? (konfirmasi kepada penjual) (Y/N)")
+    finalisasi = str(input(":"))
+    if finalisasi == "Y":
+        print("toko hp")
+        print("Nama Hp", Datahp[0])
+        print("Harga hp", Datahp[1])
+        print("terima kasih telah menjual di sini")
+        kasir()
+
+    elif finalisasi == "N":
+        i = 0
+        while i == 0:
+            print("""
+            A. Ubah nama
+            B. Ubah harga
+            C. Batalkan penbelian
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                belihpsamsung()
+            elif masukan == "B":
+                belihpsamsung1()
+            elif masukan == "C":
+                i = 0
+                while i == 0:
+                    print("Apakah anda yakin untuk membatalkan (Y/N)")
+                    batal = str(input(":"))
+                    if batal == "Y":
+                        Datahp.clear()
+                        print("pembelian dibatalkan")
+                        kasir()
+                    elif batal == "N":
+                        belihpsamsung2()
+                    else:
+                        print("masukan salah")
+            else:
+                print("Masukan salah")
+    else:
+        print("masukan salah")
 
 
+def belihpoppo():
+    i = 0 
+    while i == 0:
+        print("Namahp? (pastikan tambahkan nama dengan merknya)")
+        nama = str(input(":"))
+        if nama == "":
+            print("mohon masukan input dengan benar")
+        else:
+            Datahp.append(nama)
+            belihpoppo1()
+
+def belihpoppo1():
+    i = 0
+    while i == 0:
+        print("Harga hp? (pastikan sudah di diskusikan dan sepakat antara kedua pihak")
+        try:
+            harga = int(input(":"))
+        except ValueError:
+            print("harap masukan angka bukan huruf")
+        if harga > 0:
+            Datahp.append(harga)
+            belihpoppo2()
+        else:
+            print("masukan anda negatif atau bukan angka")
+        
+def belihpoppo2():
+    print("Nama Hp", Datahp[0])
+    print("Harga hp", Datahp[1])
+    print("Apakah nama dan harga sudah sesuai? (konfirmasi kepada penjual) (Y/N)")
+    finalisasi = str(input(":"))
+    if finalisasi == "Y":
+        print("toko hp")
+        print("Nama Hp", Datahp[0])
+        print("Harga hp", Datahp[1])
+        print("terima kasih telah menjual di sini")
+        kasir()
+
+    elif finalisasi == "N":
+        i = 0
+        while i == 0:
+            print("""
+            A. Ubah nama
+            B. Ubah harga
+            C. Batalkan penbelian
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                belihpoppo()
+            elif masukan == "B":
+                belihpoppo1()
+            elif masukan == "C":
+                i = 0
+                while i == 0:
+                    print("Apakah anda yakin untuk membatalkan (Y/N)")
+                    batal = str(input(":"))
+                    if batal == "Y":
+                        Datahp.clear()
+                        print("pembelian dibatalkan")
+                        kasir()
+                    elif batal == "N":
+                        belihpoppo2()
+                    else:
+                        print("masukan salah")
+            else:
+                print("Masukan salah")
+    else:
+        print("masukan salah")
+                
+
+def belihpiphone():
+    i = 0 
+    while i == 0:
+        print("Namahp? (pastikan tambahkan nama dengan merknya)")
+        nama = str(input(":"))
+        if nama == "":
+            print("mohon masukan input dengan benar")
+        else:
+            Datahp.append(nama)
+            belihpiphone1()
+
+def belihpiphone1():
+    i = 0
+    while i == 0:
+        print("Harga hp? (pastikan sudah di diskusikan dan sepakat antara kedua pihak")
+        try:
+            harga = int(input(":"))
+        except ValueError:
+            print("harap masukan angka bukan huruf")
+        if harga > 0:
+            Datahp.append(harga)
+            belihpiphone2()
+        else:
+            print("masukan anda negatif atau bukan angka")
+        
+def belihpiphone2():
+    print("Nama Hp", Datahp[0])
+    print("Harga hp", Datahp[1])
+    print("Apakah nama dan harga sudah sesuai? (konfirmasi kepada penjual) (Y/N)")
+    finalisasi = str(input(":"))
+    if finalisasi == "Y":
+        print("toko hp")
+        print("Nama Hp", Datahp[0])
+        print("Harga hp", Datahp[1])
+        print("terima kasih telah menjual di sini")
+        kasir()
+
+    elif finalisasi == "N":
+        i = 0
+        while i == 0:
+            print("""
+            A. Ubah nama
+            B. Ubah harga
+            C. Batalkan penbelian
+            """)
+            masukan = str(input(":"))
+            if masukan == "A":
+                belihpiphone()
+            elif masukan == "B":
+                belihpiphone1()
+            elif masukan == "C":
+                i = 0
+                while i == 0:
+                    print("Apakah anda yakin untuk membatalkan (Y/N)")
+                    batal = str(input(":"))
+                    if batal == "Y":
+                        Datahp.clear()
+                        print("pembelian dibatalkan")
+                        kasir()
+                    elif batal == "N":
+                        belihpiphone2()
+                    else:
+                        print("masukan salah")
+            else:
+                print("Masukan salah")
+    else:
+        print("masukan salah")
+    
+   
 
 
 user_login()
