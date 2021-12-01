@@ -39,6 +39,7 @@ Stokhp = {
 }
 
 Spechp = {
+    
     "Samsung" : {
          "SAMSUNG J1 PRIME" : {
             "Nama" : "Samsung J2 Prime",
@@ -58,7 +59,7 @@ Spechp = {
 
     "Oppo" : { 
         "OPPO A3S" : {
-            "Nama" : "Samsung J2 Prime",
+            "Nama" : "Oppo A3s",
             "Tahun Keluar" : "2016",
             "OS" : "Android 6.0 (Marshmallow)",
             "Chipset" : "Mediatek MT6737T (28nm)",
@@ -75,7 +76,7 @@ Spechp = {
 
     "Merk lain" : {
         "IPHONE X" : {
-            "Nama" : "Samsung J2 Prime",
+            "Nama" : "Iphone X",
             "Tahun Keluar" : "2016",
             "OS" : "Android 6.0 (Marshmallow)",
             "Chipset" : "Mediatek MT6737T (28nm)",
@@ -112,11 +113,13 @@ Userlogin = {
 def user_login():
     print("=============")
     print("Selamat datang")
+    print("toko broku store 2rd")
     print("=============")
     user =str(input("Masukan username :"))
     try:
         Pass =int(input("Masukan password :"))
     except ValueError:
+        os.system('cls')
         print("Password berbentuk angka silakan isi ulang")
         user_login()
         
@@ -131,13 +134,13 @@ def user_login():
         kasir()
         
     else:
-        print("Username atau password anda salah, silakan isi kembali")
         os.system('cls')
+        print("Username atau password anda salah, silakan isi kembali")
         user_login()
 
 def main_admin():
-    
-    print("Menu Admin")
+
+    print("Menu Admin toko broku store 2rd") 
     waktu = time.ctime()
     print(waktu)
     print("======================================")
@@ -184,16 +187,10 @@ def main_admin():
     else:
         os.system('cls')
         print("Anda salah input silakan coba kembali")
-        kembali_menu()
-
-
-
-
-
-
+        main_admin()
 
 def List_menuhp():
-    print("List HP")
+    print("List HP toko broku store 2rd")
     print ("==========================================")
     for key, val in Daftarhp.items():
         for key2, val2 in val.items():
@@ -1872,28 +1869,31 @@ def Editnamaharga_Oppo1():
             print("Input salah")
 
 
-
+   
 def Edithp_merklain():
-    for key, val in Daftarhp["Merk lain"].items():
-        print("%s = %s" % (key,val))
+    for key in Daftarhp["Merk lain"].keys():
+        print("%s" % (key))
 
-    print("=============")
+    print("====================")
     print("Kembali")
     print("Masukan nama hp yang akan diedit (Ketik kembali untuk kembali ke menu sebelumnya) ")
     ubah = str.upper(input(":"))
     if ubah in Daftarhp["Merk lain"].keys():
         Datahp.append(ubah)
+        os.system('cls')
         Edithp_merklain1()
     elif ubah == "KEMBALI":
+        os.system('cls')
         Edit_hp()
     else:
+        os.system('cls')
         print("Masukan inputan yang benar")
         Edithp_merklain()
 
 
 def Edithp_merklain1():
     print("Nama hp : ",Datahp[0])
-    print("Harga hp : ",Daftarhp["Merk lain"][Datahp[0]])
+    print("Harga hp : Rp. ",Daftarhp["Merk lain"][Datahp[0]])
     print("Menu edit")
     print("""
         1. Nama Hp
@@ -1905,56 +1905,73 @@ def Edithp_merklain1():
     try:
         masukan = int(input(":"))
     except ValueError:
+        os.system('cls')
         print("Masukan salah")
         Edithp_merklain1()
     
     if masukan > 0:
         if masukan == 1:
+            os.system('cls')
             Editnama_merklain()
         elif masukan == 2:
+            os.system('cls')
             Editharga_merklain()
         elif masukan == 3:
+            os.system('cls')
             Editnamaharga_merklain()
         elif masukan == 4:
             Datahp.clear()
+            os.system('cls')
             Edit_hp()
         elif masukan == 5:
             Datahp.clear()
+            os.system('cls')
             main_admin()
         else:
-            print("Inputan kamu salah")
+            os.system('cls')
+            print("Inputan kamu salah, silakan coba kembali")
             Edithp_merklain1()
     else:
-        print("Inputan kamu negatif")
+        os.system('cls')
+        print("Inputan kamu negatif, silakan coba kembali")
         Edithp_merklain1()
 
 def Editnama_merklain():
     print("Nama hp lama : ",Datahp[0])
-    print("Masukan Nama hp baru (Ketik kembali untuk kembali ke menu sebelumnya)")
+    print("Masukan Nama hp baru (Ketik kembali untuk kembali ke menu sebelumnya) ")
     namahp = str.upper(input(":"))
     if namahp == "":
+        os.system('cls')
         print("Mohon isi dengan benar")
-        Editnama_merklain()   
+        Editnama_merklain()
     elif namahp == "KEMBALI":
+        os.system('cls')
         Edithp_merklain1()
-    print("Nama hp baru : ",namahp)
+
+    
     i = 0
     while i == 0:
+        print("Nama hp baru : ",namahp)
         print("Apakah nama sudah benar? (Y/N)")
         nama = str.upper(input(":"))
         if nama == "Y":
+            os.system('cls')
             break
         elif nama == "N":
+            os.system('cls')
             Editnama_merklain()
         else:
+            os.system('cls')
             print("Harap input jawaban yang benar")
     i = 0
     while i == 0:
         print("apakah anda benar-benar ingin mengubah nama hp ini? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             i = 0
             while i == 0:
                 print("""
@@ -1968,17 +1985,23 @@ def Editnama_merklain():
 
                 if masukan == "A":
                     Datahp.clear()
+                    os.system('cls')
                     main_admin()
                 elif masukan == "B":
                     Datahp.clear()
+                    os.system('cls')
                     Edit_hp()
                 elif masukan == "C":
+                    os.system('cls')
                     Editnama_merklain()
                 elif masukan == "D":
+                    os.system('cls')
                     Edithp_merklain1()
                 else:
+                    os.system('cls')
                     print("inputan salah")
         else:
+            os.system('cls')
             print("inputan salah")
     
     
@@ -1995,11 +2018,14 @@ def Editnama_merklain():
 
         if masukan1 == "A":
             Datahp.clear()
+            os.system('cls')
             Edit_hp()
         elif masukan1 == "B":
             Datahp.clear()
+            os.system('cls')
             main_admin()
         else:
+            os.system('cls')
             print("Input salah")
 
 
@@ -2009,6 +2035,7 @@ def Editharga_merklain():
     try:
         hargahp = int(input(":"))
     except ValueError:
+        os.system('cls')
         print("Masukan angka bukan huruf")
         Editharga_merklain()
     
@@ -2019,14 +2046,19 @@ def Editharga_merklain():
             print("Apakah Harga sudah benar? (Y/N)")
             nama = str.upper(input(":"))
             if nama == "Y":
+                os.system('cls')
                 break
             elif nama == "N":
+                os.system('cls')
                 Editharga_merklain()
             else:
+                os.system('cls')
                 print("Harap input jawaban yang benar")
     elif hargahp == 000:
+        os.system('cls')
         Edithp_merklain1()
     else:
+        os.system('cls')
         print("masukan berbentuk negatif")
         Editharga_merklain()
     i = 0
@@ -2034,8 +2066,10 @@ def Editharga_merklain():
         print("apakah anda benar-benar ingin mengubah harga hp ini? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             i = 0
             while i == 0:
                 print("""
@@ -2049,17 +2083,23 @@ def Editharga_merklain():
 
                 if masukan == "A":
                     Datahp.clear()
+                    os.system('cls')
                     main_admin()
                 elif masukan == "B":
                     Datahp.clear()
+                    os.system('cls')
                     Edit_hp()
                 elif masukan == "C":
+                    os.system('cls')
                     Editharga_merklain()
                 elif masukan == "D":
+                    os.system('cls')
                     Edithp_merklain1()
                 else:
+                    os.system('cls')
                     print("inputan salah")
         else:
+            os.system('cls')
             print("inputan salah")
     
     
@@ -2076,11 +2116,14 @@ def Editharga_merklain():
 
         if masukan1 == "A":
             Datahp.clear()
+            os.system('cls')
             Edit_hp()
         elif masukan1 == "B":
             Datahp.clear()
+            os.system('cls')
             main_admin()
         else:
+            os.system('cls')
             print("Input salah")
 
 def Editnamaharga_merklain():
@@ -2088,28 +2131,36 @@ def Editnamaharga_merklain():
     print("Masukan Nama hp baru (Ketik kembali untuk kembali ke menu sebelumnya)")
     namahp = str.upper(input(":"))
     if namahp == "":
+        os.system('cls')
         print("Mohon isi dengan benar")
         Editnamaharga_merklain()
     elif namahp == "KEMBALI":
+        os.system('cls')
         Edithp_merklain1()
-    print("Nama hp baru : ",namahp)
+    os.system('cls')
     i = 0
     while i == 0:
+        print("Nama hp baru : ",namahp)
         print("Apakah nama sudah benar? (Y/N)")
         nama = str.upper(input(":"))
         if nama == "Y":
+            os.system('cls')
             break
         elif nama == "N":
+            os.system('cls')
             Editnamaharga_merklain()
         else:
+            os.system('cls')
             print("Harap input jawaban yang benar")
     i = 0
     while i == 0:
         print("apakah anda benar-benar ingin mengubah nama hp ini? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             i = 0
             while i == 0:
                 print("""
@@ -2123,17 +2174,23 @@ def Editnamaharga_merklain():
 
                 if masukan == "A":
                     Datahp.clear()
+                    os.system('cls')
                     main_admin()
                 elif masukan == "B":
                     Datahp.clear()
+                    os.system('cls')
                     Edit_hp()
                 elif masukan == "C":
+                    os.system('cls')
                     Editnamaharga_merklain()
                 elif masukan == "D":
+                    os.system('cls')
                     Edithp_merklain1()
                 else:
+                    os.system('cls')
                     print("inputan salah")
         else:
+            os.system('cls')
             print("inputan salah")
     Datahp.append(namahp)
     Editnamaharga_merklain1()
@@ -2144,25 +2201,31 @@ def Editnamaharga_merklain1():
     try:
         hargahp = int(input(":"))
     except ValueError:
+        os.system('cls')
         print("Masukan angka bukan huruf")
         Editnamaharga_merklain1()
-    
+    os.system('cls')
     if hargahp > 0:
-        print("Harga hp baru : Rp. ",hargahp)
         i = 0
         while i == 0:
+            print("Harga hp baru : Rp. ",hargahp)
             print("Apakah Harga sudah benar? (Y/N)")
             nama = str.upper(input(":"))
             if nama == "Y":
+                os.system('cls')
                 break
             elif nama == "N":
+                os.system('cls')
                 Editnamaharga_merklain1()
             else:
+                os.system('cls')
                 print("Harap input jawaban yang benar")
     elif hargahp == 000:
         Datahp.clear()
+        os.system('cls')
         Editnamaharga_merklain()
     else:
+        os.system('cls')
         print("masukan berbentuk negatif")
         Editnamaharga_merklain1()
     i = 0
@@ -2170,8 +2233,10 @@ def Editnamaharga_merklain1():
         print("apakah anda benar-benar ingin mengubah harga hp ini? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             i = 0
             while i == 0:
                 print("""
@@ -2185,18 +2250,24 @@ def Editnamaharga_merklain1():
 
                 if masukan == "A":
                     Datahp.clear()
+                    os.system('cls')
                     main_admin()
                 elif masukan == "B":
                     Datahp.clear()
+                    os.system('cls')
                     Edit_hp()
                 elif masukan == "C":
+                    os.system('cls')
                     Editnamaharga_merklain1()
                 elif masukan == "D":
+                    os.system('cls')
                     del Datahp[1]
                     Edithp_merklain1()
                 else:
+                    os.system('cls')
                     print("inputan salah")
         else:
+            os.system('cls')
             print("inputan salah")
     
     Daftarhp["Merk lain"][Datahp[1]] = Daftarhp["Merk lain"].pop(Datahp[0])
@@ -2213,11 +2284,14 @@ def Editnamaharga_merklain1():
 
         if masukan1 == "A":
             Datahp.clear()
+            os.system('cls')
             Edit_hp()
         elif masukan1 == "B":
             Datahp.clear()
+            os.system('cls')
             main_admin()
         else:
+            os.system('cls')
             print("Input salah")
 
 
@@ -2231,17 +2305,22 @@ def Edithp_Semuahp():
     print("Masukan nama hp yang akan diedit (Ketik kembali untuk kembali ke menu sebelumnya) ")
     ubah = str.upper(input(":"))
     if ubah in Daftarhp["Samsung"].keys():
+        os.system('cls')
         Datahp.append(ubah)
         Edithp_Samsung1()
     elif ubah in Daftarhp["Oppo"].keys():
+        os.system('cls')
         Datahp.append(ubah)
         Edithp_Oppo1()
     elif ubah in Daftarhp["Merk lain"].keys():
+        os.system('cls')
         Datahp.append(ubah)
         Edithp_merklain1()
     elif ubah == "KEMBALI":
+        os.system('cls')
         Edit_hp()
     else:
+        os.system('cls')
         print("Masukan inputan yang benar")
         Edithp_Semuahp()
 
@@ -2261,19 +2340,23 @@ def Hapus_hp():
     masukan = str.upper(input(":"))
 
     if masukan in Daftarhp["Samsung"].keys():
-        print("Nama hp : ",masukan)
-        print("Harga hp : Rp. ",Daftarhp["Samsung"][masukan])
+        os.system('cls')
         i = 0
-        while i == 0:
+        while i == 0: 
+            print("Nama hp : ",masukan)
+            print("Harga hp : Rp. ",Daftarhp["Samsung"][masukan])
             print("Apakah anda ingin menghapus ini? ini tidak bisa dikembalikan! (Y/N)")
             konfirmasi = str.upper(input(":"))
             if konfirmasi == "Y":
+                os.system('cls')
                 del Daftarhp["Samsung"][masukan]
                 del Stokhp["Samsung"][masukan]
                 print("Data berhasil dihapus!")
                 input("Tekan enter untuk kembali ke menu admin")
+                os.system('cls')
                 main_admin()
             elif konfirmasi == "N":
+                os.system('cls')
                 i = 0
                 while i == 0:
                     print("Operasi dibatalkan, apakah anda ingin kembali ke menu hapus hp atau kembali ke menu admin?")
@@ -2281,28 +2364,36 @@ def Hapus_hp():
                     print("B. menu admin")
                     konfirm = str.upper(input(":"))
                     if konfirm == "A":
+                        os.system('cls')
                         Hapus_hp()
                     elif konfirm == "B":
+                        os.system('cls')
                         main_admin()
                     else:
+                        os.system('cls')
                         print("Inputan salah")
             else:
+                os.system('cls')
                 print("Inputan salah")
 
     elif masukan in Daftarhp["Oppo"].keys():
-        print("Nama hp : ",masukan)
-        print("Harga hp : Rp. ",Daftarhp["Oppo"][masukan])
+        os.system('cls')
         i = 0
         while i == 0:
+            print("Nama hp : ",masukan)
+            print("Harga hp : Rp. ",Daftarhp["Oppo"][masukan])
             print("Apakah anda ingin menghapus ini? ini tidak bisa dikembalikan! (Y/N)")
             konfirmasi = str.upper(input(":"))
             if konfirmasi == "Y":
+                os.system('cls')
                 del Daftarhp["Oppo"][masukan]
                 del Stokhp["Oppo"][masukan]
                 print("Data berhasil dihapus!")
                 input("Tekan enter untuk kembali ke menu admin")
+                os.system('cls')
                 main_admin()
             elif konfirmasi == "N":
+                os.system('cls')
                 i = 0
                 while i == 0:
                     print("Operasi dibatalkan, apakah anda ingin kembali ke menu hapus hp atau kembali ke menu admin?")
@@ -2310,28 +2401,36 @@ def Hapus_hp():
                     print("B. menu admin")
                     konfirm = str.upper(input(":"))
                     if konfirm == "A":
+                        os.system('cls')
                         Hapus_hp()
                     elif konfirm == "B":
+                        os.system('cls')
                         main_admin()
                     else:
+                        os.system('cls')
                         print("Inputan salah")
             else:
+                os.system('cls')
                 print("Inputan salah")
     
     elif masukan in Daftarhp["Merk lain"].keys():
-        print("Nama hp : ",masukan)
-        print("Harga hp : Rp. ",Daftarhp["Merk lain"][masukan])
+        os.system('cls')
         i = 0
         while i == 0:
+            print("Nama hp : ",masukan)
+            print("Harga hp : Rp. ",Daftarhp["Merk lain"][masukan])
             print("Apakah anda ingin menghapus ini? ini tidak bisa dikembalikan! (Y/N)")
             konfirmasi = str.upper(input(":"))
             if konfirmasi == "Y":
+                os.system('cls')
                 del Daftarhp["Merk lain"][masukan]
                 del Stokhp["Merk lain"][masukan]
                 print("Data berhasil dihapus!")
                 input("Tekan enter untuk kembali ke menu admin")
+                os.system('cls')
                 main_admin()
             elif konfirmasi == "N":
+                os.system('cls')
                 i = 0
                 while i == 0:
                     print("Operasi dibatalkan, apakah anda ingin kembali ke menu hapus hp atau kembali ke menu admin?")
@@ -2339,22 +2438,26 @@ def Hapus_hp():
                     print("B. menu admin")
                     konfirm = str.upper(input(":"))
                     if konfirm == "A":
+                        os.system('cls')
                         Hapus_hp()
                     elif konfirm == "B":
+                        os.system('cls')
                         main_admin()
                     else:
+                        os.system('cls')
                         print("Inputan salah")
             else:
+                os.system('cls')
                 print("Inputan salah")
     
     elif masukan == "KEMBALI":
+        os.system('cls')
         main_admin()
     
     else:
+        os.system('cls')
         print("Inputan salah")
         Hapus_hp()
-
-
 
 def Editspechp():
 
@@ -2367,14 +2470,19 @@ def Editspechp():
     masukan = str.upper(input(":"))
 
     if masukan == "A":
+        os.system('cls')
         Tampilspechp()
     elif masukan == "B":
+        os.system('cls')
         Tambahspechp()
     elif masukan == "C":
+        os.system('cls')
         Editspechpada()
     elif masukan == "D":
+        os.system('cls')
         main_admin()
     else:
+        os.system('cls')
         print("Masukan inputan yang benar")
         Editspechp()
 
@@ -2390,6 +2498,7 @@ def Tampilspechp():
         print(key, val)
 
     input("Tekan enter untuk kembali ke menu spechp")
+    os.system('cls')
     Editspechp()
 
 
@@ -2403,14 +2512,19 @@ def Tambahspechp():
     masukan = str.lower(input(":"))
 
     if masukan == "samsung":
+        os.system('cls')
         Tambahspechp_Samsung()
     elif masukan == "oppo":
+        os.system('cls')
         Tambahspechp_Oppo()
     elif masukan == "merk lain":
+        os.system('cls')
         Tambahspechp_merklain()
     elif masukan == "kembali":
+        os.system('cls')
         Editspechp()
     else:
+        os.system('cls')
         print("Masukan salah")
         Tambahspechp()
 
@@ -2418,22 +2532,28 @@ def Tambahspechp_Samsung():
     print("Nama hp? (Ketik kembali untuk kembali ke menu sebelumnya)")
     Nama = str.upper(input(":"))
     if Nama == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Samsung()
     elif Nama == "KEMBALI":
+        os.system('cls')
         Tambahspechp()
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Nama hp : ",Nama)
         print("Apakah nama sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Nama)
             Tambahspechp_Samsung1()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Samsung()
         else:
+            os.system('cls')
             print("Masukan salah")
             
 def Tambahspechp_Samsung1():   
@@ -2441,8 +2561,10 @@ def Tambahspechp_Samsung1():
     try:
         Tahun_Keluar = int(input(":"))
     except ValueError:
+        os.system('cls')
         print("Masukan harus berbentuk angka")
         Tambahspechp_Samsung1()
+    os.system('cls')
     if Tahun_Keluar > 0:
         i = 0
         while i == 0:   
@@ -2450,11 +2572,14 @@ def Tambahspechp_Samsung1():
             print("Apakah Tahun Keluar sudah benar? (Y/N)")
             Masukan = str.upper(input(":"))
             if Masukan == "Y":
+                os.system('cls')
                 Datahp.append(Tahun_Keluar)
                 Tambahspechp_Samsung2()
             elif Masukan == "N":
+                os.system('cls')
                 Tambahspechp_Samsung1()
             else:
+                os.system('cls')
                 print("Masukan salah")
     elif Tahun_Keluar == 000:
 
@@ -2464,16 +2589,21 @@ def Tambahspechp_Samsung1():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Samsung1()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
     else:
+        os.system('cls')
         print("Masukan bernilai negatif")
         Tambahspechp_Samsung1()
 
@@ -2482,9 +2612,11 @@ def Tambahspechp_Samsung2():
     print("ketik batal untuk membatalkan isi spec hp")
     Os = str.upper(input(":"))
     if Os == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Samsung2()
     elif Os == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -2492,26 +2624,34 @@ def Tambahspechp_Samsung2():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Samsung2()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Versi Os : ",Os)
         print("Apakah Versi OS sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Os)
             Tambahspechp_Samsung3()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Samsung2()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 
@@ -2521,9 +2661,11 @@ def Tambahspechp_Samsung3():
     print("ketik batal untuk membatalkan isi spec hp")
     Chipset = str.upper(input(":"))
     if Chipset == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Samsung3()
     elif Chipset == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -2531,26 +2673,34 @@ def Tambahspechp_Samsung3():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Samsung3()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Chipset : ",Chipset)
         print("Apakah nama Chipset sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Chipset)
             Tambahspechp_Samsung4()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Samsung3()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_Samsung4():
@@ -2558,10 +2708,12 @@ def Tambahspechp_Samsung4():
     print("ketik batal untuk membatalkan isi spec hp")
     Cpu = str.upper(input(":"))
     if Cpu == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Samsung4()
     
     elif Cpu == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -2569,26 +2721,34 @@ def Tambahspechp_Samsung4():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Samsung4()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("CPU : ",Cpu)
         print("Apakah nama CPU sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Cpu)
             Tambahspechp_Samsung5()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Samsung4()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_Samsung5():
@@ -2596,10 +2756,12 @@ def Tambahspechp_Samsung5():
     print("ketik batal untuk membatalkan isi spec hp")
     Gpu = str.upper(input(":"))
     if Gpu == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Samsung5()
     
     elif Gpu == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -2607,26 +2769,34 @@ def Tambahspechp_Samsung5():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Samsung5()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("GPU : ",Gpu)
         print("Apakah nama sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Gpu)
             Tambahspechp_Samsung6()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Samsung5()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_Samsung6():
@@ -2634,10 +2804,12 @@ def Tambahspechp_Samsung6():
     print("ketik batal untuk membatalkan isi spec hp")
     Display = str.upper(input(":"))
     if Display == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Samsung6()
     
     elif Display == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -2645,26 +2817,34 @@ def Tambahspechp_Samsung6():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Samsung6()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Display : ",Display)
         print("Apakah nama Display sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Display)
             Tambahspechp_Samsung7()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Samsung6()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_Samsung7():
@@ -2672,10 +2852,12 @@ def Tambahspechp_Samsung7():
     print("ketik batal untuk membatalkan isi spec hp")
     Memori = str.upper(input(":"))
     if Memori == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Samsung7()
     
     elif Memori == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -2683,26 +2865,34 @@ def Tambahspechp_Samsung7():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Samsung7()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Total memori internal : ",Memori)
         print("Apakah Total memori sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Memori)
             Tambahspechp_Samsung8()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Samsung7()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_Samsung8():
@@ -2710,10 +2900,12 @@ def Tambahspechp_Samsung8():
     print("ketik batal untuk membatalkan isi spec hp")
     Ram = str.upper(input(":"))
     if Ram == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Samsung8()
     
     elif Ram == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -2721,26 +2913,34 @@ def Tambahspechp_Samsung8():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Samsung8()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Total Ram : ",Ram)
         print("Apakah Total Ram sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Ram)
             Tambahspechp_Samsung9()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Samsung8()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_Samsung9():
@@ -2748,10 +2948,12 @@ def Tambahspechp_Samsung9():
     print("ketik batal untuk membatalkan isi spec hp")
     Kamera = str.upper(input(":"))
     if Kamera == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Samsung9()
     
     elif Kamera == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -2759,26 +2961,34 @@ def Tambahspechp_Samsung9():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Samsung9()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Kamera : ",Kamera)
         print("Apakah Kamera sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Kamera)
             Tambahspechp_Samsung10()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Samsung9()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_Samsung10():
@@ -2786,10 +2996,12 @@ def Tambahspechp_Samsung10():
     print("ketik batal untuk membatalkan isi spec hp")
     Jaringan = str(input(":"))
     if Jaringan == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Samsung10()
     
     elif Jaringan == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -2797,26 +3009,34 @@ def Tambahspechp_Samsung10():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Samsung10()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Jaringan : ",Jaringan)
         print("Apakah nama Jaringan sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Jaringan)
             Tambahspechp_Samsung11()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Samsung10()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_Samsung11():
@@ -2824,10 +3044,12 @@ def Tambahspechp_Samsung11():
     print("ketik batal untuk membatalkan isi spec hp")
     Baterai = str.upper(input(":"))
     if Baterai == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Samsung11()
     
     elif Baterai == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -2835,26 +3057,34 @@ def Tambahspechp_Samsung11():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Samsung11()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Kapasitas baterai : ",Baterai)
         print("Apakah Kapasitas Baterai sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Baterai)
             Tambahspechp_Samsung12()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Samsung11()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_Samsung12():
@@ -2862,28 +3092,35 @@ def Tambahspechp_Samsung12():
     Datahp.clear()
     print("Data hp berhasil ditambah")
     input("Tekan enter untuk kembali ke menu edit spec hp")
+    os.system('cls')
     Editspechp()
-
+ 
 def Tambahspechp_Oppo():
     print("Nama hp? (Ketik kembali untuk kembali ke menu sebelumnya)")
     Nama = str.upper(input(":"))
     if Nama == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Oppo()
     elif Nama == "KEMBALI":
+        os.system('cls')
         Tambahspechp()
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Nama hp : ",Nama)
         print("Apakah nama sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Nama)
             Tambahspechp_Oppo1()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Oppo()
         else:
+            os.system('cls')
             print("Masukan salah")
             
 def Tambahspechp_Oppo1():   
@@ -2891,8 +3128,10 @@ def Tambahspechp_Oppo1():
     try:
         Tahun_Keluar = int(input(":"))
     except ValueError:
+        os.system('cls')
         print("Masukan harus berbentuk angka")
         Tambahspechp_Oppo1()
+    os.system('cls')
     if Tahun_Keluar > 0:
         i = 0
         while i == 0:   
@@ -2900,11 +3139,14 @@ def Tambahspechp_Oppo1():
             print("Apakah Tahun Keluar sudah benar? (Y/N)")
             Masukan = str.upper(input(":"))
             if Masukan == "Y":
+                os.system('cls')
                 Datahp.append(Tahun_Keluar)
                 Tambahspechp_Oppo2()
             elif Masukan == "N":
+                os.system('cls')
                 Tambahspechp_Oppo1()
             else:
+                os.system('cls')
                 print("Masukan salah")
     elif Tahun_Keluar == 000:
 
@@ -2914,16 +3156,21 @@ def Tambahspechp_Oppo1():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Oppo1()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
     else:
+        os.system('cls')
         print("Masukan bernilai negatif")
         Tambahspechp_Oppo1()
 
@@ -2932,9 +3179,11 @@ def Tambahspechp_Oppo2():
     print("ketik batal untuk membatalkan isi spec hp")
     Os = str.upper(input(":"))
     if Os == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Oppo2()
     elif Os == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -2942,26 +3191,34 @@ def Tambahspechp_Oppo2():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Oppo2()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Versi Os : ",Os)
         print("Apakah Versi OS sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Os)
             Tambahspechp_Oppo3()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Oppo2()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 
@@ -2971,9 +3228,11 @@ def Tambahspechp_Oppo3():
     print("ketik batal untuk membatalkan isi spec hp")
     Chipset = str.upper(input(":"))
     if Chipset == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Oppo3()
     elif Chipset == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -2981,26 +3240,34 @@ def Tambahspechp_Oppo3():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Oppo3()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Chipset : ",Chipset)
         print("Apakah nama Chipset sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Chipset)
             Tambahspechp_Oppo4()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Oppo3()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_Oppo4():
@@ -3008,10 +3275,12 @@ def Tambahspechp_Oppo4():
     print("ketik batal untuk membatalkan isi spec hp")
     Cpu = str.upper(input(":"))
     if Cpu == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Oppo4()
     
     elif Cpu == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -3019,26 +3288,34 @@ def Tambahspechp_Oppo4():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Oppo4()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("CPU : ",Cpu)
         print("Apakah nama CPU sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Cpu)
             Tambahspechp_Oppo5()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Oppo4()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_Oppo5():
@@ -3046,10 +3323,12 @@ def Tambahspechp_Oppo5():
     print("ketik batal untuk membatalkan isi spec hp")
     Gpu = str.upper(input(":"))
     if Gpu == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Oppo5()
     
     elif Gpu == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -3057,26 +3336,34 @@ def Tambahspechp_Oppo5():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Oppo5()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("GPU : ",Gpu)
         print("Apakah nama sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Gpu)
             Tambahspechp_Oppo6()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Oppo5()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_Oppo6():
@@ -3084,10 +3371,12 @@ def Tambahspechp_Oppo6():
     print("ketik batal untuk membatalkan isi spec hp")
     Display = str.upper(input(":"))
     if Display == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Oppo6()
     
     elif Display == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -3095,26 +3384,34 @@ def Tambahspechp_Oppo6():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Oppo6()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Display : ",Display)
         print("Apakah nama Display sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Display)
             Tambahspechp_Oppo7()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Oppo6()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_Oppo7():
@@ -3122,10 +3419,12 @@ def Tambahspechp_Oppo7():
     print("ketik batal untuk membatalkan isi spec hp")
     Memori = str.upper(input(":"))
     if Memori == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Oppo7()
     
     elif Memori == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -3133,26 +3432,34 @@ def Tambahspechp_Oppo7():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Oppo7()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Total memori internal : ",Memori)
         print("Apakah Total memori sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Memori)
             Tambahspechp_Oppo8()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Oppo7()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_Oppo8():
@@ -3160,10 +3467,12 @@ def Tambahspechp_Oppo8():
     print("ketik batal untuk membatalkan isi spec hp")
     Ram = str.upper(input(":"))
     if Ram == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Oppo8()
     
     elif Ram == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -3171,26 +3480,34 @@ def Tambahspechp_Oppo8():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Oppo8()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Total Ram : ",Ram)
         print("Apakah Total Ram sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Ram)
             Tambahspechp_Oppo9()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Oppo8()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_Oppo9():
@@ -3198,10 +3515,12 @@ def Tambahspechp_Oppo9():
     print("ketik batal untuk membatalkan isi spec hp")
     Kamera = str.upper(input(":"))
     if Kamera == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Oppo9()
     
     elif Kamera == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -3209,26 +3528,34 @@ def Tambahspechp_Oppo9():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Oppo9()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Kamera : ",Kamera)
         print("Apakah Kamera sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Kamera)
             Tambahspechp_Oppo10()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Oppo9()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_Oppo10():
@@ -3236,10 +3563,12 @@ def Tambahspechp_Oppo10():
     print("ketik batal untuk membatalkan isi spec hp")
     Jaringan = str(input(":"))
     if Jaringan == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Oppo10()
     
     elif Jaringan == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -3247,26 +3576,34 @@ def Tambahspechp_Oppo10():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Oppo10()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Jaringan : ",Jaringan)
         print("Apakah nama Jaringan sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Jaringan)
             Tambahspechp_Oppo11()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Oppo10()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_Oppo11():
@@ -3274,10 +3611,12 @@ def Tambahspechp_Oppo11():
     print("ketik batal untuk membatalkan isi spec hp")
     Baterai = str.upper(input(":"))
     if Baterai == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_Oppo11()
     
     elif Baterai == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -3285,26 +3624,34 @@ def Tambahspechp_Oppo11():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_Oppo11()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Kapasitas baterai : ",Baterai)
         print("Apakah Kapasitas Baterai sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Baterai)
             Tambahspechp_Oppo12()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_Oppo11()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_Oppo12():
@@ -3312,29 +3659,36 @@ def Tambahspechp_Oppo12():
     Datahp.clear()
     print("Data hp berhasil ditambah")
     input("Tekan enter untuk kembali ke menu edit spec hp")
+    os.system('cls')
     Editspechp()
 
-
+ 
 def Tambahspechp_merklain():
     print("Nama hp? (Ketik kembali untuk kembali ke menu sebelumnya)")
     Nama = str.upper(input(":"))
     if Nama == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_merklain()
     elif Nama == "KEMBALI":
+        os.system('cls')
         Tambahspechp()
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Nama hp : ",Nama)
         print("Apakah nama sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Nama)
             Tambahspechp_merklain1()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_merklain()
         else:
+            os.system('cls')
             print("Masukan salah")
             
 def Tambahspechp_merklain1():   
@@ -3342,8 +3696,10 @@ def Tambahspechp_merklain1():
     try:
         Tahun_Keluar = int(input(":"))
     except ValueError:
+        os.system('cls')
         print("Masukan harus berbentuk angka")
         Tambahspechp_merklain1()
+    os.system('cls')
     if Tahun_Keluar > 0:
         i = 0
         while i == 0:   
@@ -3351,11 +3707,14 @@ def Tambahspechp_merklain1():
             print("Apakah Tahun Keluar sudah benar? (Y/N)")
             Masukan = str.upper(input(":"))
             if Masukan == "Y":
+                os.system('cls')
                 Datahp.append(Tahun_Keluar)
                 Tambahspechp_merklain2()
             elif Masukan == "N":
+                os.system('cls')
                 Tambahspechp_merklain1()
             else:
+                os.system('cls')
                 print("Masukan salah")
     elif Tahun_Keluar == 000:
 
@@ -3365,16 +3724,21 @@ def Tambahspechp_merklain1():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_merklain1()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
     else:
+        os.system('cls')
         print("Masukan bernilai negatif")
         Tambahspechp_merklain1()
 
@@ -3383,9 +3747,11 @@ def Tambahspechp_merklain2():
     print("ketik batal untuk membatalkan isi spec hp")
     Os = str.upper(input(":"))
     if Os == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_merklain2()
     elif Os == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -3393,26 +3759,34 @@ def Tambahspechp_merklain2():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_merklain2()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Versi Os : ",Os)
         print("Apakah Versi OS sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Os)
             Tambahspechp_merklain3()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_merklain2()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 
@@ -3422,9 +3796,11 @@ def Tambahspechp_merklain3():
     print("ketik batal untuk membatalkan isi spec hp")
     Chipset = str.upper(input(":"))
     if Chipset == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_merklain3()
     elif Chipset == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -3432,26 +3808,34 @@ def Tambahspechp_merklain3():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_merklain3()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Chipset : ",Chipset)
         print("Apakah nama Chipset sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Chipset)
             Tambahspechp_merklain4()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_merklain3()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_merklain4():
@@ -3459,10 +3843,12 @@ def Tambahspechp_merklain4():
     print("ketik batal untuk membatalkan isi spec hp")
     Cpu = str.upper(input(":"))
     if Cpu == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_merklain4()
     
     elif Cpu == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -3470,26 +3856,34 @@ def Tambahspechp_merklain4():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_merklain4()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("CPU : ",Cpu)
         print("Apakah nama CPU sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Cpu)
             Tambahspechp_merklain5()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_merklain4()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_merklain5():
@@ -3497,10 +3891,12 @@ def Tambahspechp_merklain5():
     print("ketik batal untuk membatalkan isi spec hp")
     Gpu = str.upper(input(":"))
     if Gpu == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_merklain5()
     
     elif Gpu == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -3508,26 +3904,34 @@ def Tambahspechp_merklain5():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_merklain5()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("GPU : ",Gpu)
         print("Apakah nama sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Gpu)
             Tambahspechp_merklain6()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_merklain5()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_merklain6():
@@ -3535,10 +3939,12 @@ def Tambahspechp_merklain6():
     print("ketik batal untuk membatalkan isi spec hp")
     Display = str.upper(input(":"))
     if Display == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_merklain6()
     
     elif Display == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -3546,26 +3952,34 @@ def Tambahspechp_merklain6():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_merklain6()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Display : ",Display)
         print("Apakah nama Display sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Display)
             Tambahspechp_merklain7()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_merklain6()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_merklain7():
@@ -3573,10 +3987,12 @@ def Tambahspechp_merklain7():
     print("ketik batal untuk membatalkan isi spec hp")
     Memori = str.upper(input(":"))
     if Memori == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_merklain7()
     
     elif Memori == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -3584,26 +4000,34 @@ def Tambahspechp_merklain7():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_merklain7()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Total memori internal : ",Memori)
         print("Apakah Total memori sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Memori)
             Tambahspechp_merklain8()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_merklain7()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_merklain8():
@@ -3611,10 +4035,12 @@ def Tambahspechp_merklain8():
     print("ketik batal untuk membatalkan isi spec hp")
     Ram = str.upper(input(":"))
     if Ram == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_merklain8()
     
     elif Ram == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -3622,26 +4048,34 @@ def Tambahspechp_merklain8():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_merklain8()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Total Ram : ",Ram)
         print("Apakah Total Ram sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Ram)
             Tambahspechp_merklain9()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_merklain8()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_merklain9():
@@ -3649,10 +4083,12 @@ def Tambahspechp_merklain9():
     print("ketik batal untuk membatalkan isi spec hp")
     Kamera = str.upper(input(":"))
     if Kamera == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_merklain9()
     
     elif Kamera == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -3660,26 +4096,34 @@ def Tambahspechp_merklain9():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_merklain9()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Kamera : ",Kamera)
         print("Apakah Kamera sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Kamera)
             Tambahspechp_merklain10()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_merklain9()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_merklain10():
@@ -3687,10 +4131,12 @@ def Tambahspechp_merklain10():
     print("ketik batal untuk membatalkan isi spec hp")
     Jaringan = str(input(":"))
     if Jaringan == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_merklain10()
     
     elif Jaringan == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -3698,26 +4144,34 @@ def Tambahspechp_merklain10():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_merklain10()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Jaringan : ",Jaringan)
         print("Apakah nama Jaringan sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Jaringan)
             Tambahspechp_merklain11()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_merklain10()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_merklain11():
@@ -3725,10 +4179,12 @@ def Tambahspechp_merklain11():
     print("ketik batal untuk membatalkan isi spec hp")
     Baterai = str.upper(input(":"))
     if Baterai == "":
+        os.system('cls')
         print("harap masukan input")
         Tambahspechp_merklain11()
     
     elif Baterai == "BATAL":
+        os.system('cls')
 
         i = 0
         while i == 0:
@@ -3736,26 +4192,34 @@ def Tambahspechp_merklain11():
             print("Apakah anda ingin batalkan isi spec hp ini? (Y/N)")
             opsi = str.upper(input(":"))
             if opsi == "Y":
+                os.system('cls')
                 Datahp.clear()
                 print("Operasi berhasil dibatalkan")
                 input("Tekan enter untuk kembali ke menu edit spechp")
+                os.system('cls')
                 Editspechp()
             elif opsi == "N":
+                os.system('cls')
                 Tambahspechp_merklain11()
             else:
+                os.system('cls')
                 print("Masukan salah")
 
+    os.system('cls')
     i = 0
     while i == 0:   
         print("Kapasitas baterai : ",Baterai)
         print("Apakah Kapasitas Baterai sudah benar? (Y/N)")
         Masukan = str.upper(input(":"))
         if Masukan == "Y":
+            os.system('cls')
             Datahp.append(Baterai)
             Tambahspechp_merklain12()
         elif Masukan == "N":
+            os.system('cls')
             Tambahspechp_merklain11()
         else:
+            os.system('cls')
             print("Masukan salah")
 
 def Tambahspechp_merklain12():
@@ -3763,69 +4227,90 @@ def Tambahspechp_merklain12():
     Datahp.clear()
     print("Data hp berhasil ditambah")
     input("Tekan enter untuk kembali ke menu edit spec hp")
+    os.system('cls')
     Editspechp()
 
 def Editspechpada():
-    for key in Spechp.keys():
         print("list merk hp")
-        print(key)
+        print("""
+        Samsung
+        Oppo
+        Merk lain
+        """)
         print("=======")
         print("Kembali")
         print("Pilih merk hp (ketik kembali untuk kembali ke menu edit spec hp)")
         masukan = str.lower(input(":"))
 
         if masukan == "samsung":
+            os.system('cls')
             for key in Spechp["Samsung"].keys():
-                print(key)
-                print("Pilih hp yang akan di edit")
-                print("ketik kembali untuk balik ke menu sebelumnya")
+                
                 i = 0
                 while i == 0:
+                    print(key)
+                    print("Pilih hp yang akan di edit")
+                    print("ketik kembali untuk balik ke menu sebelumnya")
                     masukan1 = str.upper(input(":"))
                     if masukan1 in Spechp["Samsung"]:
+                        os.system('cls')
                         Datahp.append(masukan1)
                         Editspechpsamsung()
                     elif masukan1 == "KEMBALI":
+                        os.system('cls')
                         Editspechpada()
                     else:
+                        os.system('cls')
                         print("Masukan salah")
         
         elif masukan == "oppo":
+            os.system('cls')
             for key in Spechp["Oppo"].keys():
-                print(key)
-                print("Pilih hp yang akan di edit")
-                print("ketik kembali untuk balik ke menu sebelumnya")
+                
                 i = 0
                 while i == 0:
+                    print(key)
+                    print("Pilih hp yang akan di edit")
+                    print("ketik kembali untuk balik ke menu sebelumnya")
                     masukan1 = str.upper(input(":"))
                     if masukan1 in Spechp["Oppo"]:
+                        os.system('cls')
                         Datahp.append(masukan1)
                         Editspechpoppo()
                     elif masukan1 == "KEMBALI":
+                        os.system('cls')
                         Editspechpada()
                     else:
+                        os.system('cls')
                         print("Masukan salah")
 
         elif masukan == "merk lain":
+            os.system('cls')
             for key in Spechp["Merk lain"].keys():
-                print(key)
-                print("Pilih hp yang akan di edit")
-                print("ketik kembali untuk balik ke menu sebelumnya")
+                
                 i = 0
                 while i == 0:
+                    print(key)
+                    print("Pilih hp yang akan di edit")
+                    print("ketik kembali untuk balik ke menu sebelumnya")
                     masukan1 = str.upper(input(":"))
                     if masukan1 in Spechp["Merk lain"]:
+                        os.system('cls')
                         Datahp.append(masukan1)
                         Editspechpmerklain()
                     elif masukan1 == "KEMBALI":
+                        os.system('cls')
                         Editspechpada()
                     else:
+                        os.system('cls')
                         print("Masukan salah")
         
         elif masukan == "kembali":
+            os.system('cls')
             Editspechp()
 
         else:
+            os.system('cls')
             print("Inputan salah")
             Editspechpada()
 
@@ -3841,65 +4326,84 @@ def Editspechpsamsung():
     if masukan == "A":
         for key, val in Spechp["Samsung"][Datahp[0]].items():
             print("%s = %s" % (key,val))
-        print(""" 
-        Edit spec hp
-        A. Nama
-        B. Tahun Keluar
-        C. OS
-        D. Chipset
-        E. CPU
-        F. GPU
-        G. Display
-        H. Memori Internal
-        I. RAM
-        J. Kamera
-        K. Jaringan
-        L. Kapasitas Baterai
-        M. Kembali ke menu edit
-        """)
-        print("pilih huruf yang mau di edit ")
+
         i = 0
         while i == 0:
-            ubah = str.upper(input(":"))
 
-            if ubah == "A":
-                Namaspecsamsung()
-            elif ubah == "B":
-                Tahunspecsamsung()
-            elif ubah == "C":
-                Osspecsamsung()
-            elif ubah == "D":
-                Chipsetspecsamsung()
-            elif ubah == "E":
-                Cpuspecsamsung()
-            elif ubah == "F":
-                Gpuspecsamsung()
-            elif ubah == "G":
-                Displayspecsamsung()
-            elif ubah == "H":
-                Memorispecsamsung()
-            elif ubah == "I":
-                Ramspecsamsung()
-            elif ubah == "J":
-                Jaringanspecsamsung()
-            elif ubah == "K":
-                Kameraspecsamsung()
-            elif ubah == "L":
-                Bateraispecsamsung()
-            elif ubah == "M":
-                Editspechpsamsung()
-            else:
-                print("Mohon masukan input dengan benar")
+                print(""" 
+                Edit spec hp
+                A. Nama
+                B. Tahun Keluar
+                C. OS
+                D. Chipset
+                E. CPU
+                F. GPU
+                G. Display
+                H. Memori Internal
+                I. RAM
+                J. Kamera
+                K. Jaringan
+                L. Kapasitas Baterai
+                M. Kembali ke menu edit
+                """)
+                print("pilih huruf yang mau di edit ")
+                ubah = str.upper(input(":"))
+
+                if ubah == "A":
+                    os.system('cls')
+                    Namaspecsamsung()
+                elif ubah == "B":
+                    os.system('cls')
+                    Tahunspecsamsung()
+                elif ubah == "C":
+                    os.system('cls')
+                    Osspecsamsung()
+                elif ubah == "D":
+                    os.system('cls')
+                    Chipsetspecsamsung()
+                elif ubah == "E":
+                    os.system('cls')
+                    Cpuspecsamsung()
+                elif ubah == "F":
+                    os.system('cls')
+                    Gpuspecsamsung()
+                elif ubah == "G":
+                    os.system('cls')
+                    Displayspecsamsung()
+                elif ubah == "H":
+                    os.system('cls')
+                    Memorispecsamsung()
+                elif ubah == "I":
+                    os.system('cls')
+                    Ramspecsamsung()
+                elif ubah == "J":
+                    os.system('cls')
+                    Jaringanspecsamsung()
+                elif ubah == "K":
+                    os.system('cls')
+                    Kameraspecsamsung()
+                elif ubah == "L":
+                    os.system('cls')
+                    Bateraispecsamsung()
+                elif ubah == "M":
+                    os.system('cls')
+                    Editspechpsamsung()
+                else:
+                    os.system('cls')
+                    print("Mohon masukan input dengan benar")
 
     elif masukan == "B":
+        os.system('cls')
         Datahp.clear()
         Editspechp()
     
     elif masukan == "C":
+        os.system('cls')
         Datahp.clear()
         main_admin()
     
     else:
+        os.system('cls')
         print("Masukan salah")
         Editspechpsamsung()
             
@@ -3909,22 +4413,28 @@ def Namaspecsamsung():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     nama = str.upper(input(":"))
     if nama == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Namaspecsamsung()
     elif nama == "KEMBALI":
+        os.system('cls')
         Editspechpsamsung()
-    print("Nama : ",nama)
-
+    
+    os.system('cls')
     i = 0
     while i == 0:
-
+        
+        print("Nama : ",nama)
         print("Apakah sudah benar namanya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Namaspecsamsung()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -3934,8 +4444,10 @@ def Namaspecsamsung():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit nama
             B. Kembali ke menu edit
@@ -3943,16 +4455,21 @@ def Namaspecsamsung():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Namaspecsamsung()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Samsung"][Datahp[0]].update({"Nama" : nama})
@@ -3969,11 +4486,14 @@ def Namaspecsamsung():
         masukan1 = str.upper(input(":"))
 
         if masukan1 == "A":
+            os.system('cls')
             Editspechpsamsung()
         elif masukan1 == "B":
+            os.system('cls')
             Datahp.clear()
             main_admin()
         else:
+            os.system('cls')
             print("Input salah")
 
 
@@ -3985,22 +4505,28 @@ def Tahunspecsamsung():
     try:
         Tahun = int(input(":"))
     except ValueError:
+        os.system('cls')
         print("Masukan angka bukan huruf")
         Tahunspecsamsung()
     if Tahun > 0:
+        os.system('cls')
         i = 0
         while i == 0:
             print("Tahun : ",Tahun)
             print("Apakah sudah benar tahunnya? (Y/N)")
             Konfirmasi = str.upper(input(":"))
             if Konfirmasi == "Y":
+                os.system('cls')
                 break
             elif Konfirmasi == "N":
+                os.system('cls')
                 Tahunspecsamsung()
             else:
+                os.system('cls')
                 print("Inputan salah")
     
     elif Tahun == 000:
+        os.system('cls')
         Editspechpsamsung()
 
         i = 0
@@ -4009,8 +4535,10 @@ def Tahunspecsamsung():
             print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
             finalisasi = str.upper(input(":"))
             if finalisasi == "Y":
+                os.system('cls')
                 break
             elif finalisasi == "N":
+                os.system('cls')
                 print("""
                 A. Kembali ke edit tahun
                 B. Kembali ke menu edit
@@ -4018,16 +4546,21 @@ def Tahunspecsamsung():
                 """)
                 masukan = str.upper(input(":"))
                 if masukan == "A":
+                    os.system('cls')
                     Tahunspecsamsung()
                 elif masukan == "B":
+                    os.system('cls')
                     Editspechpsamsung()
                 elif masukan == "C":
+                    os.system('cls')
                     Datahp.clear()
                     main_admin()
                 else:
+                    os.system('cls')
                     print("Masukan salah")
                 
             else:
+                os.system('cls')
                 print("Inputan salah")
 
         Spechp["Samsung"][Datahp[0]].update({"Tahun Keluar" : Tahun})
@@ -4043,11 +4576,14 @@ def Tahunspecsamsung():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -4056,23 +4592,28 @@ def Osspecsamsung():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Os = str.upper(input(":"))
     if Os == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Osspecsamsung()
     elif Os == "KEMBALI":
+        os.system('cls')
         Editspechpsamsung()
-    print("Os : ",Os)
+    
 
-
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Os : ",Os)
         print("Apakah sudah benar nama Os nya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Osspecsamsung()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -4082,8 +4623,10 @@ def Osspecsamsung():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit OS
             B. Kembali ke menu edit
@@ -4091,16 +4634,21 @@ def Osspecsamsung():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Osspecsamsung()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Samsung"][Datahp[0]].update({"OS" : Os})
@@ -4117,11 +4665,14 @@ def Osspecsamsung():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 def Chipsetspecsamsung():
@@ -4129,22 +4680,28 @@ def Chipsetspecsamsung():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     chipset = str.upper(input(":"))
     if chipset == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Chipsetspecsamsung()
     elif chipset == "KEMBALI":
+        os.system('cls')
         Editspechpsamsung()
-    print("Chipset : ",chipset)
-
+   
+    os.system('cls')
     i = 0
     while i == 0:
 
+        print("Chipset : ",chipset)
         print("Apakah sudah benar nama chipsetnya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Chipsetspecsamsung()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -4154,8 +4711,10 @@ def Chipsetspecsamsung():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit chipset
             B. Kembali ke menu edit
@@ -4163,16 +4722,21 @@ def Chipsetspecsamsung():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Chipsetspecsamsung()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Samsung"][Datahp[0]].update({"Chipset" : chipset})
@@ -4188,11 +4752,14 @@ def Chipsetspecsamsung():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 def Cpuspecsamsung():
@@ -4200,22 +4767,27 @@ def Cpuspecsamsung():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Cpu = str.upper(input(":"))
     if Cpu == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Cpuspecsamsung()
     elif Cpu == "KEMBALI":
+        os.system('cls')
         Editspechpsamsung()
-    print("CPU : ",Cpu)
-
+    
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("CPU : ",Cpu)
         print("Apakah sudah benar nama CPUnya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Cpuspecsamsung()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -4225,8 +4797,10 @@ def Cpuspecsamsung():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit cpu
             B. Kembali ke menu edit
@@ -4234,16 +4808,21 @@ def Cpuspecsamsung():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Cpuspecsamsung()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Samsung"][Datahp[0]].update({"CPU" : Cpu})
@@ -4259,11 +4838,14 @@ def Cpuspecsamsung():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 def Gpuspecsamsung():
@@ -4271,22 +4853,27 @@ def Gpuspecsamsung():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Gpu = str.upper(input(":"))
     if Gpu == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Gpuspecsamsung()
     elif Gpu == "KEMBALI":
+        os.system('cls')
         Editspechpsamsung()
-    print("GPU : ",Gpu)
-
+   
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("GPU : ",Gpu)
         print("Apakah sudah benar nama GPUnya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Gpuspecsamsung()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -4296,8 +4883,10 @@ def Gpuspecsamsung():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit gpu
             B. Kembali ke menu edit
@@ -4305,16 +4894,21 @@ def Gpuspecsamsung():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Gpuspecsamsung()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Samsung"][Datahp[0]].update({"GPU" : Gpu})
@@ -4330,11 +4924,14 @@ def Gpuspecsamsung():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -4343,22 +4940,27 @@ def Displayspecsamsung():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Display = str.upper(input(":"))
     if Display == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Displayspecsamsung()
     elif Display == "KEMBALI":
+        os.system('cls')
         Editspechpsamsung()
-    print("Display : ",Display)
-
+   
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Display : ",Display)
         print("Apakah sudah benar nama Displaynya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Displayspecsamsung()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -4368,8 +4970,10 @@ def Displayspecsamsung():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit display
             B. Kembali ke menu edit
@@ -4377,16 +4981,21 @@ def Displayspecsamsung():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Displayspecsamsung()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Samsung"][Datahp[0]].update({"Display" : Display})
@@ -4402,11 +5011,14 @@ def Displayspecsamsung():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -4416,22 +5028,27 @@ def Memorispecsamsung():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Memori = str.upper(input(":"))
     if Memori == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Memorispecsamsung()
     elif Memori == "KEMBALI":
+        os.system('cls')
         Editspechpsamsung()
-    print("Memori Internal : ",Memori)
-
+    
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Memori Internal : ",Memori)
         print("Apakah sudah benar kapasitas memorinya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Memorispecsamsung()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -4441,8 +5058,10 @@ def Memorispecsamsung():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit memori
             B. Kembali ke menu edit
@@ -4450,16 +5069,21 @@ def Memorispecsamsung():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Memorispecsamsung()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Samsung"][Datahp[0]].update({"Memori Internal" : Memori})
@@ -4475,11 +5099,14 @@ def Memorispecsamsung():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -4488,22 +5115,27 @@ def Ramspecsamsung():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Ram = str.upper(input(":"))
     if Ram == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Ramspecsamsung()
     elif Ram == "KEMBALI":
+        os.system('cls')
         Editspechpsamsung()
-    print("Total RAM : ",Ram)
-
+    
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Total RAM : ",Ram)
         print("Apakah sudah benar kapasitas RAMnya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Ramspecsamsung()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -4513,8 +5145,10 @@ def Ramspecsamsung():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit ram
             B. Kembali ke menu edit
@@ -4522,16 +5156,22 @@ def Ramspecsamsung():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Ramspecsamsung()
+                os.system('cls')
             elif masukan == "B":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Samsung"][Datahp[0]].update({"RAM" : Ram})
@@ -4547,11 +5187,14 @@ def Ramspecsamsung():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -4560,22 +5203,27 @@ def Kameraspecsamsung():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Kamera = str.upper(input(":"))
     if Kamera == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Kameraspecsamsung()
     elif Kamera == "KEMBALI":
+        os.system('cls')
         Editspechpsamsung()
-    print("Kamera : ",Kamera)
-
+   
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Kamera : ",Kamera)
         print("Apakah sudah benar MP kameranya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Kameraspecsamsung()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -4585,8 +5233,10 @@ def Kameraspecsamsung():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit kamera
             B. Kembali ke menu edit
@@ -4594,16 +5244,21 @@ def Kameraspecsamsung():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Kameraspecsamsung()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Samsung"][Datahp[0]].update({"Kamera" : Kamera})
@@ -4619,11 +5274,14 @@ def Kameraspecsamsung():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 def Jaringanspecsamsung():
@@ -4631,22 +5289,27 @@ def Jaringanspecsamsung():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Jaringan = str.upper(input(":"))
     if Jaringan == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Jaringanspecsamsung()
     elif Jaringan == "KEMBALI":
+        os.system('cls')
         Editspechpsamsung()
-    print("Jaringan : ",Jaringan)
-
+    
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Jaringan : ",Jaringan)
         print("Apakah sudah benar Jaringannya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Jaringanspecsamsung()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -4656,8 +5319,10 @@ def Jaringanspecsamsung():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit jaringan
             B. Kembali ke menu edit
@@ -4665,16 +5330,21 @@ def Jaringanspecsamsung():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Jaringanspecsamsung()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Samsung"][Datahp[0]].update({"Jaringan" : Jaringan})
@@ -4690,11 +5360,14 @@ def Jaringanspecsamsung():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -4703,22 +5376,27 @@ def Bateraispecsamsung():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Baterai = str.upper(input(":"))
     if Baterai == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Bateraispecsamsung()
     elif Baterai == "KEMBALI":
+        os.system('cls')
         Editspechpsamsung()
-    print("Kapasitas Baterai : ",Baterai)
-
+    
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Kapasitas Baterai : ",Baterai)
         print("Apakah sudah benar jumlah Kapasitas Baterainya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Bateraispecsamsung()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -4728,8 +5406,10 @@ def Bateraispecsamsung():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit baterai
             B. Kembali ke menu edit
@@ -4737,16 +5417,21 @@ def Bateraispecsamsung():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Bateraispecsamsung()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Samsung"][Datahp[0]].update({"Kapasitas Baterai" : Baterai})
@@ -4762,11 +5447,14 @@ def Bateraispecsamsung():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpsamsung()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -4782,65 +5470,84 @@ def Editspechpoppo():
     if masukan == "A":
         for key, val in Spechp["Oppo"][Datahp[0]].items():
             print("%s = %s" % (key,val))
-        print(""" 
-        Edit spec hp
-        A. Nama
-        B. Tahun Keluar
-        C. OS
-        D. Chipset
-        E. CPU
-        F. GPU
-        G. Display
-        H. Memori Internal
-        I. RAM
-        J. Kamera
-        K. Jaringan
-        L. Kapasitas Baterai
-        M. Kembali ke menu edit
-        """)
-        print("pilih huruf yang mau di edit ")
+
         i = 0
         while i == 0:
-            ubah = str.upper(input(":"))
 
-            if ubah == "A":
-                Namaspecoppo()
-            elif ubah == "B":
-                Tahunspecoppo()
-            elif ubah == "C":
-                Osspecoppo()
-            elif ubah == "D":
-                Chipsetspecoppo()
-            elif ubah == "E":
-                Cpuspecoppo()
-            elif ubah == "F":
-                Gpuspecoppo()
-            elif ubah == "G":
-                Displayspecoppo()
-            elif ubah == "H":
-                Memorispecoppo()
-            elif ubah == "I":
-                Ramspecoppo()
-            elif ubah == "J":
-                Jaringanspecoppo()
-            elif ubah == "K":
-                Kameraspecoppo()
-            elif ubah == "L":
-                Bateraispecoppo()
-            elif ubah == "M":
-                Editspechpoppo()
-            else:
-                print("Mohon masukan input dengan benar")
+                print(""" 
+                Edit spec hp
+                A. Nama
+                B. Tahun Keluar
+                C. OS
+                D. Chipset
+                E. CPU
+                F. GPU
+                G. Display
+                H. Memori Internal
+                I. RAM
+                J. Kamera
+                K. Jaringan
+                L. Kapasitas Baterai
+                M. Kembali ke menu edit
+                """)
+                print("pilih huruf yang mau di edit ")
+                ubah = str.upper(input(":"))
+
+                if ubah == "A":
+                    os.system('cls')
+                    Namaspecoppo()
+                elif ubah == "B":
+                    os.system('cls')
+                    Tahunspecoppo()
+                elif ubah == "C":
+                    os.system('cls')
+                    Osspecoppo()
+                elif ubah == "D":
+                    os.system('cls')
+                    Chipsetspecoppo()
+                elif ubah == "E":
+                    os.system('cls')
+                    Cpuspecoppo()
+                elif ubah == "F":
+                    os.system('cls')
+                    Gpuspecoppo()
+                elif ubah == "G":
+                    os.system('cls')
+                    Displayspecoppo()
+                elif ubah == "H":
+                    os.system('cls')
+                    Memorispecoppo()
+                elif ubah == "I":
+                    os.system('cls')
+                    Ramspecoppo()
+                elif ubah == "J":
+                    os.system('cls')
+                    Jaringanspecoppo()
+                elif ubah == "K":
+                    os.system('cls')
+                    Kameraspecoppo()
+                elif ubah == "L":
+                    os.system('cls')
+                    Bateraispecoppo()
+                elif ubah == "M":
+                    os.system('cls')
+                    Editspechpoppo()
+                else:
+                    os.system('cls')
+                    print("Mohon masukan input dengan benar")
 
     elif masukan == "B":
+        os.system('cls')
         Datahp.clear()
         Editspechp()
     
     elif masukan == "C":
+        os.system('cls')
         Datahp.clear()
         main_admin()
     
     else:
+        os.system('cls')
         print("Masukan salah")
         Editspechpoppo()
             
@@ -4850,22 +5557,28 @@ def Namaspecoppo():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     nama = str.upper(input(":"))
     if nama == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Namaspecoppo()
     elif nama == "KEMBALI":
+        os.system('cls')
         Editspechpoppo()
-    print("Nama : ",nama)
-
+    
+    os.system('cls')
     i = 0
     while i == 0:
-
+        
+        print("Nama : ",nama)
         print("Apakah sudah benar namanya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Namaspecoppo()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -4875,8 +5588,10 @@ def Namaspecoppo():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit nama
             B. Kembali ke menu edit
@@ -4884,16 +5599,21 @@ def Namaspecoppo():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Namaspecoppo()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Oppo"][Datahp[0]].update({"Nama" : nama})
@@ -4910,11 +5630,14 @@ def Namaspecoppo():
         masukan1 = str.upper(input(":"))
 
         if masukan1 == "A":
+            os.system('cls')
             Editspechpoppo()
         elif masukan1 == "B":
+            os.system('cls')
             Datahp.clear()
             main_admin()
         else:
+            os.system('cls')
             print("Input salah")
 
 
@@ -4926,22 +5649,28 @@ def Tahunspecoppo():
     try:
         Tahun = int(input(":"))
     except ValueError:
+        os.system('cls')
         print("Masukan angka bukan huruf")
         Tahunspecoppo()
     if Tahun > 0:
+        os.system('cls')
         i = 0
         while i == 0:
             print("Tahun : ",Tahun)
             print("Apakah sudah benar tahunnya? (Y/N)")
             Konfirmasi = str.upper(input(":"))
             if Konfirmasi == "Y":
+                os.system('cls')
                 break
             elif Konfirmasi == "N":
+                os.system('cls')
                 Tahunspecoppo()
             else:
+                os.system('cls')
                 print("Inputan salah")
     
     elif Tahun == 000:
+        os.system('cls')
         Editspechpoppo()
 
         i = 0
@@ -4950,8 +5679,10 @@ def Tahunspecoppo():
             print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
             finalisasi = str.upper(input(":"))
             if finalisasi == "Y":
+                os.system('cls')
                 break
             elif finalisasi == "N":
+                os.system('cls')
                 print("""
                 A. Kembali ke edit tahun
                 B. Kembali ke menu edit
@@ -4959,16 +5690,21 @@ def Tahunspecoppo():
                 """)
                 masukan = str.upper(input(":"))
                 if masukan == "A":
+                    os.system('cls')
                     Tahunspecoppo()
                 elif masukan == "B":
+                    os.system('cls')
                     Editspechpoppo()
                 elif masukan == "C":
+                    os.system('cls')
                     Datahp.clear()
                     main_admin()
                 else:
+                    os.system('cls')
                     print("Masukan salah")
                 
             else:
+                os.system('cls')
                 print("Inputan salah")
 
         Spechp["Oppo"][Datahp[0]].update({"Tahun Keluar" : Tahun})
@@ -4984,11 +5720,14 @@ def Tahunspecoppo():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -4997,23 +5736,28 @@ def Osspecoppo():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Os = str.upper(input(":"))
     if Os == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Osspecoppo()
     elif Os == "KEMBALI":
+        os.system('cls')
         Editspechpoppo()
-    print("Os : ",Os)
+    
 
-
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Os : ",Os)
         print("Apakah sudah benar nama Os nya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Osspecoppo()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -5023,8 +5767,10 @@ def Osspecoppo():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit OS
             B. Kembali ke menu edit
@@ -5032,16 +5778,21 @@ def Osspecoppo():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Osspecoppo()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Oppo"][Datahp[0]].update({"OS" : Os})
@@ -5058,11 +5809,14 @@ def Osspecoppo():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 def Chipsetspecoppo():
@@ -5070,22 +5824,28 @@ def Chipsetspecoppo():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     chipset = str.upper(input(":"))
     if chipset == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Chipsetspecoppo()
     elif chipset == "KEMBALI":
+        os.system('cls')
         Editspechpoppo()
-    print("Chipset : ",chipset)
-
+   
+    os.system('cls')
     i = 0
     while i == 0:
 
+        print("Chipset : ",chipset)
         print("Apakah sudah benar nama chipsetnya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Chipsetspecoppo()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -5095,8 +5855,10 @@ def Chipsetspecoppo():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit chipset
             B. Kembali ke menu edit
@@ -5104,16 +5866,21 @@ def Chipsetspecoppo():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Chipsetspecoppo()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Oppo"][Datahp[0]].update({"Chipset" : chipset})
@@ -5129,11 +5896,14 @@ def Chipsetspecoppo():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 def Cpuspecoppo():
@@ -5141,22 +5911,27 @@ def Cpuspecoppo():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Cpu = str.upper(input(":"))
     if Cpu == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Cpuspecoppo()
     elif Cpu == "KEMBALI":
+        os.system('cls')
         Editspechpoppo()
-    print("CPU : ",Cpu)
-
+    
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("CPU : ",Cpu)
         print("Apakah sudah benar nama CPUnya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Cpuspecoppo()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -5166,8 +5941,10 @@ def Cpuspecoppo():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit cpu
             B. Kembali ke menu edit
@@ -5175,16 +5952,21 @@ def Cpuspecoppo():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Cpuspecoppo()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Oppo"][Datahp[0]].update({"CPU" : Cpu})
@@ -5200,11 +5982,14 @@ def Cpuspecoppo():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 def Gpuspecoppo():
@@ -5212,22 +5997,27 @@ def Gpuspecoppo():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Gpu = str.upper(input(":"))
     if Gpu == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Gpuspecoppo()
     elif Gpu == "KEMBALI":
+        os.system('cls')
         Editspechpoppo()
-    print("GPU : ",Gpu)
-
+   
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("GPU : ",Gpu)
         print("Apakah sudah benar nama GPUnya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Gpuspecoppo()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -5237,8 +6027,10 @@ def Gpuspecoppo():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit gpu
             B. Kembali ke menu edit
@@ -5246,16 +6038,21 @@ def Gpuspecoppo():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Gpuspecoppo()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Oppo"][Datahp[0]].update({"GPU" : Gpu})
@@ -5271,11 +6068,14 @@ def Gpuspecoppo():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -5284,22 +6084,27 @@ def Displayspecoppo():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Display = str.upper(input(":"))
     if Display == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Displayspecoppo()
     elif Display == "KEMBALI":
+        os.system('cls')
         Editspechpoppo()
-    print("Display : ",Display)
-
+   
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Display : ",Display)
         print("Apakah sudah benar nama Displaynya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Displayspecoppo()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -5309,8 +6114,10 @@ def Displayspecoppo():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit display
             B. Kembali ke menu edit
@@ -5318,16 +6125,21 @@ def Displayspecoppo():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Displayspecoppo()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Oppo"][Datahp[0]].update({"Display" : Display})
@@ -5343,11 +6155,14 @@ def Displayspecoppo():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -5357,22 +6172,27 @@ def Memorispecoppo():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Memori = str.upper(input(":"))
     if Memori == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Memorispecoppo()
     elif Memori == "KEMBALI":
+        os.system('cls')
         Editspechpoppo()
-    print("Memori Internal : ",Memori)
-
+    
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Memori Internal : ",Memori)
         print("Apakah sudah benar kapasitas memorinya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Memorispecoppo()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -5382,8 +6202,10 @@ def Memorispecoppo():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit memori
             B. Kembali ke menu edit
@@ -5391,16 +6213,21 @@ def Memorispecoppo():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Memorispecoppo()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Oppo"][Datahp[0]].update({"Memori Internal" : Memori})
@@ -5416,11 +6243,14 @@ def Memorispecoppo():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -5429,22 +6259,27 @@ def Ramspecoppo():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Ram = str.upper(input(":"))
     if Ram == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Ramspecoppo()
     elif Ram == "KEMBALI":
+        os.system('cls')
         Editspechpoppo()
-    print("Total RAM : ",Ram)
-
+    
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Total RAM : ",Ram)
         print("Apakah sudah benar kapasitas RAMnya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Ramspecoppo()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -5454,8 +6289,10 @@ def Ramspecoppo():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit ram
             B. Kembali ke menu edit
@@ -5463,16 +6300,22 @@ def Ramspecoppo():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Ramspecoppo()
+                os.system('cls')
             elif masukan == "B":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Oppo"][Datahp[0]].update({"RAM" : Ram})
@@ -5488,11 +6331,14 @@ def Ramspecoppo():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -5501,22 +6347,27 @@ def Kameraspecoppo():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Kamera = str.upper(input(":"))
     if Kamera == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Kameraspecoppo()
     elif Kamera == "KEMBALI":
+        os.system('cls')
         Editspechpoppo()
-    print("Kamera : ",Kamera)
-
+   
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Kamera : ",Kamera)
         print("Apakah sudah benar MP kameranya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Kameraspecoppo()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -5526,8 +6377,10 @@ def Kameraspecoppo():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit kamera
             B. Kembali ke menu edit
@@ -5535,16 +6388,21 @@ def Kameraspecoppo():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Kameraspecoppo()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Oppo"][Datahp[0]].update({"Kamera" : Kamera})
@@ -5560,11 +6418,14 @@ def Kameraspecoppo():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 def Jaringanspecoppo():
@@ -5572,22 +6433,27 @@ def Jaringanspecoppo():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Jaringan = str.upper(input(":"))
     if Jaringan == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Jaringanspecoppo()
     elif Jaringan == "KEMBALI":
+        os.system('cls')
         Editspechpoppo()
-    print("Jaringan : ",Jaringan)
-
+    
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Jaringan : ",Jaringan)
         print("Apakah sudah benar Jaringannya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Jaringanspecoppo()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -5597,8 +6463,10 @@ def Jaringanspecoppo():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit jaringan
             B. Kembali ke menu edit
@@ -5606,16 +6474,21 @@ def Jaringanspecoppo():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Jaringanspecoppo()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Oppo"][Datahp[0]].update({"Jaringan" : Jaringan})
@@ -5631,11 +6504,14 @@ def Jaringanspecoppo():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -5644,22 +6520,27 @@ def Bateraispecoppo():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Baterai = str.upper(input(":"))
     if Baterai == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Bateraispecoppo()
     elif Baterai == "KEMBALI":
+        os.system('cls')
         Editspechpoppo()
-    print("Kapasitas Baterai : ",Baterai)
-
+    
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Kapasitas Baterai : ",Baterai)
         print("Apakah sudah benar jumlah Kapasitas Baterainya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Bateraispecoppo()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -5669,8 +6550,10 @@ def Bateraispecoppo():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit baterai
             B. Kembali ke menu edit
@@ -5678,16 +6561,21 @@ def Bateraispecoppo():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Bateraispecoppo()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Oppo"][Datahp[0]].update({"Kapasitas Baterai" : Baterai})
@@ -5703,11 +6591,14 @@ def Bateraispecoppo():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpoppo()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 def Editspechpmerklain():
@@ -5721,65 +6612,84 @@ def Editspechpmerklain():
     if masukan == "A":
         for key, val in Spechp["Merk lain"][Datahp[0]].items():
             print("%s = %s" % (key,val))
-        print(""" 
-        Edit spec hp
-        A. Nama
-        B. Tahun Keluar
-        C. OS
-        D. Chipset
-        E. CPU
-        F. GPU
-        G. Display
-        H. Memori Internal
-        I. RAM
-        J. Kamera
-        K. Jaringan
-        L. Kapasitas Baterai
-        M. Kembali ke menu edit
-        """)
-        print("pilih huruf yang mau di edit ")
+
         i = 0
         while i == 0:
-            ubah = str.upper(input(":"))
 
-            if ubah == "A":
-                Namaspecmerklain()
-            elif ubah == "B":
-                Tahunspecmerklain()
-            elif ubah == "C":
-                Osspecmerklain()
-            elif ubah == "D":
-                Chipsetspecmerklain()
-            elif ubah == "E":
-                Cpuspecmerklain()
-            elif ubah == "F":
-                Gpuspecmerklain()
-            elif ubah == "G":
-                Displayspecmerklain()
-            elif ubah == "H":
-                Memorispecmerklain()
-            elif ubah == "I":
-                Ramspecmerklain()
-            elif ubah == "J":
-                Jaringanspecmerklain()
-            elif ubah == "K":
-                Kameraspecmerklain()
-            elif ubah == "L":
-                Bateraispecmerklain()
-            elif ubah == "M":
-                Editspechp()
-            else:
-                print("Mohon masukan input dengan benar")
+                print(""" 
+                Edit spec hp
+                A. Nama
+                B. Tahun Keluar
+                C. OS
+                D. Chipset
+                E. CPU
+                F. GPU
+                G. Display
+                H. Memori Internal
+                I. RAM
+                J. Kamera
+                K. Jaringan
+                L. Kapasitas Baterai
+                M. Kembali ke menu edit
+                """)
+                print("pilih huruf yang mau di edit ")
+                ubah = str.upper(input(":"))
+
+                if ubah == "A":
+                    os.system('cls')
+                    Namaspecmerklain()
+                elif ubah == "B":
+                    os.system('cls')
+                    Tahunspecmerklain()
+                elif ubah == "C":
+                    os.system('cls')
+                    Osspecmerklain()
+                elif ubah == "D":
+                    os.system('cls')
+                    Chipsetspecmerklain()
+                elif ubah == "E":
+                    os.system('cls')
+                    Cpuspecmerklain()
+                elif ubah == "F":
+                    os.system('cls')
+                    Gpuspecmerklain()
+                elif ubah == "G":
+                    os.system('cls')
+                    Displayspecmerklain()
+                elif ubah == "H":
+                    os.system('cls')
+                    Memorispecmerklain()
+                elif ubah == "I":
+                    os.system('cls')
+                    Ramspecmerklain()
+                elif ubah == "J":
+                    os.system('cls')
+                    Jaringanspecmerklain()
+                elif ubah == "K":
+                    os.system('cls')
+                    Kameraspecmerklain()
+                elif ubah == "L":
+                    os.system('cls')
+                    Bateraispecmerklain()
+                elif ubah == "M":
+                    os.system('cls')
+                    Editspechpmerklain()
+                else:
+                    os.system('cls')
+                    print("Mohon masukan input dengan benar")
 
     elif masukan == "B":
+        os.system('cls')
         Datahp.clear()
         Editspechp()
     
     elif masukan == "C":
+        os.system('cls')
         Datahp.clear()
         main_admin()
     
     else:
+        os.system('cls')
         print("Masukan salah")
         Editspechpmerklain()
             
@@ -5789,22 +6699,28 @@ def Namaspecmerklain():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     nama = str.upper(input(":"))
     if nama == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Namaspecmerklain()
     elif nama == "KEMBALI":
+        os.system('cls')
         Editspechpmerklain()
-    print("Nama : ",nama)
-
+    
+    os.system('cls')
     i = 0
     while i == 0:
-
+        
+        print("Nama : ",nama)
         print("Apakah sudah benar namanya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Namaspecmerklain()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -5814,8 +6730,10 @@ def Namaspecmerklain():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit nama
             B. Kembali ke menu edit
@@ -5823,16 +6741,21 @@ def Namaspecmerklain():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Namaspecmerklain()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Merk lain"][Datahp[0]].update({"Nama" : nama})
@@ -5849,11 +6772,14 @@ def Namaspecmerklain():
         masukan1 = str.upper(input(":"))
 
         if masukan1 == "A":
+            os.system('cls')
             Editspechpmerklain()
         elif masukan1 == "B":
+            os.system('cls')
             Datahp.clear()
             main_admin()
         else:
+            os.system('cls')
             print("Input salah")
 
 
@@ -5865,22 +6791,28 @@ def Tahunspecmerklain():
     try:
         Tahun = int(input(":"))
     except ValueError:
+        os.system('cls')
         print("Masukan angka bukan huruf")
         Tahunspecmerklain()
     if Tahun > 0:
+        os.system('cls')
         i = 0
         while i == 0:
             print("Tahun : ",Tahun)
             print("Apakah sudah benar tahunnya? (Y/N)")
             Konfirmasi = str.upper(input(":"))
             if Konfirmasi == "Y":
+                os.system('cls')
                 break
             elif Konfirmasi == "N":
+                os.system('cls')
                 Tahunspecmerklain()
             else:
+                os.system('cls')
                 print("Inputan salah")
     
     elif Tahun == 000:
+        os.system('cls')
         Editspechpmerklain()
 
         i = 0
@@ -5889,8 +6821,10 @@ def Tahunspecmerklain():
             print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
             finalisasi = str.upper(input(":"))
             if finalisasi == "Y":
+                os.system('cls')
                 break
             elif finalisasi == "N":
+                os.system('cls')
                 print("""
                 A. Kembali ke edit tahun
                 B. Kembali ke menu edit
@@ -5898,16 +6832,21 @@ def Tahunspecmerklain():
                 """)
                 masukan = str.upper(input(":"))
                 if masukan == "A":
+                    os.system('cls')
                     Tahunspecmerklain()
                 elif masukan == "B":
+                    os.system('cls')
                     Editspechpmerklain()
                 elif masukan == "C":
+                    os.system('cls')
                     Datahp.clear()
                     main_admin()
                 else:
+                    os.system('cls')
                     print("Masukan salah")
                 
             else:
+                os.system('cls')
                 print("Inputan salah")
 
         Spechp["Merk lain"][Datahp[0]].update({"Tahun Keluar" : Tahun})
@@ -5923,11 +6862,14 @@ def Tahunspecmerklain():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -5936,23 +6878,28 @@ def Osspecmerklain():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Os = str.upper(input(":"))
     if Os == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Osspecmerklain()
     elif Os == "KEMBALI":
+        os.system('cls')
         Editspechpmerklain()
-    print("Os : ",Os)
+    
 
-
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Os : ",Os)
         print("Apakah sudah benar nama Os nya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Osspecmerklain()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -5962,8 +6909,10 @@ def Osspecmerklain():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit OS
             B. Kembali ke menu edit
@@ -5971,16 +6920,21 @@ def Osspecmerklain():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Osspecmerklain()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Merk lain"][Datahp[0]].update({"OS" : Os})
@@ -5997,11 +6951,14 @@ def Osspecmerklain():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 def Chipsetspecmerklain():
@@ -6009,22 +6966,28 @@ def Chipsetspecmerklain():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     chipset = str.upper(input(":"))
     if chipset == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Chipsetspecmerklain()
     elif chipset == "KEMBALI":
+        os.system('cls')
         Editspechpmerklain()
-    print("Chipset : ",chipset)
-
+   
+    os.system('cls')
     i = 0
     while i == 0:
 
+        print("Chipset : ",chipset)
         print("Apakah sudah benar nama chipsetnya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Chipsetspecmerklain()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -6034,8 +6997,10 @@ def Chipsetspecmerklain():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit chipset
             B. Kembali ke menu edit
@@ -6043,16 +7008,21 @@ def Chipsetspecmerklain():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Chipsetspecmerklain()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Merk lain"][Datahp[0]].update({"Chipset" : chipset})
@@ -6068,11 +7038,14 @@ def Chipsetspecmerklain():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 def Cpuspecmerklain():
@@ -6080,22 +7053,27 @@ def Cpuspecmerklain():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Cpu = str.upper(input(":"))
     if Cpu == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Cpuspecmerklain()
     elif Cpu == "KEMBALI":
+        os.system('cls')
         Editspechpmerklain()
-    print("CPU : ",Cpu)
-
+    
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("CPU : ",Cpu)
         print("Apakah sudah benar nama CPUnya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Cpuspecmerklain()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -6105,8 +7083,10 @@ def Cpuspecmerklain():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit cpu
             B. Kembali ke menu edit
@@ -6114,16 +7094,21 @@ def Cpuspecmerklain():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Cpuspecmerklain()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Merk lain"][Datahp[0]].update({"CPU" : Cpu})
@@ -6139,11 +7124,14 @@ def Cpuspecmerklain():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 def Gpuspecmerklain():
@@ -6151,22 +7139,27 @@ def Gpuspecmerklain():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Gpu = str.upper(input(":"))
     if Gpu == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Gpuspecmerklain()
     elif Gpu == "KEMBALI":
+        os.system('cls')
         Editspechpmerklain()
-    print("GPU : ",Gpu)
-
+   
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("GPU : ",Gpu)
         print("Apakah sudah benar nama GPUnya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Gpuspecmerklain()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -6176,8 +7169,10 @@ def Gpuspecmerklain():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit gpu
             B. Kembali ke menu edit
@@ -6185,16 +7180,21 @@ def Gpuspecmerklain():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Gpuspecmerklain()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Merk lain"][Datahp[0]].update({"GPU" : Gpu})
@@ -6210,11 +7210,14 @@ def Gpuspecmerklain():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -6223,22 +7226,27 @@ def Displayspecmerklain():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Display = str.upper(input(":"))
     if Display == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Displayspecmerklain()
     elif Display == "KEMBALI":
+        os.system('cls')
         Editspechpmerklain()
-    print("Display : ",Display)
-
+   
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Display : ",Display)
         print("Apakah sudah benar nama Displaynya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Displayspecmerklain()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -6248,8 +7256,10 @@ def Displayspecmerklain():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit display
             B. Kembali ke menu edit
@@ -6257,16 +7267,21 @@ def Displayspecmerklain():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Displayspecmerklain()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Merk lain"][Datahp[0]].update({"Display" : Display})
@@ -6282,11 +7297,14 @@ def Displayspecmerklain():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -6296,22 +7314,27 @@ def Memorispecmerklain():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Memori = str.upper(input(":"))
     if Memori == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Memorispecmerklain()
     elif Memori == "KEMBALI":
+        os.system('cls')
         Editspechpmerklain()
-    print("Memori Internal : ",Memori)
-
+    
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Memori Internal : ",Memori)
         print("Apakah sudah benar kapasitas memorinya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Memorispecmerklain()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -6321,8 +7344,10 @@ def Memorispecmerklain():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit memori
             B. Kembali ke menu edit
@@ -6330,16 +7355,21 @@ def Memorispecmerklain():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Memorispecmerklain()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Merk lain"][Datahp[0]].update({"Memori Internal" : Memori})
@@ -6355,11 +7385,14 @@ def Memorispecmerklain():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -6368,22 +7401,27 @@ def Ramspecmerklain():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Ram = str.upper(input(":"))
     if Ram == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Ramspecmerklain()
     elif Ram == "KEMBALI":
+        os.system('cls')
         Editspechpmerklain()
-    print("Total RAM : ",Ram)
-
+    
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Total RAM : ",Ram)
         print("Apakah sudah benar kapasitas RAMnya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Ramspecmerklain()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -6393,8 +7431,10 @@ def Ramspecmerklain():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit ram
             B. Kembali ke menu edit
@@ -6402,16 +7442,22 @@ def Ramspecmerklain():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Ramspecmerklain()
+                os.system('cls')
             elif masukan == "B":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Merk lain"][Datahp[0]].update({"RAM" : Ram})
@@ -6427,11 +7473,14 @@ def Ramspecmerklain():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -6440,22 +7489,27 @@ def Kameraspecmerklain():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Kamera = str.upper(input(":"))
     if Kamera == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Kameraspecmerklain()
     elif Kamera == "KEMBALI":
+        os.system('cls')
         Editspechpmerklain()
-    print("Kamera : ",Kamera)
-
+   
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Kamera : ",Kamera)
         print("Apakah sudah benar MP kameranya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Kameraspecmerklain()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -6465,8 +7519,10 @@ def Kameraspecmerklain():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit kamera
             B. Kembali ke menu edit
@@ -6474,16 +7530,21 @@ def Kameraspecmerklain():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Kameraspecmerklain()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Merk lain"][Datahp[0]].update({"Kamera" : Kamera})
@@ -6499,11 +7560,14 @@ def Kameraspecmerklain():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 def Jaringanspecmerklain():
@@ -6511,22 +7575,27 @@ def Jaringanspecmerklain():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Jaringan = str.upper(input(":"))
     if Jaringan == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Jaringanspecmerklain()
     elif Jaringan == "KEMBALI":
+        os.system('cls')
         Editspechpmerklain()
-    print("Jaringan : ",Jaringan)
-
+    
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Jaringan : ",Jaringan)
         print("Apakah sudah benar Jaringannya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Jaringanspecmerklain()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -6536,8 +7605,10 @@ def Jaringanspecmerklain():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit jaringan
             B. Kembali ke menu edit
@@ -6545,16 +7616,21 @@ def Jaringanspecmerklain():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Jaringanspecmerklain()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Merk lain"][Datahp[0]].update({"Jaringan" : Jaringan})
@@ -6570,11 +7646,14 @@ def Jaringanspecmerklain():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 
@@ -6583,22 +7662,27 @@ def Bateraispecmerklain():
     print("Ketik kembali untuk kembali ke menu sebelumnya")
     Baterai = str.upper(input(":"))
     if Baterai == "":
+        os.system('cls')
         print("masukan nama yang benar")
         Bateraispecmerklain()
     elif Baterai == "KEMBALI":
+        os.system('cls')
         Editspechpmerklain()
-    print("Kapasitas Baterai : ",Baterai)
-
+    
+    os.system('cls')
     i = 0
     while i == 0:
-
+        print("Kapasitas Baterai : ",Baterai)
         print("Apakah sudah benar jumlah Kapasitas Baterainya? (Y/N)")
         Konfirmasi = str.upper(input(":"))
         if Konfirmasi == "Y":
+            os.system('cls')
             break
         elif Konfirmasi == "N":
+            os.system('cls')
             Bateraispecmerklain()
         else:
+            os.system('cls')
             print("Inputan salah")
 
 
@@ -6608,8 +7692,10 @@ def Bateraispecmerklain():
         print("Apakah anda yakin untuk mengedit item ini? (Y/N)")
         finalisasi = str.upper(input(":"))
         if finalisasi == "Y":
+            os.system('cls')
             break
         elif finalisasi == "N":
+            os.system('cls')
             print("""
             A. Kembali ke edit baterai
             B. Kembali ke menu edit
@@ -6617,16 +7703,21 @@ def Bateraispecmerklain():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 Bateraispecmerklain()
             elif masukan == "B":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan == "C":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Masukan salah")
             
         else:
+            os.system('cls')
             print("Inputan salah")
 
     Spechp["Merk lain"][Datahp[0]].update({"Kapasitas Baterai" : Baterai})
@@ -6642,15 +7733,18 @@ def Bateraispecmerklain():
             masukan1 = str.upper(input(":"))
 
             if masukan1 == "A":
+                os.system('cls')
                 Editspechpmerklain()
             elif masukan1 == "B":
+                os.system('cls')
                 Datahp.clear()
                 main_admin()
             else:
+                os.system('cls')
                 print("Input salah")
 
 def stokhp():
-    print("Stok hp")
+    print("Stok hp toko broku store 2rd")
     print("Nama hp : Jumlah stok")
     for key, val in Stokhp.items():
         for key2, val2 in val.items():
@@ -6664,6 +7758,7 @@ def stokhp():
     masukan = str.upper(input(":"))
 
     if masukan == "A":
+        os.system('cls')
         i = 0
         while i == 0:
             print("List merk hp")
@@ -6675,18 +7770,25 @@ def stokhp():
             pilihmerk = str.lower(input(":"))
 
             if pilihmerk == "samsung":
+                os.system('cls')
                 stokhpsamsung()
             elif pilihmerk == "oppo":
+                os.system('cls')
                 stokhpoppo()
             elif pilihmerk == "merk lain":
+                os.system('cls')
                 stokhpmerklain()
             elif pilihmerk == "kembali":
+                os.system('cls')
                 stokhp()
             else:
+                os.system('cls')
                 print("masukan salah")
     elif masukan == "B":
+        os.system('cls')
         main_admin()
     else:
+        os.system('cls')
         print("Masukan anda salah")
         stokhp()
 
@@ -6698,11 +7800,14 @@ def stokhpsamsung():
     print("Ketik kembali untuk kembali ke awal menu")
     masukan = str.upper(input(":"))
     if masukan in Stokhp["Samsung"].keys():
+        os.system('cls')
         Datahp.append(masukan)
         stokhpsamsung1()
     elif masukan == "KEMBALI":
+        os.system('cls')
         stokhp()
     else:
+        os.system('cls')
         print("masukan salah")
         stokhpsamsung()
 
@@ -6714,28 +7819,36 @@ def stokhpsamsung1():
     try:
         updatestok = int(input(":"))
     except ValueError:
+        os.system('cls')
         print("Masukan harus berbentuk angka")
     if updatestok > 0:
+        os.system('cls')
         i = 0
         while i == 0:
             print(updatestok)
             print("apakah jumlah stok sudah benar? (Y/N)")
             konfirmasi = str.upper(input(":"))
             if konfirmasi == "Y":
+                os.system('cls')
                 Stokhp["Samsung"].update({Datahp[0] : updatestok})
                 Datahp.clear()
                 print("stok hp berhasil di update")
                 input("Tekan enter untuk kembali ke menu stok")
+                os.system('cls')
                 stokhp()
             elif konfirmasi == "N":
+                os.system('cls')
                 stokhpsamsung1()
             else:
+                os.system('cls')
                 print("masukan salah")
     elif updatestok == 000:
+        os.system('cls')
         Datahp.clear()
         stokhpsamsung()
 
     else:
+        os.system('cls')
         print("masukan harus yang benar")
         stokhpsamsung1()
 
@@ -6747,11 +7860,14 @@ def stokhpoppo():
     print("Ketik kembali untuk kembali ke awal menu")
     masukan = str.upper(input(":"))
     if masukan in Stokhp["Oppo"].keys():
+        os.system('cls')
         Datahp.append(masukan)
         stokhpoppo1()
     elif masukan == "KEMBALI":
+        os.system('cls')
         stokhp()
     else:
+        os.system('cls')
         print("masukan salah")
         stokhpoppo()
 
@@ -6763,28 +7879,36 @@ def stokhpoppo1():
     try:
         updatestok = int(input(":"))
     except ValueError:
+        os.system('cls')
         print("Masukan harus berbentuk angka")
     if updatestok > 0:
+        os.system('cls')
         i = 0
         while i == 0:
             print(updatestok)
             print("apakah jumlah stok sudah benar? (Y/N)")
             konfirmasi = str.upper(input(":"))
             if konfirmasi == "Y":
+                os.system('cls')
                 Stokhp["Oppo"].update({Datahp[0] : updatestok})
                 Datahp.clear()
                 print("stok hp berhasil di update")
                 input("Tekan enter untuk kembali ke menu stok")
+                os.system('cls')
                 stokhp()
             elif konfirmasi == "N":
+                os.system('cls')
                 stokhpoppo1()
             else:
+                os.system('cls')
                 print("masukan salah")
     elif updatestok == 000:
+        os.system('cls')
         Datahp.clear()
         stokhpoppo()
 
     else:
+        os.system('cls')
         print("masukan harus yang benar")
         stokhpoppo1()
 
@@ -6795,11 +7919,14 @@ def stokhpmerklain():
     print("Ketik kembali untuk kembali ke awal menu")
     masukan = str.upper(input(":"))
     if masukan in Stokhp["Merk lain"].keys():
+        os.system('cls')
         Datahp.append(masukan)
         stokhpmerklain1()
     elif masukan == "KEMBALI":
+        os.system('cls')
         stokhp()
     else:
+        os.system('cls')
         print("masukan salah")
         stokhpmerklain()
 
@@ -6811,28 +7938,36 @@ def stokhpmerklain1():
     try:
         updatestok = int(input(":"))
     except ValueError:
+        os.system('cls')
         print("Masukan harus berbentuk angka")
     if updatestok > 0:
+        os.system('cls')
         i = 0
         while i == 0:
             print(updatestok)
             print("apakah jumlah stok sudah benar? (Y/N)")
             konfirmasi = str.upper(input(":"))
             if konfirmasi == "Y":
+                os.system('cls')
                 Stokhp["Merk lain"].update({Datahp[0] : updatestok})
                 Datahp.clear()
                 print("stok hp berhasil di update")
                 input("Tekan enter untuk kembali ke menu stok")
+                os.system('cls')
                 stokhp()
             elif konfirmasi == "N":
+                os.system('cls')
                 stokhpmerklain1()
             else:
+                os.system('cls')
                 print("masukan salah")
     elif updatestok == 000:
+        os.system('cls')
         Datahp.clear()
         stokhpmerklain()
 
     else:
+        os.system('cls')
         print("masukan harus yang benar")
         stokhpmerklain1()
 
@@ -6843,15 +7978,18 @@ def Hapus_Keuntungan():
     print ("===================================================================================================================")
     konfirmasi = str.lower(input("ya/tidak :"))
     if konfirmasi == "ya":
+        os.system('cls')
         Keuntungan["Total_keuntungan"].clear()
         print ("====================")
         print ("Data berhasil di hapus")
         print ("====================")
         kembali_menu()
     elif konfirmasi == "tidak":
+        os.system('cls')
         print ("Aksi dihentikan")
         kembali_menu()
     else:
+        os.system('cls')
         print("Inputan salah, silakan isi konfimasi kembali")
         Hapus_Keuntungan()
 
@@ -6861,17 +7999,21 @@ def kembalilogin():
     print("=======================================")
     konfirmasi = str.lower(input("ya/tidak :"))
     if konfirmasi == "ya":
-            user_login()
+        os.system('cls')
+        user_login()
     elif konfirmasi == "tidak":
-            print ("Aksi dihentikan")
-            kembali_menu()
+        os.system('cls')
+        print ("Aksi dihentikan")
+        kembali_menu()
     else:
-            print("Inputan salah, silakan konfirmasi kembali")
-            kembalilogin()
+        os.system('cls')
+        print("Inputan salah, silakan konfirmasi kembali")
+        kembalilogin()
 
 
 def kembali_menu():
     input("Tekan enter untuk kembali")
+    os.system('cls')
     main_admin()
 
 
@@ -6879,6 +8021,8 @@ def kasir():
 
     waktu = time.ctime()
     print(waktu)
+    print("toko broku store 2rd")
+    print("======================")
     print("Menu Kasir")
     print("""
     A. Jual Hp
@@ -6889,19 +8033,24 @@ def kasir():
     masukan = str.upper(input(":"))
 
     if masukan == "A":
+        os.system('cls')
         jualhp()
     elif masukan == "B":
+        os.system('cls')
         belihp()
     elif masukan == "C":
+        os.system('cls')
         user_login()
     else:
+        os.system('cls')
         print("Masukan pilihan dengan benar")
         kasir()
 
 
 def jualhp():
     print("Jual hp")
-    print("toko")
+    print("toko broku store 2rd")
+    print("=======================")
     for key, val in Daftarhp.items():
         for key2, val2 in val.items():
             print("%s : %s" % (key2,val2))
@@ -6914,31 +8063,41 @@ def jualhp():
     masukan = str.upper(input(":"))
 
     if masukan == "A":
+        os.system('cls')
         jualhpmerk()
     elif masukan == "B":
+        os.system('cls')
         jualhpharga()
     elif masukan == "C":
+        os.system('cls')
         kasir()
     elif masukan in Daftarhp["Samsung"]:
+        os.system('cls')
         Datahp.append(masukan)
         konfirmasibeli()
     elif masukan in Daftarhp["Oppo"]:
+        os.system('cls')
         Datahp.append(masukan)
         konfirmasibeli()
     elif masukan in Daftarhp["Merk lain"]:
+        os.system('cls')
         Datahp.append(masukan)
         konfirmasibeli()
     else:
+        os.system('cls')
         print("masukan salah")
         jualhp()
 
 
 def jualhpmerk():
+    print("toko broku store 2rd")
+    print("======================")
     for merk in Merkhp:
         print(merk)
     print("Pilih merk yang di inginkan")
     pilihmerk = str.lower(input(":"))        
     if pilihmerk == "samsung":
+        os.system('cls')
         i = 0
         while i == 0:
             for key,val in Daftarhp["Samsung"].items():
@@ -6954,18 +8113,24 @@ def jualhpmerk():
 
             masukansamsung = str.upper(input(":"))
             if masukansamsung == "A":
+                os.system('cls')
                 jualhp()
             elif masukansamsung == "B":
+                os.system('cls')
                 jualhpharga()
             elif masukansamsung == "C":
+                os.system('cls')
                 kasir()
             elif masukansamsung in Daftarhp["Samsung"].keys():
+                os.system('cls')
                 Datahp.append(masukansamsung)
                 konfirmasibeli()
             else:
+                os.system('cls')
                 print("masukan salah")
 
     elif pilihmerk == "oppo":
+        os.system('cls')
         i = 0
         while i == 0:
             for key,val in Daftarhp["Oppo"].items():
@@ -6981,17 +8146,23 @@ def jualhpmerk():
 
             masukanoppo = str.upper(input(":"))
             if masukanoppo == "A":
+                os.system('cls')
                 jualhp()
             elif masukanoppo == "B":
+                os.system('cls')
                 jualhpharga()
             elif masukanoppo == "C":
+                os.system('cls')
                 kasir()
             elif masukanoppo in Daftarhp["Oppo"].keys():
+                os.system('cls')
                 Datahp.append(masukanoppo)
                 konfirmasibeli()
             else:
+                os.system('cls')
                 print("masukan salah")
     elif pilihmerk == "merk lain":
+        os.system('cls')
         i = 0
         while i == 0:
             for key,val in Daftarhp["Merk lain"].items():
@@ -7007,18 +8178,24 @@ def jualhpmerk():
 
             masukaniphone = str.upper(input(":"))
             if masukaniphone == "A":
+                os.system('cls')
                 jualhp()
             elif masukaniphone == "B":
+                os.system('cls')
                 jualhpharga()
             elif masukaniphone == "C":
+                os.system('cls')
                 kasir()
             elif masukaniphone in Daftarhp["Merk lain"].keys():
+                os.system('cls')
                 Datahp.append(masukaniphone)
                 konfirmasibeli()
             else:
+                os.system('cls')
                 print("Masukan salah")
                 
     else:
+        os.system('cls')
         print("masukan anda salah, silakan isi kembali")
         jualhpmerk()
         
@@ -7043,13 +8220,15 @@ def konfirmasibeli():
         """)
         masukan = str.upper(input(":"))
         if masukan == "A":
+            os.system('cls')
             print("Apakah anda ingin menjual hp ini? (Y/N)")
             Konfirmasi = str.upper(input(":"))
             if Konfirmasi == "Y":
+                os.system('cls')
                 if Stokhp["Samsung"][Datahp[0]] > 0:
                     waktu = time.ctime()
                     print(waktu)
-                    print("Toko")
+                    print("toko broku store 2rd")
                     print("Nama Hp :", Datahp[0])
                     print("Harga Hp :", Daftarhp["Samsung"][Datahp[0]])
                     print("Jumlah Bayar Total : Rp.", Daftarhp["Samsung"][Datahp[0]])
@@ -7059,6 +8238,7 @@ def konfirmasibeli():
                     Keuntungan["Total_keuntungan"].append(Daftarhp["Samsung"][Datahp[0]])
                     input("Tekan enter untuk kembali ke kasir")
                     Datahp.clear()
+                    os.system('cls')
                     kasir()
                 else:
                     print("Mohon maaf hp ini tidak ada stoknya")
@@ -7066,6 +8246,7 @@ def konfirmasibeli():
                     jualhp()
             
             elif Konfirmasi == "N":
+                os.system('cls')
                 i = 0
                 while i == 0:
 
@@ -7076,22 +8257,28 @@ def konfirmasibeli():
                     kembali = str.upper(input(":"))
 
                     if kembali == "A":
+                        os.system('cls')
                         Datahp.clear()
                         jualhp()
                     elif kembali == "B":
+                        os.system('cls')
                         Datahp.clear()
                         kasir()
                     else:
+                        os.system('cls')
                         print("Masukan salah silakan coba kembali")
 
 
         elif masukan == "B":
+            os.system('cls')
             Datahp.clear()
             jualhpmerk()
         elif masukan == "C":
+            os.system('cls')
             Datahp.clear()
             jualhp()
         else:
+            os.system('cls')
             print("masukan salah")
             konfirmasibeli()
     
@@ -7111,13 +8298,15 @@ def konfirmasibeli():
         """)
         masukan = str.upper(input(":"))
         if masukan == "A":
+            os.system('cls')
             print("Apakah anda ingin menjual hp ini? (Y/N)")
             Konfirmasi = str.upper(input(":"))
             if Konfirmasi == "Y":
+                os.system('cls')
                 if Stokhp["Oppo"][Datahp[0]] > 0:
                     waktu = time.ctime()
                     print(waktu)
-                    print("Toko")
+                    print("toko broku store 2rd")
                     print("Nama Hp :", Datahp[0])
                     print("Harga Hp :", Daftarhp["Oppo"][Datahp[0]])
                     print("Jumlah Bayar Total : Rp.", Daftarhp["Oppo"][Datahp[0]])
@@ -7127,6 +8316,7 @@ def konfirmasibeli():
                     Keuntungan["Total_keuntungan"].append(Daftarhp["Oppo"][Datahp[0]])
                     Datahp.clear()
                     input("Tekan enter untuk kembali ke kasir")
+                    os.system('cls')
                     kasir()
                 else:
                     print("Mohon maaf hp ini tidak ada stoknya")
@@ -7134,6 +8324,7 @@ def konfirmasibeli():
                     jualhp()
             
             elif Konfirmasi == "N":
+                os.system('cls')
                 i = 0
                 while i == 0:
 
@@ -7144,21 +8335,27 @@ def konfirmasibeli():
                     kembali = str.upper(input(":"))
 
                     if kembali == "A":
+                        os.system('cls')
                         Datahp.clear()
                         jualhp()
                     elif kembali == "B":
+                        os.system('cls')
                         Datahp.clear()
                         kasir()
                     else:
+                        os.system('cls')
                         print("Masukan salah silakan coba kembali")
 
         elif masukan == "B":
+            os.system('cls')
             Datahp.clear()
             jualhpmerk()
         elif masukan == "C":
+            os.system('cls')
             Datahp.clear()
             jualhp()
         else:
+            os.system('cls')
             print("masukan salah")
             konfirmasibeli()
 
@@ -7178,13 +8375,15 @@ def konfirmasibeli():
         """)
         masukan = str.upper(input(":"))
         if masukan == "A":
+            os.system('cls')
             print("Apakah anda ingin menjual hp ini? (Y/N)")
             Konfirmasi = str.upper(input(":"))
             if Konfirmasi == "Y":
+                os.system('cls')
                 if Stokhp["Merk lain"][Datahp[0]] > 0:
                     waktu = time.ctime()
                     print(waktu)
-                    print("Toko")
+                    print("toko broku store 2rd")
                     print("Nama Hp :", Datahp[0])
                     print("Harga Hp :", Daftarhp["Merk lain"][Datahp[0]])
                     print("Jumlah Bayar Total : Rp.", Daftarhp["Merk lain"][Datahp[0]])
@@ -7194,6 +8393,7 @@ def konfirmasibeli():
                     Keuntungan["Total_keuntungan"].append(Daftarhp["Merk lain"][Datahp[0]])
                     Datahp.clear()
                     input("Tekan enter untuk kembali ke kasir")
+                    os.system('cls')
                     kasir()
                 else:
                     print("Mohon maaf hp ini tidak ada stoknya")
@@ -7201,6 +8401,7 @@ def konfirmasibeli():
                     jualhp()
             
             elif Konfirmasi == "N":
+                os.system('cls')
                 i = 0
                 while i == 0:
 
@@ -7211,29 +8412,38 @@ def konfirmasibeli():
                     kembali = str.upper(input(":"))
 
                     if kembali == "A":
+                        os.system('cls')
                         Datahp.clear()
                         jualhp()
                     elif kembali == "B":
+                        os.system('cls')
                         Datahp.clear()
                         kasir()
                     else:
+                        os.system('cls')
                         print("Masukan salah silakan coba kembali")
 
         elif masukan == "B":
+            os.system('cls')
             Datahp.clear()
             jualhpmerk()
         elif masukan == "C":
+            os.system('cls')
             Datahp.clear()
             jualhp()
         else:
+            os.system('cls')
             print("masukan salah")
             konfirmasibeli()
 
     else:
+        os.system('cls')
         print("data tidak ada")
                 
 
 def jualhpharga():
+    print("toko broku store 2rd")
+    print("======================")
     Samsung = sorted(Daftarhp["Samsung"].items(), key=lambda x: x[1])
     Oppo = sorted(Daftarhp["Oppo"].items(), key=lambda x: x[1])
     Merklain = sorted(Daftarhp["Merk lain"].items(), key=lambda x: x[1])
@@ -7254,21 +8464,28 @@ def jualhpharga():
 
     masukan = str.upper(input(":"))
     if masukan == "A":
+        os.system('cls')
         jualhp()
     elif masukan == "B":
+        os.system('cls')
         jualhpmerk()
     elif masukan == "C":
+        os.system('cls')
         kasir()
     elif masukan in Daftarhp["Samsung"].keys():
+        os.system('cls')
         Datahp.append(masukan)
         konfirmasibeli()
     elif masukan in Daftarhp["Oppo"].keys():
+        os.system('cls')
         Datahp.append(masukan)
         konfirmasibeli()
     elif masukan in Daftarhp["Merk lain"].keys():
+        os.system('cls')
         Datahp.append(masukan)
         konfirmasibeli()
     else:
+        os.system('cls')
         print("Masukan salah")
         jualhpharga()
 
@@ -7281,14 +8498,19 @@ def belihp():
     print("Ketik kembali untuk kembali ke awal menu")
     masukan = str.lower(input(":"))
     if masukan == "samsung":
+        os.system('cls')
         belihpsamsung()
     elif masukan == "oppo":
+        os.system('cls')
         belihpoppo()
     elif masukan == "merk lain":
+        os.system('cls')
         belihpmerklain()
     elif masukan == "kembali":
+        os.system('cls')
         kasir()
     else:
+        os.system('cls')
         print("masukan salah")
         belihp()
 
@@ -7299,10 +8521,13 @@ def belihpsamsung():
         print("Ketik kembali untuk kembali ke awal menu")
         nama = str.upper(input(":"))
         if nama == "":
+            os.system('cls')
             print("mohon masukan input dengan benar")
         elif nama == "KEMBALI":
+            os.system('cls')
             belihp()
         else:
+            os.system('cls')
             Datahp.append(nama)
             belihpsamsung1()
 
@@ -7314,14 +8539,18 @@ def belihpsamsung1():
         try:
             harga = int(input(":"))
         except ValueError:
+            os.system('cls')
             print("harap masukan angka bukan huruf")
         if harga > 0:
+            os.system('cls')
             Datahp.append(harga)
             belihpsamsung2()
         elif harga == 000:
+            os.system('cls')
             Datahp.clear()
             belihpsamsung()
         else:
+            os.system('cls')
             print("masukan anda negatif atau bukan angka")
         
 def belihpsamsung2():
@@ -7330,16 +8559,19 @@ def belihpsamsung2():
     print("Apakah nama dan harga sudah sesuai? (konfirmasi kepada penjual) (Y/N)")
     finalisasi = str.upper(input(":"))
     if finalisasi == "Y":
+        os.system('cls')
         waktu = time.ctime()
         print(waktu)
-        print("toko hp")
+        print("toko broku store 2rd")
         print("Nama Hp", Datahp[0])
         print("Harga hp", Datahp[1])
         print("terima kasih telah menjual di sini")
         input("Tekan enter untuk kembali ke menu kasir")
+        os.system('cls')
         kasir()
 
     elif finalisasi == "N":
+        os.system('cls')
         i = 0
         while i == 0:
             print("""
@@ -7349,25 +8581,34 @@ def belihpsamsung2():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 belihpsamsung3()
             elif masukan == "B":
+                os.system('cls')
                 belihpsamsung4()
             elif masukan == "C":
+                os.system('cls')
                 i = 0
                 while i == 0:
                     print("Apakah anda yakin untuk membatalkan (Y/N)")
                     batal = str.upper(input(":"))
                     if batal == "Y":
+                        os.system('cls')
                         Datahp.clear()
                         print("pembelian dibatalkan")
+                        os.system('cls')
                         kasir()
                     elif batal == "N":
+                        os.system('cls')
                         belihpsamsung2()
                     else:
+                        os.system('cls')
                         print("masukan salah")
             else:
+                os.system('cls')
                 print("Masukan salah")
     else:
+        os.system('cls')
         print("masukan salah")
         belihpsamsung2()
 
@@ -7378,8 +8619,10 @@ def belihpsamsung3():
         print("Namahp? (pastikan tambahkan nama dengan merknya)")
         nama = str.upper(input(":"))
         if nama == "":
+            os.system('cls')
             print("mohon masukan input dengan benar")
         else:
+            os.system('cls')
             Datahp[0] = nama
             belihpsamsung2()
 
@@ -7390,11 +8633,14 @@ def belihpsamsung4():
         try:
             harga = int(input(":"))
         except ValueError:
+            os.system('cls')
             print("harap masukan angka bukan huruf")
         if harga > 0:
+            os.system('cls')
             Datahp[1] = harga
             belihpsamsung2()
         else:
+            os.system('cls')
             print("masukan anda negatif atau bukan angka")
 
 
@@ -7405,10 +8651,13 @@ def belihpoppo():
         print("Ketik kembali untuk kembali ke awal menu")
         nama = str.upper(input(":"))
         if nama == "":
+            os.system('cls')
             print("mohon masukan input dengan benar")
         elif nama == "KEMBALI":
+            os.system('cls')
             belihp()
         else:
+            os.system('cls')
             Datahp.append(nama)
             belihpoppo1()
 
@@ -7420,14 +8669,18 @@ def belihpoppo1():
         try:
             harga = int(input(":"))
         except ValueError:
+            os.system('cls')
             print("harap masukan angka bukan huruf")
         if harga > 0:
+            os.system('cls')
             Datahp.append(harga)
             belihpoppo2()
         elif harga == 000:
+            os.system('cls')
             Datahp.clear()
             belihpoppo()
         else:
+            os.system('cls')
             print("masukan anda negatif atau bukan angka")
         
 def belihpoppo2():
@@ -7436,16 +8689,19 @@ def belihpoppo2():
     print("Apakah nama dan harga sudah sesuai? (konfirmasi kepada penjual) (Y/N)")
     finalisasi = str.upper(input(":"))
     if finalisasi == "Y":
+        os.system('cls')
         waktu = time.ctime()
         print(waktu)
-        print("toko hp")
+        print("toko broku store 2rd")
         print("Nama Hp : ", Datahp[0])
         print("Harga hp : ", Datahp[1])
         print("terima kasih telah menjual di sini")
         input("Tekan enter untuk kembali ke menu kasir")
+        os.system('cls')
         kasir()
 
     elif finalisasi == "N":
+        os.system('cls')
         i = 0
         while i == 0:
             print("""
@@ -7455,25 +8711,33 @@ def belihpoppo2():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 belihpoppo3()
             elif masukan == "B":
+                os.system('cls')
                 belihpoppo4()
             elif masukan == "C":
+                os.system('cls')
                 i = 0
                 while i == 0:
                     print("Apakah anda yakin untuk membatalkan (Y/N)")
                     batal = str.upper(input(":"))
                     if batal == "Y":
+                        os.system('cls')
                         Datahp.clear()
                         print("pembelian dibatalkan")
                         kasir()
                     elif batal == "N":
+                        os.system('cls')
                         belihpoppo2()
                     else:
+                        os.system('cls')
                         print("masukan salah")
             else:
+                os.system('cls')
                 print("Masukan salah")
     else:
+        os.system('cls')
         print("masukan salah")
         belihpoppo2
 
@@ -7485,8 +8749,10 @@ def belihpoppo3():
         print("Namahp? (pastikan tambahkan nama dengan merknya)")
         nama = str.upper(input(":"))
         if nama == "":
+            os.system('cls')
             print("mohon masukan input dengan benar")
         else:
+            os.system('cls')
             Datahp[0] = nama
             belihpoppo2()
 
@@ -7497,11 +8763,14 @@ def belihpoppo4():
         try:
             harga = int(input(":"))
         except ValueError:
+            os.system('cls')
             print("harap masukan angka bukan huruf")
         if harga > 0:
+            os.system('cls')
             Datahp[1] = harga
             belihpoppo2()
         else:
+            os.system('cls')
             print("masukan anda negatif atau bukan angka")
                 
 
@@ -7512,10 +8781,13 @@ def belihpmerklain():
         print("Ketik kembali untuk kembali ke awal menu")
         nama = str.upper(input(":"))
         if nama == "":
+            os.system('cls')
             print("mohon masukan input dengan benar")
         elif nama == "KEMBALI":
+            os.system('cls')
             belihp()
         else:
+            os.system('cls')
             Datahp.append(nama)
             belihpmerklain1()
 
@@ -7527,14 +8799,18 @@ def belihpmerklain1():
         try:
             harga = int(input(":"))
         except ValueError:
+            os.system('cls')
             print("harap masukan angka bukan huruf")
         if harga > 0:
+            os.system('cls')
             Datahp.append(harga)
             belihpmerklain2()
         elif harga == 000:
+            os.system('cls')
             Datahp.clear()
             belihpmerklain()
         else:
+            os.system('cls')
             print("masukan anda negatif atau bukan angka")
         
 def belihpmerklain2():
@@ -7543,13 +8819,15 @@ def belihpmerklain2():
     print("Apakah nama dan harga sudah sesuai? (konfirmasi kepada penjual) (Y/N)")
     finalisasi = str.upper(input(":"))
     if finalisasi == "Y":
+        os.system('cls')
         waktu = time.ctime()
         print(waktu)
-        print("toko hp")
+        print("toko broku store 2rd")
         print("Nama Hp", Datahp[0])
         print("Harga hp", Datahp[1])
         print("terima kasih telah menjual di sini")
         input("Tekan enter untuk kembali ke menu kasir")
+        os.system('cls')
         kasir()
 
     elif finalisasi == "N":
@@ -7562,25 +8840,33 @@ def belihpmerklain2():
             """)
             masukan = str.upper(input(":"))
             if masukan == "A":
+                os.system('cls')
                 belihpmerklain3()
             elif masukan == "B":
+                os.system('cls')
                 belihpmerklain4()
             elif masukan == "C":
+                os.system('cls')
                 i = 0
                 while i == 0:
                     print("Apakah anda yakin untuk membatalkan (Y/N)")
                     batal = str.upper(input(":"))
                     if batal == "Y":
+                        os.system('cls')
                         Datahp.clear()
                         print("pembelian dibatalkan")
                         kasir()
                     elif batal == "N":
+                        os.system('cls')
                         belihpmerklain2()
                     else:
+                        os.system('cls')
                         print("masukan salah")
             else:
+                os.system('cls')
                 print("Masukan salah")
     else:
+        os.system('cls')
         print("masukan salah")
         belihpmerklain2()
 
@@ -7591,8 +8877,10 @@ def belihpmerklain3():
         print("Namahp? (pastikan tambahkan nama dengan merknya)")
         nama = str.upper(input(":"))
         if nama == "":
+            os.system('cls')
             print("mohon masukan input dengan benar")
         else:
+            os.system('cls')
             Datahp[0] = nama
             belihpmerklain2()
 
@@ -7603,11 +8891,14 @@ def belihpmerklain4():
         try:
             harga = int(input(":"))
         except ValueError:
+            os.system('cls')
             print("harap masukan angka bukan huruf")
         if harga > 0:
+            os.system('cls')
             Datahp[1] = harga
             belihpmerklain2()
         else:
+            os.system('cls')
             print("masukan anda negatif atau bukan angka")
     
    
