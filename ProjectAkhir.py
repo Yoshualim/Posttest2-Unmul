@@ -2,35 +2,32 @@ import time
 import os
 
 Daftarhp = {
-
     "Samsung" : {
         "SAMSUNG J2" : 1000000,
         "SAMSUNG J1 PRIME" : 2000000,
     },
-
     "Merk lain" : {
         "ADVAN C10" : 100000,
         "IPHONE X" : 100000000,
     }
 }
 Stokhp = {
-
     "Samsung" : {
         "SAMSUNG J2" : 3,
         "SAMSUNG J1 PRIME" : 2,
     },
-
     "Merk lain" : {
         "ADVAN C10" : 3,
         "IPHONE X" : 0,
     }
 }
-
 Merkhp = ["Samsung", "Merk lain"]
 Datahp = []
-
+Penjualan = []
+Pembelian = []
 Userlogin = {
-        "username" : "Yoshua",
+        "username_user" : "Yoshua",
+        "username_admin" :"Admin",
         "Password_Normal" : 210,
         "Password_Admin" : 6093
             }
@@ -48,12 +45,12 @@ def user_login():
         print("Password berbentuk angka silakan isi ulang")
         user_login()
         
-    if user == Userlogin["username"] and Pass == Userlogin["Password_Admin"]:
+    if user == Userlogin["username_admin"] and Pass == Userlogin["Password_Admin"]:
         os.system('cls')
         print("Login Berhasil")
         main_admin()
 
-    elif user == Userlogin["username"] and Pass == Userlogin["Password_Normal"]:
+    elif user == Userlogin["username_user"] and Pass == Userlogin["Password_Normal"]:
         os.system('cls')
         print("Login Berhasil")
         kasir()
@@ -74,6 +71,13 @@ def main_admin():
     print("3. Edit Hp")
     print("4. Hapus Hp ")
     print("5. Stok hp")
+    print("6. Hapus jumlah keuntungan dan penjualan")
+    jumlahkeuntungan = sum(Penjualan)
+    print("Keuntungan hari ini : Rp.", jumlahkeuntungan)
+    jumlahpengeluaran = sum(Pembelian)
+    print("Pengeluaran hari ini : Rp.", jumlahpengeluaran)
+    total = jumlahkeuntungan - jumlahpengeluaran
+    print("Total keuntungan : Rp.", total)
     print("0. Keluar dari menu Admin")
     print ("======================================")
 
@@ -94,6 +98,9 @@ def main_admin():
     elif pilihan_menu == ("5"):
         os.system('cls')
         stokhp()
+    elif pilihan_menu == ("6"):
+        os.system('cls')
+        reset()
     elif pilihan_menu == ("0"):
         os.system('cls')
         kembalilogin()        
@@ -215,8 +222,6 @@ def Tambahhp_Samsung2():
         print("Inputan negatif silakan isi kembali")
         Tambahhp_Samsung2()
     
-
-
 def Tambahhp_Samsung3():
     i = 0
     while i == 0:
@@ -516,8 +521,8 @@ def Tambahhp_merklain3():
             os.system('cls')
             print("masukan salah")
         
-    Daftarhp["Oppo"].update({Datahp[0] : Datahp[1]})
-    Stokhp["Oppo"].update({Datahp[0] : Datahp[2]})
+    Daftarhp["Merk lain"].update({Datahp[0] : Datahp[1]})
+    Stokhp["Merk lain"].update({Datahp[0] : Datahp[2]})
     Datahp.clear()
     print("Hp berhasil ditambahkan")
     input("Tekan enter untuk kembali ke menu admin")
@@ -804,6 +809,8 @@ def Editnama_Samsung():
     
     
     Daftarhp["Samsung"][namahp] = Daftarhp["Samsung"].pop(Datahp[0])
+    Stokhp["Samsung"][namahp] = Stokhp["Samsung"].pop(Datahp[0])
+   
     i = 0
     while i == 0:
         print("Nama hp berhasil diubah")
@@ -1056,6 +1063,7 @@ def Editnama_merklain():
     
     
     Daftarhp["Merk lain"][namahp] = Daftarhp["Merk lain"].pop(Datahp[0])
+    Stokhp["Merk lain"][namahp] = Stokhp["Merk lain"].pop(Datahp[0])
     i = 0
     while i == 0:
         print("Nama hp berhasil diubah")
@@ -1484,6 +1492,29 @@ def kembalilogin():
         kembalilogin()
 
 
+
+def reset():
+    print ("===================================================================================================================")
+    print("Apakah anda yakin untuk menghapus jumlah keuntungan pembelian dan penjualan hari ini? pastikan anda sudah mencatat jumlah keuntungan hari ini")
+    print ("===================================================================================================================")
+    konfirmasi = str.lower(input("ya/tidak :"))
+    if konfirmasi == "ya":
+        os.system('cls')
+        Penjualan.clear()
+        Pembelian.clear()
+        print ("====================")
+        print ("Data berhasil di hapus")
+        print ("====================")
+        kembali_menu()
+    elif konfirmasi == "tidak":
+        os.system('cls')
+        print ("Aksi dihentikan")
+        kembali_menu()
+    else:
+        os.system('cls')
+        print("Inputan salah, silakan isi konfimasi kembali")
+        reset()
+
 def kembali_menu():
     input("Tekan enter untuk kembali")
     os.system('cls')
@@ -1526,7 +1557,7 @@ def jualhp():
     print("=======================")
     for key, val in Daftarhp.items():
         for key2, val2 in val.items():
-            print("%s : %s" % (key2,val2))
+            print("%s : " "Rp."" %s" % (key2,val2))
     print("""
     A. Pilih hp berdasarkan merk
     B. Pilih hp berdasarkan harga
@@ -1570,7 +1601,7 @@ def jualhpmerk():
         i = 0
         while i == 0:
             for key,val in Daftarhp["Samsung"].items():
-                print("%s : %s" % (key,val))
+                print("%s : ""Rp."" %s" % (key,val))
             
             print("""
                 A. Tampilkan seluruh merk hp
@@ -1603,7 +1634,7 @@ def jualhpmerk():
         i = 0
         while i == 0:
             for key,val in Daftarhp["Merk lain"].items():
-                print("%s : %s" % (key,val))
+                print("%s : ""Rp."" %s" % (key,val))
             
             print("""
                 A. Tampilkan seluruh merk hp
@@ -1636,14 +1667,11 @@ def jualhpmerk():
         print("masukan anda salah, silakan isi kembali")
         jualhpmerk()
         
-        
-
-
     
 def konfirmasibeli():
     if Datahp[0] in Daftarhp["Samsung"].keys():
         print("Nama Hp :", Datahp[0])
-        print("Harga Hp :", Daftarhp["Samsung"][Datahp[0]])
+        print("Harga Hp : Rp.", Daftarhp["Samsung"][Datahp[0]])
         print("Stok Hp :", Stokhp["Samsung"][Datahp[0]])
         print("""
         A. Jual Hp ini
@@ -1662,11 +1690,12 @@ def konfirmasibeli():
                     print(waktu)
                     print("toko broku store 2rd")
                     print("Nama Hp :", Datahp[0])
-                    print("Harga Hp :", Daftarhp["Samsung"][Datahp[0]])
+                    print("Harga Hp : Rp.", Daftarhp["Samsung"][Datahp[0]])
                     print("Jumlah Bayar Total : Rp.", Daftarhp["Samsung"][Datahp[0]])
                     print("Terima kasih telah membeli di toko kami")
                     ubah = Stokhp["Samsung"][Datahp[0]] - 1
                     Stokhp["Samsung"].update({Datahp[0] : ubah})
+                    Penjualan.append(Daftarhp["Samsung"][Datahp[0]])
                     input("Tekan enter untuk kembali ke kasir")
                     Datahp.clear()
                     os.system('cls')
@@ -1715,7 +1744,7 @@ def konfirmasibeli():
 
     elif Datahp[0] in Daftarhp["Merk lain"].keys():
         print("Nama Hp :", Datahp[0])
-        print("Harga Hp :", Daftarhp["Merk lain"][Datahp[0]])
+        print("Harga Hp : Rp. ", Daftarhp["Merk lain"][Datahp[0]])
         print("Stok Hp :", Stokhp["Merk lain"][Datahp[0]])
         print("""
         A. Jual Hp ini
@@ -1734,11 +1763,12 @@ def konfirmasibeli():
                     print(waktu)
                     print("toko broku store 2rd")
                     print("Nama Hp :", Datahp[0])
-                    print("Harga Hp :", Daftarhp["Merk lain"][Datahp[0]])
+                    print("Harga Hp : Rp. ", Daftarhp["Merk lain"][Datahp[0]])
                     print("Jumlah Bayar Total : Rp.", Daftarhp["Merk lain"][Datahp[0]])
                     print("Terima kasih telah membeli di toko kami")
-                    ubah = Stokhp["Iphone"][Datahp[0]] - 1
+                    ubah = Stokhp["Merk lain"][Datahp[0]] - 1
                     Stokhp["Merk lain"].update({Datahp[0] : ubah})
+                    Penjualan.append(Daftarhp["Merk lain"][Datahp[0]])
                     Datahp.clear()
                     input("Tekan enter untuk kembali ke kasir")
                     os.system('cls')
@@ -1829,8 +1859,6 @@ def jualhpharga():
         os.system('cls')
         print("Masukan salah")
         jualhpharga()
-
-    
     
 def belihp():
     for i in Merkhp:
@@ -1879,6 +1907,7 @@ def belihpsamsung1():
         except ValueError:
             os.system('cls')
             print("harap masukan angka bukan huruf")
+            belihpsamsung1()
         if harga > 0:
             os.system('cls')
             Datahp.append(harga)
@@ -1890,10 +1919,11 @@ def belihpsamsung1():
         else:
             os.system('cls')
             print("masukan anda negatif atau bukan angka")
+            belihpsamsung1()
         
 def belihpsamsung2():
     print("Nama Hp : ", Datahp[0])
-    print("Harga hp : ", Datahp[1])
+    print("Harga hp : Rp. ", Datahp[1])
     print("Apakah nama dan harga sudah sesuai? (konfirmasi kepada penjual) (Y/N)")
     finalisasi = str.upper(input(":"))
     if finalisasi == "Y":
@@ -1901,8 +1931,10 @@ def belihpsamsung2():
         waktu = time.ctime()
         print(waktu)
         print("toko broku store 2rd")
-        print("Nama Hp", Datahp[0])
-        print("Harga hp", Datahp[1])
+        print("Nama Hp :", Datahp[0])
+        print("Harga hp : Rp.", Datahp[1])
+        Pembelian.append(Datahp[1])
+        Datahp.clear()
         print("terima kasih telah menjual di sini")
         input("Tekan enter untuk kembali ke menu kasir")
         os.system('cls')
@@ -1973,13 +2005,15 @@ def belihpsamsung4():
         except ValueError:
             os.system('cls')
             print("harap masukan angka bukan huruf")
+            belihpsamsung4()
         if harga > 0:
             os.system('cls')
             Datahp[1] = harga
             belihpsamsung2()
         else:
             os.system('cls')
-            print("masukan anda negatif atau bukan angka")                
+            print("masukan anda negatif atau bukan angka")    
+            belihpsamsung4()            
 
 def belihpmerklain():
     i = 0 
@@ -2008,6 +2042,7 @@ def belihpmerklain1():
         except ValueError:
             os.system('cls')
             print("harap masukan angka bukan huruf")
+            belihpmerklain1()
         if harga > 0:
             os.system('cls')
             Datahp.append(harga)
@@ -2019,10 +2054,11 @@ def belihpmerklain1():
         else:
             os.system('cls')
             print("masukan anda negatif atau bukan angka")
+            belihpmerklain1()
         
 def belihpmerklain2():
     print("Nama Hp : ", Datahp[0])
-    print("Harga hp : ", Datahp[1])
+    print("Harga hp : Rp. ", Datahp[1])
     print("Apakah nama dan harga sudah sesuai? (konfirmasi kepada penjual) (Y/N)")
     finalisasi = str.upper(input(":"))
     if finalisasi == "Y":
@@ -2030,8 +2066,10 @@ def belihpmerklain2():
         waktu = time.ctime()
         print(waktu)
         print("toko broku store 2rd")
-        print("Nama Hp", Datahp[0])
-        print("Harga hp", Datahp[1])
+        print("Nama Hp : ", Datahp[0])
+        print("Harga hp : Rp.", Datahp[1])
+        Pembelian.append(Datahp[1])
+        Datahp.clear()
         print("terima kasih telah menjual di sini")
         input("Tekan enter untuk kembali ke menu kasir")
         os.system('cls')
@@ -2100,6 +2138,7 @@ def belihpmerklain4():
         except ValueError:
             os.system('cls')
             print("harap masukan angka bukan huruf")
+            belihpmerklain4()
         if harga > 0:
             os.system('cls')
             Datahp[1] = harga
@@ -2107,8 +2146,6 @@ def belihpmerklain4():
         else:
             os.system('cls')
             print("masukan anda negatif atau bukan angka")
+            belihpmerklain4()
     
-   
-
-
 user_login()
